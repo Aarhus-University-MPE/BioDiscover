@@ -237,21 +237,22 @@
 				<Property Name="Bld_buildSpecName" Type="Str">SRS</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">../builds/SRS/SRS</Property>
-				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
+				<Property Name="Bld_localDestDir" Type="Path">/C/Users/au540322/Documents/Projects/NI_AB_PROJECTNAME/Builds/Full Build</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{09FD23A0-93D2-46A2-B12D-FA02255F97C6}</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">4</Property>
 				<Property Name="Destination[0].destName" Type="Str">SRS.exe</Property>
-				<Property Name="Destination[0].path" Type="Path">../builds/SRS/SRS/SRS.exe</Property>
+				<Property Name="Destination[0].path" Type="Path">/C/Users/au540322/Documents/Projects/NI_AB_PROJECTNAME/Builds/Full Build/SRS.exe</Property>
+				<Property Name="Destination[0].path.type" Type="Str">&lt;none&gt;</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">../builds/SRS/SRS/data</Property>
+				<Property Name="Destination[1].path" Type="Path">/C/Users/au540322/Documents/Projects/NI_AB_PROJECTNAME/Builds/Full Build/data</Property>
+				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/resources/Icon.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{44C31640-EDA9-41BE-856C-44A806132AF6}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{37160CC5-101C-4279-A8A5-6EE6F6110C65}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Main.vi</Property>
@@ -363,13 +364,12 @@
 				<Property Name="DistPartCount" Type="Int">7</Property>
 				<Property Name="INST_author" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="INST_autoIncrement" Type="Bool">true</Property>
-				<Property Name="INST_buildLocation" Type="Path">../builds/SRS/SRS Installer</Property>
-				<Property Name="INST_buildLocation.type" Type="Str">relativeToCommon</Property>
+				<Property Name="INST_buildLocation" Type="Path">/C/Users/au540322/Documents/Projects/BioDiscover/Builds/Installer</Property>
 				<Property Name="INST_buildSpecName" Type="Str">SRS Installer</Property>
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.7</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.8</Property>
 				<Property Name="InstSpecBitness" Type="Str">32-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">19018002</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
