@@ -250,7 +250,8 @@
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
 				<Property Name="Destination[1].path" Type="Path">../builds/SRS/SRS/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{E81681E8-2808-4AE2-92C1-CED2136692F9}</Property>
+				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/resources/Icon.ico</Property>
+				<Property Name="Source[0].itemID" Type="Str">{44C31640-EDA9-41BE-856C-44A806132AF6}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Main.vi</Property>
@@ -295,32 +296,32 @@
 				<Property Name="Destination[0].unlock" Type="Bool">true</Property>
 				<Property Name="DestinationCount" Type="Int">1</Property>
 				<Property Name="DistPart[0].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[0].productID" Type="Str">{837CC836-85AE-432A-B66D-32655139D139}</Property>
-				<Property Name="DistPart[0].productName" Type="Str">NI Vision Common Resources 2019</Property>
+				<Property Name="DistPart[0].productID" Type="Str">{1D64A5FC-338A-4C3D-A3BD-8FC65A2B5D36}</Property>
+				<Property Name="DistPart[0].productName" Type="Str">NI Vision Common Resources 2019 SP1</Property>
 				<Property Name="DistPart[0].upgradeCode" Type="Str">{409BEFA9-EB3E-472F-AD77-271A4A1D5927}</Property>
 				<Property Name="DistPart[1].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[1].productID" Type="Str">{BFF07050-00F5-4C45-94E7-2B61AD921B32}</Property>
-				<Property Name="DistPart[1].productName" Type="Str">NI Vision Runtime 2019</Property>
+				<Property Name="DistPart[1].productID" Type="Str">{8CE8EC53-1D09-473C-B102-DA624A1F49AA}</Property>
+				<Property Name="DistPart[1].productName" Type="Str">NI Vision Runtime 2019 SP1</Property>
 				<Property Name="DistPart[1].upgradeCode" Type="Str">{63DF74E5-A5C9-11D4-814E-005004D6CDD6}</Property>
 				<Property Name="DistPart[2].flavorID" Type="Str">_full_</Property>
-				<Property Name="DistPart[2].productID" Type="Str">{160B311C-5360-4299-BD7C-1C61EB18036E}</Property>
-				<Property Name="DistPart[2].productName" Type="Str">NI-488.2 Runtime 19.0</Property>
+				<Property Name="DistPart[2].productID" Type="Str">{727FC9D0-D89C-4872-9428-F98F0862F735}</Property>
+				<Property Name="DistPart[2].productName" Type="Str">NI-488.2 Runtime 19.5</Property>
 				<Property Name="DistPart[2].upgradeCode" Type="Str">{357F6618-C660-41A2-A185-5578CC876D1D}</Property>
 				<Property Name="DistPart[3].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[3].productID" Type="Str">{4C850979-844E-4603-9BB6-8589000F84BA}</Property>
-				<Property Name="DistPart[3].productName" Type="Str">NI-IMAQdx Runtime 19.0</Property>
+				<Property Name="DistPart[3].productID" Type="Str">{1024365A-7C15-4BFE-8393-5326784F6E6E}</Property>
+				<Property Name="DistPart[3].productName" Type="Str">NI-IMAQdx Runtime 19.5</Property>
 				<Property Name="DistPart[3].upgradeCode" Type="Str">{3D104AB3-CE10-43C0-B647-07600754072C}</Property>
 				<Property Name="DistPart[4].flavorID" Type="Str">_full_</Property>
-				<Property Name="DistPart[4].productID" Type="Str">{902E9855-1E7F-464C-AEA1-6906519A14FF}</Property>
-				<Property Name="DistPart[4].productName" Type="Str">NI-Serial Runtime 19.0</Property>
+				<Property Name="DistPart[4].productID" Type="Str">{C1F48628-DF94-40A8-BA2B-77BEE154C572}</Property>
+				<Property Name="DistPart[4].productName" Type="Str">NI-Serial Runtime 19.5</Property>
 				<Property Name="DistPart[4].upgradeCode" Type="Str">{01D82F43-B48D-46FF-8601-FC4FAAE20F41}</Property>
 				<Property Name="DistPart[5].flavorID" Type="Str">_deployment_</Property>
-				<Property Name="DistPart[5].productID" Type="Str">{EACEADFB-F69A-4FA2-8AF8-7A4A57C48A2D}</Property>
-				<Property Name="DistPart[5].productName" Type="Str">NI-VISA Runtime 19.0</Property>
+				<Property Name="DistPart[5].productID" Type="Str">{D9084972-85DA-4F19-B6B3-527E3948D5A1}</Property>
+				<Property Name="DistPart[5].productName" Type="Str">NI-VISA Runtime 19.5</Property>
 				<Property Name="DistPart[5].upgradeCode" Type="Str">{8627993A-3F66-483C-A562-0D3BA3F267B1}</Property>
 				<Property Name="DistPart[6].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[6].productID" Type="Str">{EE27B7AE-EC56-49EC-9153-7D4CE64EDCA2}</Property>
-				<Property Name="DistPart[6].productName" Type="Str">NI LabVIEW Runtime 2019 f2</Property>
+				<Property Name="DistPart[6].productID" Type="Str">{135150E5-11C6-492C-A1B2-01C45B76E488}</Property>
+				<Property Name="DistPart[6].productName" Type="Str">NI LabVIEW Runtime 2019 SP1 f1</Property>
 				<Property Name="DistPart[6].SoftDep[0].exclude" Type="Bool">false</Property>
 				<Property Name="DistPart[6].SoftDep[0].productName" Type="Str">NI ActiveX Container</Property>
 				<Property Name="DistPart[6].SoftDep[0].upgradeCode" Type="Str">{1038A887-23E1-4289-B0BD-0C4B83C6BA21}</Property>
@@ -340,7 +341,7 @@
 				<Property Name="DistPart[6].SoftDep[3].productName" Type="Str">NI LabVIEW Real-Time NBFifo 2019</Property>
 				<Property Name="DistPart[6].SoftDep[3].upgradeCode" Type="Str">{8386B074-C90C-43A8-99F2-203BAAB4111C}</Property>
 				<Property Name="DistPart[6].SoftDep[4].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[4].productName" Type="Str">NI LabVIEW Runtime 2019 Non-English Support.</Property>
+				<Property Name="DistPart[6].SoftDep[4].productName" Type="Str">NI LabVIEW Runtime 2019 SP1 Non-English Support.</Property>
 				<Property Name="DistPart[6].SoftDep[4].upgradeCode" Type="Str">{446D49A5-F830-4ADF-8C78-F03284D6882D}</Property>
 				<Property Name="DistPart[6].SoftDep[5].exclude" Type="Bool">false</Property>
 				<Property Name="DistPart[6].SoftDep[5].productName" Type="Str">NI Logos 19.0</Property>
@@ -368,9 +369,9 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.6</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.7</Property>
 				<Property Name="InstSpecBitness" Type="Str">32-bit</Property>
-				<Property Name="InstSpecVersion" Type="Str">19008009</Property>
+				<Property Name="InstSpecVersion" Type="Str">19018002</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="MSI_arpContact" Type="Str">mrj@ase.au.dk</Property>
 				<Property Name="MSI_arpPhone" Type="Str">+45 20 89 43 32</Property>
