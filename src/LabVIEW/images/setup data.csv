@@ -1,5 +1,0 @@
-Sample Name/Number;Exposure Time (µs);Framerate (FPS);Light Intensity (%);Aperture;Species Name;Collection Date (DD/MM/YYYY);Sample Station;Max Feret Diameter (max);Max Feret Diameter (mean);Max Feret Diameter (std. dev.);Perimeter (mean);Perimeter (std. dev.);Area (mean);Area(std. dev.);Holes (mean);Holes (std. dev.);Area+Holes (mean);Area+Holes (std. dev.);Other Notes;Image Path;Operator Name;Date (DD/MM/YYYY HH:MM)
-#0000_1;2000;50;100;8;Test Sample;24/06/2016;Station;437;410;19;1716;229;38280;9493;2493;846;40773;9899;;\images\Expo_2000_Ap_8\Test Sample\#0000\#0000_1;MRJ;28/10/2019 11:22:23
-#0000_2;2000;50;100;8;Test Sample;24/06/2016;Station;453;446;3;2197;317;37537;8595;708;359;38245;8916;;\images\Expo_2000_Ap_8\Test Sample\#0000\#0000_2;MRJ;28/10/2019 11:24:19
-#0000_1;1000;100;100;3,8;Test Sample;24/06/2016;Station;355;353;2;2183;321;28949;3229;430;85;29379;3259;;\images\Expo_1000_Ap_3.8\Test Sample\#0000\#0000_1;MRJ;17/02/2020 11:54:35
-#0000_1;1000;70;100;3,8;Test Sample;24/06/2016;Station;1254;865;167;3169;707;120356;48005;2113;696;122469;48634;;\images\Expo_1000_Ap_3.8\Test Sample\#0000\#0000_1;MRJ;13/05/2020 14:21:13
