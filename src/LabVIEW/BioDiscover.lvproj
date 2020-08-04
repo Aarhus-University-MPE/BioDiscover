@@ -108,6 +108,7 @@
 			<Item Name="Enqueue_Acquisition.vi" Type="VI" URL="../Enqueue_Acquisition.vi"/>
 			<Item Name="CSV_Setup_Data.vi" Type="VI" URL="../CSV_Setup_Data.vi"/>
 			<Item Name="Pump_Status.vi" Type="VI" URL="../Pump_Status.vi"/>
+			<Item Name="CameraSerialIDScan.vi" Type="VI" URL="../CameraSerialIDScan.vi"/>
 		</Item>
 		<Item Name="resources" Type="Folder">
 			<Item Name="Icon.ico" Type="Document" URL="../resources/Icon.ico"/>
