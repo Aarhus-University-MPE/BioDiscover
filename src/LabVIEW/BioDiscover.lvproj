@@ -109,6 +109,7 @@
 			<Item Name="CSV_Setup_Data.vi" Type="VI" URL="../CSV_Setup_Data.vi"/>
 			<Item Name="Pump_Status.vi" Type="VI" URL="../Pump_Status.vi"/>
 			<Item Name="CameraSerialIDScan.vi" Type="VI" URL="../CameraSerialIDScan.vi"/>
+			<Item Name="Bayer12bit.vi" Type="VI" URL="../Bayer12bit.vi"/>
 		</Item>
 		<Item Name="resources" Type="Folder">
 			<Item Name="Icon.ico" Type="Document" URL="../resources/Icon.ico"/>
@@ -211,6 +212,8 @@
 				<Item Name="IMAQ ConstructROI" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Display.llb/IMAQ ConstructROI"/>
 				<Item Name="IMAQ Select Rectangle" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Construct.llb/IMAQ Select Rectangle"/>
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
+				<Item Name="IMAQ Bayer To RGB" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Bayer To RGB"/>
+				<Item Name="IMAQ Image Bit Depth" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Image Bit Depth"/>
 			</Item>
 			<Item Name="niimaqdx.dll" Type="Document" URL="niimaqdx.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
