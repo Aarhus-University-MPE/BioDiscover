@@ -247,6 +247,7 @@
 				<Item Name="IMAQ Grab Acquire.vi" Type="VI" URL="/&lt;vilib&gt;/vision/driver/imaqhl.llb/IMAQ Grab Acquire.vi"/>
 				<Item Name="IMAQUnregisterSession.vi" Type="VI" URL="/&lt;vilib&gt;/vision/driver/DLLCalls.llb/IMAQUnregisterSession.vi"/>
 				<Item Name="IMAQ Close.vi" Type="VI" URL="/&lt;vilib&gt;/vision/driver/imaqhl.llb/IMAQ Close.vi"/>
+				<Item Name="IMAQ Copy" Type="VI" URL="/&lt;vilib&gt;/vision/Management.llb/IMAQ Copy"/>
 			</Item>
 			<Item Name="niimaqdx.dll" Type="Document" URL="niimaqdx.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -339,28 +340,28 @@
 				<Property Name="Destination[0].unlock" Type="Bool">true</Property>
 				<Property Name="DestinationCount" Type="Int">1</Property>
 				<Property Name="DistPart[0].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[0].productID" Type="Str">{1D64A5FC-338A-4C3D-A3BD-8FC65A2B5D36}</Property>
-				<Property Name="DistPart[0].productName" Type="Str">NI Vision Common Resources 2019 SP1</Property>
+				<Property Name="DistPart[0].productID" Type="Str">{57C41B25-A232-4945-B942-D7EC8ECBE6EF}</Property>
+				<Property Name="DistPart[0].productName" Type="Str">NI Vision Common Resources 2020</Property>
 				<Property Name="DistPart[0].upgradeCode" Type="Str">{409BEFA9-EB3E-472F-AD77-271A4A1D5927}</Property>
 				<Property Name="DistPart[1].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[1].productID" Type="Str">{8CE8EC53-1D09-473C-B102-DA624A1F49AA}</Property>
-				<Property Name="DistPart[1].productName" Type="Str">NI Vision Runtime 2019 SP1</Property>
+				<Property Name="DistPart[1].productID" Type="Str">{633A1550-642D-4DAB-A449-234FEFC53097}</Property>
+				<Property Name="DistPart[1].productName" Type="Str">NI Vision Runtime 2020</Property>
 				<Property Name="DistPart[1].upgradeCode" Type="Str">{63DF74E5-A5C9-11D4-814E-005004D6CDD6}</Property>
 				<Property Name="DistPart[2].flavorID" Type="Str">_full_</Property>
-				<Property Name="DistPart[2].productID" Type="Str">{727FC9D0-D89C-4872-9428-F98F0862F735}</Property>
-				<Property Name="DistPart[2].productName" Type="Str">NI-488.2 Runtime 19.5</Property>
+				<Property Name="DistPart[2].productID" Type="Str">{CB6C2533-4926-42B8-AC21-04BB9679F818}</Property>
+				<Property Name="DistPart[2].productName" Type="Str">NI-488.2 Runtime 20.0</Property>
 				<Property Name="DistPart[2].upgradeCode" Type="Str">{357F6618-C660-41A2-A185-5578CC876D1D}</Property>
 				<Property Name="DistPart[3].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[3].productID" Type="Str">{1024365A-7C15-4BFE-8393-5326784F6E6E}</Property>
-				<Property Name="DistPart[3].productName" Type="Str">NI-IMAQdx Runtime 19.5</Property>
+				<Property Name="DistPart[3].productID" Type="Str">{2A34BA62-42F5-4FA3-BE08-862AC6C2F628}</Property>
+				<Property Name="DistPart[3].productName" Type="Str">NI-IMAQdx Runtime 20.0</Property>
 				<Property Name="DistPart[3].upgradeCode" Type="Str">{3D104AB3-CE10-43C0-B647-07600754072C}</Property>
 				<Property Name="DistPart[4].flavorID" Type="Str">_full_</Property>
-				<Property Name="DistPart[4].productID" Type="Str">{C1F48628-DF94-40A8-BA2B-77BEE154C572}</Property>
-				<Property Name="DistPart[4].productName" Type="Str">NI-Serial Runtime 19.5</Property>
+				<Property Name="DistPart[4].productID" Type="Str">{F12C6F92-5B1C-4EAB-9364-96026CE1920D}</Property>
+				<Property Name="DistPart[4].productName" Type="Str">NI-Serial Runtime 20.0</Property>
 				<Property Name="DistPart[4].upgradeCode" Type="Str">{01D82F43-B48D-46FF-8601-FC4FAAE20F41}</Property>
 				<Property Name="DistPart[5].flavorID" Type="Str">_deployment_</Property>
-				<Property Name="DistPart[5].productID" Type="Str">{D9084972-85DA-4F19-B6B3-527E3948D5A1}</Property>
-				<Property Name="DistPart[5].productName" Type="Str">NI-VISA Runtime 19.5</Property>
+				<Property Name="DistPart[5].productID" Type="Str">{944CC86F-BDFB-4850-878C-370B9A7FF12C}</Property>
+				<Property Name="DistPart[5].productName" Type="Str">NI-VISA Runtime 20.0</Property>
 				<Property Name="DistPart[5].upgradeCode" Type="Str">{8627993A-3F66-483C-A562-0D3BA3F267B1}</Property>
 				<Property Name="DistPart[6].flavorID" Type="Str">DefaultFull</Property>
 				<Property Name="DistPart[6].productID" Type="Str">{CED05116-2329-4D0D-92CA-CEC520182EB0}</Property>
@@ -371,28 +372,37 @@
 				<Property Name="DistPart[6].SoftDep[1].exclude" Type="Bool">false</Property>
 				<Property Name="DistPart[6].SoftDep[1].productName" Type="Str">NI Deployment Framework 2020</Property>
 				<Property Name="DistPart[6].SoftDep[1].upgradeCode" Type="Str">{838942E4-B73C-492E-81A3-AA1E291FD0DC}</Property>
+				<Property Name="DistPart[6].SoftDep[10].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[6].SoftDep[10].productName" Type="Str">NI VC2015 Runtime</Property>
+				<Property Name="DistPart[6].SoftDep[10].upgradeCode" Type="Str">{D42E7BAE-6589-4570-B6A3-3E28889392E7}</Property>
+				<Property Name="DistPart[6].SoftDep[11].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[6].SoftDep[11].productName" Type="Str">NI TDM Streaming 19.0</Property>
+				<Property Name="DistPart[6].SoftDep[11].upgradeCode" Type="Str">{4CD11BE6-6BB7-4082-8A27-C13771BC309B}</Property>
 				<Property Name="DistPart[6].SoftDep[2].exclude" Type="Bool">false</Property>
 				<Property Name="DistPart[6].SoftDep[2].productName" Type="Str">NI Error Reporting 2020</Property>
 				<Property Name="DistPart[6].SoftDep[2].upgradeCode" Type="Str">{42E818C6-2B08-4DE7-BD91-B0FD704C119A}</Property>
 				<Property Name="DistPart[6].SoftDep[3].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[3].productName" Type="Str">NI Logos 20.0</Property>
-				<Property Name="DistPart[6].SoftDep[3].upgradeCode" Type="Str">{5E4A4CE3-4D06-11D4-8B22-006008C16337}</Property>
+				<Property Name="DistPart[6].SoftDep[3].productName" Type="Str">NI LabVIEW Real-Time NBFifo 2020</Property>
+				<Property Name="DistPart[6].SoftDep[3].upgradeCode" Type="Str">{00D0B680-F876-4E42-A25F-52B65418C2A6}</Property>
 				<Property Name="DistPart[6].SoftDep[4].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[4].productName" Type="Str">NI LabVIEW Web Server 2020</Property>
-				<Property Name="DistPart[6].SoftDep[4].upgradeCode" Type="Str">{0960380B-EA86-4E0C-8B57-14CD8CCF2C15}</Property>
+				<Property Name="DistPart[6].SoftDep[4].productName" Type="Str">NI LabVIEW Runtime 2020 Non-English Support.</Property>
+				<Property Name="DistPart[6].SoftDep[4].upgradeCode" Type="Str">{61FCC73D-8092-457D-8905-27C0060D88E1}</Property>
 				<Property Name="DistPart[6].SoftDep[5].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[5].productName" Type="Str">NI mDNS Responder 19.0</Property>
-				<Property Name="DistPart[6].SoftDep[5].upgradeCode" Type="Str">{9607874B-4BB3-42CB-B450-A2F5EF60BA3B}</Property>
+				<Property Name="DistPart[6].SoftDep[5].productName" Type="Str">NI Logos 20.0</Property>
+				<Property Name="DistPart[6].SoftDep[5].upgradeCode" Type="Str">{5E4A4CE3-4D06-11D4-8B22-006008C16337}</Property>
 				<Property Name="DistPart[6].SoftDep[6].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[6].productName" Type="Str">Math Kernel Libraries 2017</Property>
-				<Property Name="DistPart[6].SoftDep[6].upgradeCode" Type="Str">{699C1AC5-2CF2-4745-9674-B19536EBA8A3}</Property>
+				<Property Name="DistPart[6].SoftDep[6].productName" Type="Str">NI LabVIEW Web Server 2020</Property>
+				<Property Name="DistPart[6].SoftDep[6].upgradeCode" Type="Str">{0960380B-EA86-4E0C-8B57-14CD8CCF2C15}</Property>
 				<Property Name="DistPart[6].SoftDep[7].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[7].productName" Type="Str">NI VC2015 Runtime</Property>
-				<Property Name="DistPart[6].SoftDep[7].upgradeCode" Type="Str">{D42E7BAE-6589-4570-B6A3-3E28889392E7}</Property>
+				<Property Name="DistPart[6].SoftDep[7].productName" Type="Str">NI mDNS Responder 19.0</Property>
+				<Property Name="DistPart[6].SoftDep[7].upgradeCode" Type="Str">{9607874B-4BB3-42CB-B450-A2F5EF60BA3B}</Property>
 				<Property Name="DistPart[6].SoftDep[8].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[8].productName" Type="Str">NI TDM Streaming 19.0</Property>
-				<Property Name="DistPart[6].SoftDep[8].upgradeCode" Type="Str">{4CD11BE6-6BB7-4082-8A27-C13771BC309B}</Property>
-				<Property Name="DistPart[6].SoftDepCount" Type="Int">9</Property>
+				<Property Name="DistPart[6].SoftDep[8].productName" Type="Str">Math Kernel Libraries 2017</Property>
+				<Property Name="DistPart[6].SoftDep[8].upgradeCode" Type="Str">{699C1AC5-2CF2-4745-9674-B19536EBA8A3}</Property>
+				<Property Name="DistPart[6].SoftDep[9].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[6].SoftDep[9].productName" Type="Str">Math Kernel Libraries 2020</Property>
+				<Property Name="DistPart[6].SoftDep[9].upgradeCode" Type="Str">{9872BBBA-FB96-42A4-80A2-9605AC5CBCF1}</Property>
+				<Property Name="DistPart[6].SoftDepCount" Type="Int">12</Property>
 				<Property Name="DistPart[6].upgradeCode" Type="Str">{D84FC73F-D1E0-4C05-A30C-DB882CD1ABD8}</Property>
 				<Property Name="DistPartCount" Type="Int">7</Property>
 				<Property Name="INST_author" Type="Str">IHA Aarhus School of Engineering</Property>
@@ -402,7 +412,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.9</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.11</Property>
 				<Property Name="InstSpecBitness" Type="Str">32-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">20008014</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
