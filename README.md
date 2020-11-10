@@ -5,12 +5,11 @@ Software designed to capture and store images of macroinvertebrates using the th
 v1.6 contains the updated image data file.
 
 Changes:
-- Added new (per image) data row containing:
+- Added new (per image) data file containing:
 - All original columns (Name, data, operator, etc.)
-
-Added:
-- Image file name
-- Each image parameters (Max feret, perimeter, area, holes, area + holes)
-- ROI descriptor (used for future recalculations of image parameters).
+- Added:
+ - Image file name
+ - Each image parameters (Max feret, perimeter, area, holes, area + holes)
+ - ROI descriptor (used for future recalculations of image parameters).
 
 **Version b** contains no flushing features.
