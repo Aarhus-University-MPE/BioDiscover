@@ -8,8 +8,8 @@ Changes:
 - Added new (per image) data file containing:
 - All original columns (Name, data, operator, etc.)
 - Added:
- - Image file name
- - Each image parameters (Max feret, perimeter, area, holes, area + holes)
- - ROI descriptor (used for future recalculations of image parameters).
+  - Image file name
+  - Each image parameters (Max feret, perimeter, area, holes, area + holes)
+  - ROI descriptor (used for future recalculations of image parameters).
 
 **Version b** contains no flushing features.
