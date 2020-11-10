@@ -88,13 +88,15 @@
 				<Item Name="Calibration_Setup_file.vi" Type="VI" URL="../Calibration_Setup_file.vi"/>
 				<Item Name="Calibration_Quadruple_Save.vi" Type="VI" URL="../Calibration_Quadruple_Save.vi"/>
 			</Item>
-			<Item Name="Setup Data" Type="Folder">
+			<Item Name="Data Files" Type="Folder">
 				<Item Name="CSV_Setup_Data_Create.vi" Type="VI" URL="../CSV_Setup_Data_Create.vi"/>
 				<Item Name="CSV_Setup_Data_Handler.vi" Type="VI" URL="../CSV_Setup_Data_Handler.vi"/>
 				<Item Name="CSV_Setup_Data_Append.vi" Type="VI" URL="../CSV_Setup_Data_Append.vi"/>
 				<Item Name="Sample_Data_Compute.vi" Type="VI" URL="../Sample_Data_Compute.vi"/>
 				<Item Name="Sample_Data_Subset.vi" Type="VI" URL="../Sample_Data_Subset.vi"/>
 				<Item Name="Save_Folder_Path.vi" Type="VI" URL="../Save_Folder_Path.vi"/>
+				<Item Name="CSV_Image_Data_Append.vi" Type="VI" URL="../CSV_Image_Data_Append.vi"/>
+				<Item Name="CSV_Image_Data_Create.vi" Type="VI" URL="../CSV_Image_Data_Create.vi"/>
 			</Item>
 			<Item Name="Timestamp.vi" Type="VI" URL="../Timestamp.vi"/>
 			<Item Name="Save_Truth_Table.vi" Type="VI" URL="../Save_Truth_Table.vi"/>
