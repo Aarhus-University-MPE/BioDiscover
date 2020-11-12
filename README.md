@@ -3,7 +3,7 @@
 Software designed to capture and store images of macroinvertebrates using the the SRS system.
 
 
-# Change log#
+# Change log
 
 **v1.6.0.20**
 
