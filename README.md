@@ -16,7 +16,7 @@ Added detection error in Stats pane
 Fixed error with camera view scaling
 
 
-**v1.6:**
+**v1.6.0.0**
 
 Added new data file (one row per image) containing:
 - All original columns (Name, data, operator, etc.).
