@@ -1,10 +1,10 @@
-# Species Recognition System (SRS)
+# Species Recognition System (SRS) - Version b (non flush)
 
 Software designed to capture and store images of macroinvertebrates using the the SRS system.
 
 **Version b** contains no flushing features
 
-# Change log#
+# Change log
 
 **v1.6.0.20**
 
@@ -17,7 +17,7 @@ Added detection error in Stats pane
 Fixed error with camera view scaling
 
 
-**v1.6:**
+**v1.6.0.0**
 
 Added new data file (one row per image) containing:
 - All original columns (Name, data, operator, etc.).
