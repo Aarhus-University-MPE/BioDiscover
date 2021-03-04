@@ -9,12 +9,14 @@ Software designed to capture and store images of macroinvertebrates using the th
 
 Implemented local camera ID system to support several systems.
 
+**Main Systems**
+
 Modified Camera ID connection algorithm. 
 - Check for local ID file > if found > try connection > if failed > request new ID and retry
 - If no local ID file is found > request new ID > try connection
 - If no file and no connection to micro controller > displays error
 
-*Arduino Changes*
+**Arduino Changes**
 
 Added Camera ID to Linear Actuator flash.
 
