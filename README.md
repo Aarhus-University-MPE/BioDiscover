@@ -5,7 +5,7 @@ Software designed to capture and store images of macroinvertebrates using the th
 
 # **Change log**
 
-#v1.7.0.0
+# v1.7.0.0
 
 Implemented local camera ID system to support several systems.
 
@@ -25,7 +25,7 @@ Added Camera ID request to Linear Actuator Script.
 - "109" returns Cam2 ID
 
 
-#v1.6.0.20
+# v1.6.0.20
 
 Fixed error with binary filter threshold.
 
@@ -36,7 +36,7 @@ Added detection error in Stats pane
 Fixed error with camera view scaling
 
 
-#v1.6.0.0
+# v1.6.0.0
 
 Added new data file (one row per image) containing:
 - All original columns (Name, data, operator, etc.).
