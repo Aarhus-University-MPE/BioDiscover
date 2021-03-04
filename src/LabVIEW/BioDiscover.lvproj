@@ -25,6 +25,7 @@
 			<Item Name="State.ctl" Type="VI" URL="../controls/State.ctl"/>
 			<Item Name="Camera_ID.ctl" Type="VI" URL="../Camera_ID.ctl"/>
 			<Item Name="Image_Data.ctl" Type="VI" URL="../controls/Image_Data.ctl"/>
+			<Item Name="CAM_ID.ctl" Type="VI" URL="../CAM_ID.ctl"/>
 		</Item>
 		<Item Name="Controls" Type="Folder">
 			<Item Name="Terminate_Pump.ctl" Type="VI" URL="../controls/Terminate_Pump.ctl"/>
@@ -106,6 +107,7 @@
 			<Item Name="CameraStreamIMAQ.vi" Type="VI" URL="../CameraStreamIMAQ.vi"/>
 			<Item Name="CameraStreamAttribute.vi" Type="VI" URL="../CameraStreamAttribute.vi"/>
 			<Item Name="Camera_Reconfig.vi" Type="VI" URL="../Camera_Reconfig.vi"/>
+			<Item Name="CameraSerialIDScan.vi" Type="VI" URL="../CameraSerialIDScan.vi"/>
 			<Item Name="CameraAttributeSearch.vi" Type="VI" URL="../CameraAttributeSearch.vi"/>
 			<Item Name="CameraAttributeTest.vi" Type="VI" URL="../CameraAttributeTest.vi"/>
 			<Item Name="USBInterfaceFetch.vi" Type="VI" URL="../USBInterfaceFetch.vi"/>
@@ -113,13 +115,15 @@
 			<Item Name="Enqueue_Acquisition.vi" Type="VI" URL="../Enqueue_Acquisition.vi"/>
 			<Item Name="CSV_Setup_Data.vi" Type="VI" URL="../CSV_Setup_Data.vi"/>
 			<Item Name="Pump_Status.vi" Type="VI" URL="../Pump_Status.vi"/>
-			<Item Name="CameraSerialIDScan.vi" Type="VI" URL="../CameraSerialIDScan.vi"/>
 			<Item Name="Bayer12bit.vi" Type="VI" URL="../Bayer12bit.vi"/>
 		</Item>
 		<Item Name="resources" Type="Folder">
 			<Item Name="Icon.ico" Type="Document" URL="../resources/Icon.ico"/>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
+		<Item Name="CAM_ID_FileLoader.vi" Type="VI" URL="../CAM_ID_FileLoader.vi"/>
+		<Item Name="CAM_ID_FileSave.vi" Type="VI" URL="../CAM_ID_FileSave.vi"/>
+		<Item Name="CAM_ID_Request.vi" Type="VI" URL="../CAM_ID_Request.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
