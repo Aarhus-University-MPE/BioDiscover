@@ -3,12 +3,18 @@
 
     By
     Mads Rosenhoej Jeppesen - Aarhus 2019
-    mrj@ase.au.dk
+    mrj@mpe.au.dk
+
+    Version update:
+    Implementation of Camera ID, stored and request
 */
 
 //--------------------------------------//
 //              Initialize              //
 //--------------------------------------//
+
+#define CAM_ID1       23466452          // ID for camera 1        
+#define CAM_ID2       23466451          // ID for camera 2
 
 #define PIN_D5        5
 #define PIN_D6        6
@@ -136,6 +142,18 @@ void loop() {
     else if (CMD == 104)
     {
       Serial.println(POS);
+    }
+
+    // CAM ID 1
+    else if (CMD == 108)
+    {
+      Serial.println(CAM_ID1);
+    }
+
+    // CAM ID 2
+    else if (CMD == 109)
+    {
+      Serial.println(CAM_ID2);
     }
   }
 }

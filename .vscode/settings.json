@@ -1,0 +1,5 @@
+{
+    "arduino.defaultBaudRate": 9600,
+    "arduino.path": "C:\\Program Files (x86)\\Arduino",
+    "C_Cpp.intelliSenseEngine": "Tag Parser"
+}

@@ -1,0 +1,7 @@
+{
+    "board": "arduino:avr:nano",
+    "sketch": "src\\Arduino\\Linear_Actuator\\Linear_Actuator.ino",
+    "configuration": "cpu=atmega328old",
+    "port": "COM8",
+    "programmer": "AVR ISP"
+}

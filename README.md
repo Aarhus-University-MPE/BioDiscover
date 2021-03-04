@@ -5,6 +5,22 @@ Software designed to capture and store images of macroinvertebrates using the th
 
 # Change log
 
+**v1.7.0.0**
+Implemented local camera ID system to support several systems.
+
+Modified Camera ID connection algorithm. 
+- Check for local ID file > if found > try connection > if failed > request new ID and retry
+- If no local ID file is found > request new ID > try connection
+- If no file and no connection to micro controller > displays error
+
+*Arduino Changes*
+Added Camera ID to Linear Actuator flash.
+
+Added Camera ID request to Linear Actuator Script.
+- "108" returns Cam1 ID
+- "109" returns Cam2 ID
+
+
 **v1.6.0.20**
 
 Fixed error with binary filter threshold.
