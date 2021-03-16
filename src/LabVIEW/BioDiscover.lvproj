@@ -46,6 +46,9 @@
 				<Item Name="Capture_Save_Initialize.vi" Type="VI" URL="../Capture_Save_Initialize.vi"/>
 				<Item Name="Camera_Crop_Setup.vi" Type="VI" URL="../Camera_Crop_Setup.vi"/>
 				<Item Name="Camera_Crop_Decluster.vi" Type="VI" URL="../Camera_Crop_Decluster.vi"/>
+				<Item Name="CAM_ID_FileLoader.vi" Type="VI" URL="../CAM_ID_FileLoader.vi"/>
+				<Item Name="CAM_ID_FileSave.vi" Type="VI" URL="../CAM_ID_FileSave.vi"/>
+				<Item Name="CAM_ID_Request.vi" Type="VI" URL="../CAM_ID_Request.vi"/>
 			</Item>
 			<Item Name="Pump and Actuator" Type="Folder">
 				<Item Name="Init_XE1000Pump.vi" Type="VI" URL="../Init_XE1000Pump.vi"/>
@@ -121,9 +124,6 @@
 			<Item Name="Icon.ico" Type="Document" URL="../resources/Icon.ico"/>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
-		<Item Name="CAM_ID_FileLoader.vi" Type="VI" URL="../CAM_ID_FileLoader.vi"/>
-		<Item Name="CAM_ID_FileSave.vi" Type="VI" URL="../CAM_ID_FileSave.vi"/>
-		<Item Name="CAM_ID_Request.vi" Type="VI" URL="../CAM_ID_Request.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
@@ -418,7 +418,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.14</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.15</Property>
 				<Property Name="InstSpecBitness" Type="Str">32-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">20008014</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
