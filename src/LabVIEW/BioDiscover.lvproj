@@ -119,6 +119,7 @@
 			<Item Name="CSV_Setup_Data.vi" Type="VI" URL="../CSV_Setup_Data.vi"/>
 			<Item Name="Pump_Status.vi" Type="VI" URL="../Pump_Status.vi"/>
 			<Item Name="Bayer12bit.vi" Type="VI" URL="../Bayer12bit.vi"/>
+			<Item Name="PumpCommand.vi" Type="VI" URL="../PumpCommand.vi"/>
 		</Item>
 		<Item Name="resources" Type="Folder">
 			<Item Name="Icon.ico" Type="Document" URL="../resources/Icon.ico"/>
