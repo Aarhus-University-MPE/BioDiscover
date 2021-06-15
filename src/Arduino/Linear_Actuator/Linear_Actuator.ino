@@ -1,3 +1,4 @@
+
 /*
     Description
 
@@ -17,13 +18,15 @@
 #define CAM_ID2       23466443          // ID for camera 2
 
 // Request ID's
-#define CMD_CLOSE     101               // Start Closing maneuver
-#define CMD_OPEN      102               // Start Opening maneuver
-#define CMD_POS       104               // Report Position
-#define CMD_CAM1      108               // Report Camera 1 ID
-#define CMD_CAM2      109               // Report Camera 2 ID
-#define CMD_CLOSE_MNL 111               // Manual Close (50 ms)
-#define CMD_OPEN_MNL  112               // Manual Open (50 ms)
+#define CMD_CLOSE           101               // Start Closing maneuver
+#define CMD_OPEN            102               // Start Opening maneuver
+#define CMD_POS             104               // Report Position
+#define CMD_CAM1            108               // Report Camera 1 ID
+#define CMD_CAM2            109               // Report Camera 2 ID
+#define CMD_CLOSE_MNL       111               // Manual Close (50 ms)
+#define CMD_OPEN_MNL        112               // Manual Open (50 ms)
+#define CMD_REQ_RTRCT_POS   121               // Request retracted position (fully closed)
+#define CMD_REQ_EXTND_POS   122               // Request extended position (fully open)
 
 
 #define PIN_D5        5
@@ -45,8 +48,9 @@ unsigned long delayStart = 0;           // the time the delay started
 
 const int manual_dur = 3000;            // Manual actuator duration [ms]
 const int Safety_Duration = 6000;       // Actuator safety duration [ms]
-const int RTRCT_Pos = 383;
-const int EXTND_Pos = 1015;
+
+const int RTRCT_Pos = 215;
+const int EXTND_Pos = 835;
 
 const int HB_ENABLE = PIN_D5;
 const int HB_DIR2   = PIN_D6;
@@ -58,12 +62,12 @@ const int ACT_POS   = PIN_A0;
 //--------------------------------------//
 
 void setup() {
-  digitalWrite(HB_ENABLE, LOW);
-  digitalWrite(HB_DIR1, VALVE_CLOSE);
-  digitalWrite(HB_DIR2, !VALVE_CLOSE);
   pinMode(HB_ENABLE, OUTPUT);
   pinMode(HB_DIR1, OUTPUT);
   pinMode(HB_DIR2, OUTPUT);
+  digitalWrite(HB_ENABLE, LOW);
+  digitalWrite(HB_DIR1, LOW);
+  digitalWrite(HB_DIR2, LOW);
   pinMode(ACT_POS, INPUT);
 
   Serial.begin(9600);
@@ -86,7 +90,7 @@ void loop() {
   if (MODE == CLOSE) {
     if (POS <= RTRCT_Pos || ((millis() - delayStart) >= Safety_Duration))  // Endstop reached or timeout
     {
-      valve(VALVE_CLOSE, LOW);
+      (VALVE_CLOSE, LOW);
       delay(50);
       POS = analogRead(ACT_POS);
       if (POS >= RTRCT_Pos && ((millis() - delayStart) <= Safety_Duration)) {
@@ -116,6 +120,9 @@ void loop() {
         Serial.println(1);      // Open Complete
       }
     }
+  }
+  else{
+    valveStop();
   }
 
   //------------------Commands------------------//
@@ -177,6 +184,16 @@ void loop() {
       valve(VALVE_OPEN, LOW);
       Serial.println("Done");
     }
+    // Retract position request
+    else if (CMD == CMD_REQ_RTRCT_POS)
+    {
+      Serial.println(RTRCT_Pos);
+    }
+    // Eextend position request
+    else if (CMD == CMD_REQ_EXTND_POS)
+    {
+      Serial.println(EXTND_Pos);
+    }
   }
 }
 
@@ -188,4 +205,10 @@ void valve(bool DIR, bool ACT) {
   digitalWrite(HB_ENABLE, ACT);
   digitalWrite(HB_DIR1, DIR);
   digitalWrite(HB_DIR2, !DIR);
+}
+
+void valveStop(){
+  digitalWrite(HB_ENABLE, LOW);
+  digitalWrite(HB_DIR1, LOW);
+  digitalWrite(HB_DIR2, LOW);
 }
