@@ -14,8 +14,8 @@
 //              Initialize              //
 //--------------------------------------//
 
-#define CAM_ID1       23466444          // ID for camera 1        
-#define CAM_ID2       23466443          // ID for camera 2
+#define CAM_ID1       23466443          // ID for camera 1        
+#define CAM_ID2       23466444          // ID for camera 2
 
 // Request ID's
 #define CMD_CLOSE           101               // Start Closing maneuver
