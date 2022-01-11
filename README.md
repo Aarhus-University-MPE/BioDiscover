@@ -5,6 +5,21 @@ Software designed to capture and store images of macroinvertebrates using the th
 
 # Change log
 
+**v1.8.0.0**
+Reworked GUI
+
+Implemented run-time stats
+
+Per camera stats
+Mean Area
+Total number of images
+Current sample number
+Minor Changes
+
+Reworked Backend
+Changed total number of images to per sample
+Fixed graphical error in Camera number
+
 **v1.7.0.0**
 
 Implemented local camera ID system to support several systems.
