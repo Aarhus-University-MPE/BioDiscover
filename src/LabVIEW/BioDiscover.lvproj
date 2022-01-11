@@ -72,6 +72,7 @@
 					<Item Name="Image_Crop_Fixed_Area.vi" Type="VI" URL="../Image_Crop_Fixed_Area.vi"/>
 					<Item Name="Image_Processing_Queue.vi" Type="VI" URL="../Image_Processing_Queue.vi"/>
 					<Item Name="Image_Processing_Queue_Info.vi" Type="VI" URL="../Image_Processing_Queue_Info.vi"/>
+					<Item Name="Image_Detect_Object_HQ.vi" Type="VI" URL="../Image_Detect_Object_HQ.vi"/>
 				</Item>
 			</Item>
 			<Item Name="System" Type="Folder">
@@ -301,10 +302,8 @@
 				<Property Name="Bld_localDestDir" Type="Path">/C/Users/au540322/Documents/Projects/NI_AB_PROJECTNAME/Builds/Full Build</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{09FD23A0-93D2-46A2-B12D-FA02255F97C6}</Property>
-				<Property Name="Bld_version.build" Type="Int">42</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
-				<Property Name="Bld_version.minor" Type="Int">8</Property>
-				<Property Name="Bld_version.patch" Type="Int">2</Property>
+				<Property Name="Bld_version.minor" Type="Int">9</Property>
 				<Property Name="Destination[0].destName" Type="Str">SRS.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">/C/Users/au540322/Documents/Projects/NI_AB_PROJECTNAME/Builds/Full Build/SRS.exe</Property>
 				<Property Name="Destination[0].path.type" Type="Str">&lt;none&gt;</Property>
@@ -315,7 +314,7 @@
 				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/resources/Icon.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{6707EC6B-A357-4E40-A207-4663F7BC46B9}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{2D5A011F-2C1B-4867-887A-C9D583D9155E}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Main.vi</Property>
@@ -345,7 +344,7 @@
 				<Property Name="Source[4].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[4].type" Type="Str">Container</Property>
 				<Property Name="SourceCount" Type="Int">5</Property>
-				<Property Name="TgtF_fileDescription" Type="Str">Species Recognition System</Property>
+				<Property Name="TgtF_fileDescription" Type="Str">Species Recognition System - BETA</Property>
 				<Property Name="TgtF_internalName" Type="Str">SRS</Property>
 				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2012 </Property>
 				<Property Name="TgtF_productName" Type="Str">SRS</Property>
@@ -432,7 +431,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.23</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.24</Property>
 				<Property Name="InstSpecBitness" Type="Str">32-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">20008014</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
