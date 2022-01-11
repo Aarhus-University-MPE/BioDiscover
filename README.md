@@ -10,15 +10,16 @@ Reworked GUI
 
 Implemented run-time stats
 
-Per camera stats
-Mean Area
-Total number of images
-Current sample number
-Minor Changes
+- Per camera stats
+- Mean Area
+- Total number of images
+- Current sample number
 
-Reworked Backend
-Changed total number of images to per sample
-Fixed graphical error in Camera number
+_Minor Changes_
+
+- Reworked Backend
+- Changed total number of images to per sample
+- Fixed graphical error in Camera number
 
 **v1.7.0.0**
 
