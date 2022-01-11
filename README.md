@@ -6,6 +6,7 @@ Software designed to capture and store images of macroinvertebrates using the th
 # Change log
 
 **v1.8.0.0**
+
 Reworked GUI
 
 Implemented run-time stats
