@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="20008000">
+<Project Type="Project" LVVersion="21008000">
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">false</Property>
 	<Item Name="My Computer" Type="My Computer">
 		<Property Name="IOScan.Faults" Type="Str"></Property>
@@ -278,15 +278,15 @@
 			<Item Name="nivision.dll" Type="Document" URL="nivision.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="imaq.dll" Type="Document" URL="imaq.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
 			<Item Name="Tag-c(bool,bool).lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool).lvlib"/>
 			<Item Name="_ChannelSupport.lvlib" Type="Library" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/_ChannelSupport.lvlib"/>
 			<Item Name="Tag-t&apos;Data.ctl&apos;.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;.lvlib"/>
 			<Item Name="Tag-bool.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool.lvlib"/>
 			<Item Name="ChannelProbePositionAndTitle.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbePositionAndTitle.vi"/>
 			<Item Name="ChannelProbeWindowStagger.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbeWindowStagger.vi"/>
-			<Item Name="imaq.dll" Type="Document" URL="imaq.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="SRS" Type="EXE">
@@ -383,46 +383,40 @@
 				<Property Name="DistPart[5].productName" Type="Str">NI-VISA Runtime 20.0</Property>
 				<Property Name="DistPart[5].upgradeCode" Type="Str">{8627993A-3F66-483C-A562-0D3BA3F267B1}</Property>
 				<Property Name="DistPart[6].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[6].productID" Type="Str">{CED05116-2329-4D0D-92CA-CEC520182EB0}</Property>
-				<Property Name="DistPart[6].productName" Type="Str">NI LabVIEW Runtime 2020 f1</Property>
+				<Property Name="DistPart[6].productID" Type="Str">{5F3513DC-BAB2-4809-B45C-89F40435F413}</Property>
+				<Property Name="DistPart[6].productName" Type="Str">NI LabVIEW Runtime 2021 SP1</Property>
 				<Property Name="DistPart[6].SoftDep[0].exclude" Type="Bool">false</Property>
 				<Property Name="DistPart[6].SoftDep[0].productName" Type="Str">NI ActiveX Container</Property>
 				<Property Name="DistPart[6].SoftDep[0].upgradeCode" Type="Str">{1038A887-23E1-4289-B0BD-0C4B83C6BA21}</Property>
 				<Property Name="DistPart[6].SoftDep[1].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[1].productName" Type="Str">NI Deployment Framework 2020</Property>
+				<Property Name="DistPart[6].SoftDep[1].productName" Type="Str">NI Deployment Framework 2021</Property>
 				<Property Name="DistPart[6].SoftDep[1].upgradeCode" Type="Str">{838942E4-B73C-492E-81A3-AA1E291FD0DC}</Property>
-				<Property Name="DistPart[6].SoftDep[10].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[10].productName" Type="Str">NI VC2015 Runtime</Property>
-				<Property Name="DistPart[6].SoftDep[10].upgradeCode" Type="Str">{D42E7BAE-6589-4570-B6A3-3E28889392E7}</Property>
-				<Property Name="DistPart[6].SoftDep[11].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[11].productName" Type="Str">NI TDM Streaming 19.0</Property>
-				<Property Name="DistPart[6].SoftDep[11].upgradeCode" Type="Str">{4CD11BE6-6BB7-4082-8A27-C13771BC309B}</Property>
 				<Property Name="DistPart[6].SoftDep[2].exclude" Type="Bool">false</Property>
 				<Property Name="DistPart[6].SoftDep[2].productName" Type="Str">NI Error Reporting 2020</Property>
 				<Property Name="DistPart[6].SoftDep[2].upgradeCode" Type="Str">{42E818C6-2B08-4DE7-BD91-B0FD704C119A}</Property>
 				<Property Name="DistPart[6].SoftDep[3].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[3].productName" Type="Str">NI LabVIEW Real-Time NBFifo 2020</Property>
-				<Property Name="DistPart[6].SoftDep[3].upgradeCode" Type="Str">{00D0B680-F876-4E42-A25F-52B65418C2A6}</Property>
+				<Property Name="DistPart[6].SoftDep[3].productName" Type="Str">NI Logos 21.0</Property>
+				<Property Name="DistPart[6].SoftDep[3].upgradeCode" Type="Str">{5E4A4CE3-4D06-11D4-8B22-006008C16337}</Property>
 				<Property Name="DistPart[6].SoftDep[4].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[4].productName" Type="Str">NI LabVIEW Runtime 2020 Non-English Support.</Property>
-				<Property Name="DistPart[6].SoftDep[4].upgradeCode" Type="Str">{61FCC73D-8092-457D-8905-27C0060D88E1}</Property>
+				<Property Name="DistPart[6].SoftDep[4].productName" Type="Str">NI LabVIEW Web Server 2021</Property>
+				<Property Name="DistPart[6].SoftDep[4].upgradeCode" Type="Str">{0960380B-EA86-4E0C-8B57-14CD8CCF2C15}</Property>
 				<Property Name="DistPart[6].SoftDep[5].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[5].productName" Type="Str">NI Logos 20.0</Property>
-				<Property Name="DistPart[6].SoftDep[5].upgradeCode" Type="Str">{5E4A4CE3-4D06-11D4-8B22-006008C16337}</Property>
+				<Property Name="DistPart[6].SoftDep[5].productName" Type="Str">NI mDNS Responder 21.5</Property>
+				<Property Name="DistPart[6].SoftDep[5].upgradeCode" Type="Str">{9607874B-4BB3-42CB-B450-A2F5EF60BA3B}</Property>
 				<Property Name="DistPart[6].SoftDep[6].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[6].productName" Type="Str">NI LabVIEW Web Server 2020</Property>
-				<Property Name="DistPart[6].SoftDep[6].upgradeCode" Type="Str">{0960380B-EA86-4E0C-8B57-14CD8CCF2C15}</Property>
+				<Property Name="DistPart[6].SoftDep[6].productName" Type="Str">Math Kernel Libraries 2017</Property>
+				<Property Name="DistPart[6].SoftDep[6].upgradeCode" Type="Str">{699C1AC5-2CF2-4745-9674-B19536EBA8A3}</Property>
 				<Property Name="DistPart[6].SoftDep[7].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[7].productName" Type="Str">NI mDNS Responder 19.0</Property>
-				<Property Name="DistPart[6].SoftDep[7].upgradeCode" Type="Str">{9607874B-4BB3-42CB-B450-A2F5EF60BA3B}</Property>
+				<Property Name="DistPart[6].SoftDep[7].productName" Type="Str">Math Kernel Libraries 2020</Property>
+				<Property Name="DistPart[6].SoftDep[7].upgradeCode" Type="Str">{9872BBBA-FB96-42A4-80A2-9605AC5CBCF1}</Property>
 				<Property Name="DistPart[6].SoftDep[8].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[8].productName" Type="Str">Math Kernel Libraries 2017</Property>
-				<Property Name="DistPart[6].SoftDep[8].upgradeCode" Type="Str">{699C1AC5-2CF2-4745-9674-B19536EBA8A3}</Property>
+				<Property Name="DistPart[6].SoftDep[8].productName" Type="Str">NI VC2015 Runtime</Property>
+				<Property Name="DistPart[6].SoftDep[8].upgradeCode" Type="Str">{D42E7BAE-6589-4570-B6A3-3E28889392E7}</Property>
 				<Property Name="DistPart[6].SoftDep[9].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[9].productName" Type="Str">Math Kernel Libraries 2020</Property>
-				<Property Name="DistPart[6].SoftDep[9].upgradeCode" Type="Str">{9872BBBA-FB96-42A4-80A2-9605AC5CBCF1}</Property>
-				<Property Name="DistPart[6].SoftDepCount" Type="Int">12</Property>
-				<Property Name="DistPart[6].upgradeCode" Type="Str">{D84FC73F-D1E0-4C05-A30C-DB882CD1ABD8}</Property>
+				<Property Name="DistPart[6].SoftDep[9].productName" Type="Str">NI TDM Streaming 21.1</Property>
+				<Property Name="DistPart[6].SoftDep[9].upgradeCode" Type="Str">{4CD11BE6-6BB7-4082-8A27-C13771BC309B}</Property>
+				<Property Name="DistPart[6].SoftDepCount" Type="Int">10</Property>
+				<Property Name="DistPart[6].upgradeCode" Type="Str">{251E8668-4013-3671-857C-61D46B2AC827}</Property>
 				<Property Name="DistPartCount" Type="Int">7</Property>
 				<Property Name="INST_author" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="INST_autoIncrement" Type="Bool">true</Property>
@@ -433,7 +427,7 @@
 				<Property Name="INST_productName" Type="Str">SRS</Property>
 				<Property Name="INST_productVersion" Type="Str">1.0.25</Property>
 				<Property Name="InstSpecBitness" Type="Str">32-bit</Property>
-				<Property Name="InstSpecVersion" Type="Str">20008014</Property>
+				<Property Name="InstSpecVersion" Type="Str">21018000</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="MSI_arpContact" Type="Str">mrj@ase.au.dk</Property>
 				<Property Name="MSI_arpPhone" Type="Str">+45 20 89 43 32</Property>
