@@ -1,7 +1,12 @@
 {
+<<<<<<< Updated upstream
     "board": "arduino:avr:nano",
-    "sketch": "src\\Arduino\\Linear_Actuator\\Linear_Actuator.ino",
-    "configuration": "cpu=atmega328old",
-    "port": "COM8",
-    "programmer": "AVR ISP"
+    "port": "COM8"
+=======
+    "output": "src/Arduino/ArduinoOutput",
+    "board": "arduino:avr:uno",
+    "programmer": "arduino:avrisp",
+    "sketch": "src\\Arduino\\OnBoard_Firmware\\OnBoard_Firmware.ino",
+    "port": "COM6"
+>>>>>>> Stashed changes
 }

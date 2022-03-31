@@ -7,47 +7,49 @@
     mrj@mpe.au.dk
 
     Version update:
-    Implementation of Camera ID, stored and request
+    - Implementation of Camera ID, store and request
+    - 31/03/22 Added System Serial, store and request
 */
 
 //--------------------------------------//
 //              Initialize              //
 //--------------------------------------//
 
-#define CAM_ID1       23466443          // ID for camera 1        
-#define CAM_ID2       23466444          // ID for camera 2
+#define CAM_ID1           23466442          // ID for camera 1
+#define CAM_ID2           23734553          // ID for camera 2
+#define SYS_SERIAL        "1.3XL-01-04.22"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
 
 // Request ID's
-#define CMD_CLOSE           101               // Start Closing maneuver
-#define CMD_OPEN            102               // Start Opening maneuver
-#define CMD_POS             104               // Report Position
-#define CMD_CAM1            108               // Report Camera 1 ID
-#define CMD_CAM2            109               // Report Camera 2 ID
-#define CMD_CLOSE_MNL       111               // Manual Close (50 ms)
-#define CMD_OPEN_MNL        112               // Manual Open (50 ms)
-#define CMD_REQ_RTRCT_POS   121               // Request retracted position (fully closed)
-#define CMD_REQ_EXTND_POS   122               // Request extended position (fully open)
+#define CMD_CLOSE         101  // Start Closing maneuver
+#define CMD_OPEN          102  // Start Opening maneuver
+#define CMD_POS           104  // Report Position
+#define CMD_SERIAL        107  // Report System Serial number
+#define CMD_CAM1          108  // Report Camera 1 ID
+#define CMD_CAM2          109  // Report Camera 2 ID
+#define CMD_CLOSE_MNL     111  // Manual Close (50 ms)
+#define CMD_OPEN_MNL      112  // Manual Open (50 ms)
+#define CMD_REQ_RTRCT_POS 121  // Request retracted position (fully closed)
+#define CMD_REQ_EXTND_POS 122  // Request extended position (fully open)
 
+#define PIN_D5            5
+#define PIN_D6            6
+#define PIN_D7            7
+#define PIN_D8            8
+#define PIN_D9            9
+#define PIN_D10           10
 
-#define PIN_D5        5
-#define PIN_D6        6
-#define PIN_D7        7
-#define PIN_D8        8
-#define PIN_D9        9
-#define PIN_D10       10
+#define STDBY             0
+#define OPEN              1
+#define CLOSE             2
 
-#define STDBY         0
-#define OPEN          1
-#define CLOSE         2
+#define VALVE_OPEN        HIGH  // Extend
+#define VALVE_CLOSE       LOW   // Retract
 
-#define VALVE_OPEN    HIGH              // Extend
-#define VALVE_CLOSE   LOW               // Retract
+int MODE                 = STDBY;  // Current MODE (Standby (0), OPEN (1) or CLOSE (2))
+unsigned long delayStart = 0;      // the time the delay started
 
-int MODE = STDBY;                       // Current MODE (Standby (0), OPEN (1) or CLOSE (2))
-unsigned long delayStart = 0;           // the time the delay started
-
-const int manual_dur = 3000;            // Manual actuator duration [ms]
-const int Safety_Duration = 6000;       // Actuator safety duration [ms]
+const int manual_dur      = 3000;  // Manual actuator duration [ms]
+const int Safety_Duration = 6000;  // Actuator safety duration [ms]
 
 const int RTRCT_Pos = 215;
 const int EXTND_Pos = 835;
@@ -72,7 +74,7 @@ void setup() {
 
   Serial.begin(9600);
   while (!Serial) {
-    ; // wait for serial port to connect.
+    ;  // wait for serial port to connect.
   }
 }
 
@@ -85,7 +87,7 @@ void loop() {
 
   //------------Linear Actuator Mode------------//
   //--------------------------------------------//
-  
+
   // Closing
   if (MODE == CLOSE) {
     if (POS <= RTRCT_Pos || ((millis() - delayStart) >= Safety_Duration))  // Endstop reached or timeout
@@ -96,32 +98,28 @@ void loop() {
       if (POS >= RTRCT_Pos && ((millis() - delayStart) <= Safety_Duration)) {
         valve(VALVE_CLOSE, HIGH);
         delay(50);
-      }
-      else {
+      } else {
         MODE = STDBY;
-        Serial.println(2);      // Close Complete
+        Serial.println(2);  // Close Complete
       }
     }
   }
 
   // Opening
-  else if (MODE == OPEN)
-  {
-    if (POS >= EXTND_Pos || ((millis() - delayStart) >= Safety_Duration))   // Endstop reached or timeout
+  else if (MODE == OPEN) {
+    if (POS >= EXTND_Pos || ((millis() - delayStart) >= Safety_Duration))  // Endstop reached or timeout
     {
       valve(VALVE_OPEN, LOW);
       delay(50);
       POS = analogRead(ACT_POS);
       if (POS <= EXTND_Pos && ((millis() - delayStart) <= Safety_Duration)) {
         valve(VALVE_OPEN, HIGH);
-      }
-      else {
+      } else {
         MODE = STDBY;
-        Serial.println(1);      // Open Complete
+        Serial.println(1);  // Open Complete
       }
     }
-  }
-  else{
+  } else {
     valveStop();
   }
 
@@ -131,68 +129,52 @@ void loop() {
   if (Serial.available()) {
     int CMD = Serial.parseInt();
 
-    // Close
-    if (CMD == CMD_CLOSE)
-    {
-      MODE = CLOSE;
-      valve(VALVE_CLOSE, HIGH);
-      delayStart = millis();
-    }
+    switch (CMD) {
+      case CMD_CLOSE:
+        MODE = CLOSE;
+        valve(VALVE_CLOSE, HIGH);
+        delayStart = millis();
+        break;
+      case CMD_OPEN:
+        MODE = OPEN;
+        valve(VALVE_OPEN, HIGH);
+        delayStart = millis();
+        break;
+      case CMD_POS:
+        Serial.println(POS);
+        break;
+      case CMD_SERIAL:
+        Serial.println(SYS_SERIAL);
+        break;
+      case CMD_CAM1:
+        Serial.println(CAM_ID1);
+        break;
+      case CMD_CAM2:
+        Serial.println(CAM_ID2);
+        break;
+      case CMD_CLOSE_MNL:
+        Serial.println("Closing for 50 ms");
+        valve(VALVE_CLOSE, HIGH);
+        delay(50);
+        valve(VALVE_CLOSE, LOW);
+        Serial.println("Done");
+        break;
+      case CMD_OPEN_MNL:
+        Serial.println("Opening for 50 ms");
+        valve(VALVE_OPEN, HIGH);
+        delay(50);
+        valve(VALVE_OPEN, LOW);
+        Serial.println("Done");
+        break;
+      case CMD_REQ_RTRCT_POS:
+        Serial.println(RTRCT_Pos);
+        break;
+      case CMD_REQ_EXTND_POS:
+        Serial.println(EXTND_Pos);
+        break;
 
-    // Open
-    else if (CMD == CMD_OPEN)
-    {
-      MODE = OPEN;
-      valve(VALVE_OPEN, HIGH);
-      delayStart = millis();
-    }
-
-    // Send Position data
-    else if (CMD == CMD_POS)
-    {
-      Serial.println(POS);
-    }
-
-    // CAM ID 1
-    else if (CMD == CMD_CAM1)
-    {
-      Serial.println(CAM_ID1);
-    }
-
-    // CAM ID 2
-    else if (CMD == CMD_CAM2)
-    {
-      Serial.println(CAM_ID2);
-    }
-
-    // Manual Close
-    else if (CMD == CMD_CLOSE_MNL)
-    {
-      Serial.println("Closing for 50 ms");
-      valve(VALVE_CLOSE, HIGH);
-      delay(50);
-      valve(VALVE_CLOSE, LOW);
-      Serial.println("Done");
-    }
-
-    // Manual Open
-    else if (CMD == CMD_OPEN_MNL)
-    {
-      Serial.println("Opening for 50 ms");
-      valve(VALVE_OPEN, HIGH);
-      delay(50);
-      valve(VALVE_OPEN, LOW);
-      Serial.println("Done");
-    }
-    // Retract position request
-    else if (CMD == CMD_REQ_RTRCT_POS)
-    {
-      Serial.println(RTRCT_Pos);
-    }
-    // Eextend position request
-    else if (CMD == CMD_REQ_EXTND_POS)
-    {
-      Serial.println(EXTND_Pos);
+      default:
+        break;
     }
   }
 }
@@ -207,7 +189,7 @@ void valve(bool DIR, bool ACT) {
   digitalWrite(HB_DIR2, !DIR);
 }
 
-void valveStop(){
+void valveStop() {
   digitalWrite(HB_ENABLE, LOW);
   digitalWrite(HB_DIR1, LOW);
   digitalWrite(HB_DIR2, LOW);

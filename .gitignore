@@ -1,2 +1,3 @@
-/Builds/
 *.zip
+/Builds
+/src/Arduino/ArduinoOutput
