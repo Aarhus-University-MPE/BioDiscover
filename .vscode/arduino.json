@@ -1,4 +1,12 @@
 {
+<<<<<<< Updated upstream
     "board": "arduino:avr:nano",
     "port": "COM8"
+=======
+    "output": "src/Arduino/ArduinoOutput",
+    "board": "arduino:avr:uno",
+    "programmer": "arduino:avrisp",
+    "sketch": "src\\Arduino\\OnBoard_Firmware\\OnBoard_Firmware.ino",
+    "port": "COM6"
+>>>>>>> Stashed changes
 }
