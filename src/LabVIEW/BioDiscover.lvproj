@@ -38,6 +38,9 @@
 					<Item Name="Image_Snap_Dual.vi" Type="VI" URL="../Image_Snap_Dual.vi"/>
 					<Item Name="Image_Acquisition_Stop.vi" Type="VI" URL="../Image_Acquisition_Stop.vi"/>
 					<Item Name="Image_Snap_Single.vi" Type="VI" URL="../Image_Snap_Single.vi"/>
+					<Item Name="Snap2.vi" Type="VI" URL="../Snap2.vi"/>
+					<Item Name="Snap4.vi" Type="VI" URL="../Snap4.vi"/>
+					<Item Name="Snap16.vi" Type="VI" URL="../Snap16.vi"/>
 				</Item>
 				<Item Name="Camera_ID.vi" Type="VI" URL="../Camera_ID.vi"/>
 				<Item Name="Camera_init.vi" Type="VI" URL="../Camera_init.vi"/>
@@ -49,6 +52,8 @@
 				<Item Name="CAM_ID_FileLoader.vi" Type="VI" URL="../CAM_ID_FileLoader.vi"/>
 				<Item Name="CAM_ID_FileSave.vi" Type="VI" URL="../CAM_ID_FileSave.vi"/>
 				<Item Name="CAM_ID_Request.vi" Type="VI" URL="../CAM_ID_Request.vi"/>
+				<Item Name="Camera_Crop_X_Axis.vi" Type="VI" URL="../Camera_Crop_X_Axis.vi"/>
+				<Item Name="Camera_Crop_Y_Axis.vi" Type="VI" URL="../Camera_Crop_Y_Axis.vi"/>
 			</Item>
 			<Item Name="Pump and Actuator" Type="Folder">
 				<Item Name="Init_XE1000Pump.vi" Type="VI" URL="../Init_XE1000Pump.vi"/>
@@ -131,10 +136,6 @@
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
 		<Item Name="SRS.rtm" Type="Document" URL="../SRS.rtm"/>
 		<Item Name="MainWindow.vi" Type="VI" URL="../MainWindow.vi"/>
-		<Item Name="Snap2.vi" Type="VI" URL="../Snap2.vi"/>
-		<Item Name="Snap4.vi" Type="VI" URL="../Snap4.vi"/>
-		<Item Name="Camera_Crop_X_Axis.vi" Type="VI" URL="../Camera_Crop_X_Axis.vi"/>
-		<Item Name="Camera_Crop_Y_Axis.vi" Type="VI" URL="../Camera_Crop_Y_Axis.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
