@@ -45,6 +45,8 @@
 				<Item Name="Camera_ID.vi" Type="VI" URL="../Camera_ID.vi"/>
 				<Item Name="Camera_init.vi" Type="VI" URL="../Camera_init.vi"/>
 				<Item Name="Camera_Config.vi" Type="VI" URL="../Camera_Config.vi"/>
+				<Item Name="Camera_Config_Specific_Attributes.vi" Type="VI" URL="../Camera_Config_Specific_Attributes.vi"/>
+				<Item Name="Camera_Config_Global_Attributes.vi" Type="VI" URL="../Camera_Config_Global_Attributes.vi"/>
 				<Item Name="Camera_Capture_Init.vi" Type="VI" URL="../Camera_Capture_Init.vi"/>
 				<Item Name="Capture_Save_Initialize.vi" Type="VI" URL="../Capture_Save_Initialize.vi"/>
 				<Item Name="Camera_Crop_Setup.vi" Type="VI" URL="../Camera_Crop_Setup.vi"/>
