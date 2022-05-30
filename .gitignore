@@ -1,3 +1,4 @@
 *.zip
 /Builds
 /src/Arduino/ArduinoOutput
+/src/LabVIEW/images
