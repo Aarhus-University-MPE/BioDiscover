@@ -1,7 +1,5 @@
 {
-    "output": "src/Arduino/ArduinoOutput",
     "board": "arduino:avr:uno",
-    "programmer": "arduino:avrisp",
-    "sketch": "src\\Arduino\\OnBoard_Firmware\\OnBoard_Firmware.ino",
-    "port": "COM6"
+    "port": "COM6",
+    "sketch": "src\\Arduino\\OnBoard_Firmware\\OnBoard_Firmware.ino"
 }
