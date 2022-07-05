@@ -56,3 +56,11 @@ body:
     placeholder: What happened instead?
   validations:
     required: false
+
+
+- type: textarea
+  attributes:
+    label: Additional Information
+    placeholder: Add any additional information here.
+  validations:
+    required: false
