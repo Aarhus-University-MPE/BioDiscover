@@ -6,12 +6,12 @@ body:
 - type: markdown
   attributes:
     value: |
-      Please make sure to [search for existing issues](https://github.com/Aarhus-University-MPE/Ice-Nucleation-Controller/issues) before filing a new one!
+      Please make sure to [search for existing issues](https://github.com/Aarhus-University-MPE/BioDiscover/issues) before filing a new one!
 - type: input
   attributes:
-    label: Ice-Nucleation-Controller version
+    label: BioDiscover Software version
     placeholder: |
-      1.2.12
+      1.9.0
     description: |
       Check software description
   validations:
@@ -24,13 +24,14 @@ body:
     multiple: true
     options:
       - General
-      - Ice Nucleation Controller
-      - Thermal Camera Evaluation
-      - Thermal Camera Calibration
-      - Hardware Issue
-      - Freezing Point Detection
-      - Temperature Controller
-      - Performance
+      - Connections
+      - Pump
+      - Actuator
+      - Cameras
+      - Object Detection
+      - Object Data
+      - Image Saving
+      - Other
   validations:
     required: true
 
