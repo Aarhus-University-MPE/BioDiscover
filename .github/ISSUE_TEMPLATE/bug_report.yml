@@ -64,3 +64,11 @@ body:
     placeholder: Add any additional information here.
   validations:
     required: false
+    
+    
+- type: textarea
+  attributes:
+    label: Suggested Solution
+    placeholder: Add any potential solutions here.
+  validations:
+    required: false
