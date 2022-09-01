@@ -143,6 +143,7 @@
 		<Item Name="SRS.rtm" Type="Document" URL="../SRS.rtm"/>
 		<Item Name="MainWindow.vi" Type="VI" URL="../MainWindow.vi"/>
 		<Item Name="Image_Crop.vi" Type="VI" URL="../Image_Crop.vi"/>
+		<Item Name="Timestamp_Converter.vi" Type="VI" URL="../Timestamp_Converter.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
