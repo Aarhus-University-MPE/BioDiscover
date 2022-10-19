@@ -1,0 +1,82 @@
+Messages:
+Overall structure:
+
+{
+    type: "sample" | "image" | "summary" | "delete",
+    data: {
+
+    }
+}
+
+There are 4 types of messages:
+
+1. "sample" : Used when a new sample/specimen is detected. Contains metadata about the specimen and general setup.
+2. "image": Used when a new image is detected. Contains information about the image and has a reference to the image on the local filesystem.
+3. "summary": Used when the final image of a specimen has been taken. Contains summary statistics about the images taken.
+4. "delete": Used to delete a sample and all related data.
+
+Sample Data: 
+{ 
+    "type": "sample",
+    "data": {
+        id: UUID,
+        projectId: UUID,
+        voucherId: string,
+        speciesName: string,
+        collectionDate: iso-8601,
+        sampleStation: string,
+        location: string, 
+        lat: float, // epsg:4326 assumed
+        lon: float, // epsg:4326 assumed
+        determiner: string,
+        sex: string,
+        exposureTime: int,
+        framerate: int,
+        lightIntensityPct: float,
+        aperture: int,
+        operatorName: string,
+        date: iso-8601,
+        otherNotes: string
+    }
+}
+
+Image Data: 
+{
+    sampleId: UUID,
+    speciesName: string,
+    date: iso-8601,
+    imageName: string,
+    cameraNumber: int, 
+    imageNumber: int,
+    maxFeretDiameter: int,
+    perimeter: int,
+    area: int,
+    holes: int,
+    areaHoles: float,
+    roiLeft: int,
+    roiTop: int,
+    roiRight: int,
+    roiBottom: int
+}
+
+Summary Data: 
+{
+    sampleId: UUID,
+    maxFeretDiameterMax: int,
+    maxFeretDiameterMean: float,
+    maxFeretDiameterStdDev: float,
+    perimeterMean: float,
+    perimeterStdDev: float,
+    areaMean: float,
+    areaStdDev: float,
+    holesMean: float,
+    holesStdDev: float,
+    areaHolesMean: float,
+    areaHolesStdDev: float,
+    numberOfImages: int
+}
+
+Delete data: 
+{
+    sampleId: UUID
+}
