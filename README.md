@@ -5,6 +5,20 @@ Software designed to capture and store images of macroinvertebrates using the th
 
 # Change log
 
+**v1.9.0.0**
+Reworked Detection Algorithm
+
+- Improved version of previous Single Layer Difference Algorithm
+- New algorithm uses full RGB layer of image and calibration
+- Changed to Absolute Difference calculation into Intensity layer threshold
+
+_Previous Method:_
+![](https://github.com/MadsR/BioDiscover/blob/master/Documentation/Detect_Method_1.png)
+
+_New Method:_
+![](https://github.com/MadsR/BioDiscover/blob/master/Documentation/Detect_Method_2.png)
+
+
 **v1.8.0.0**
 
 Reworked GUI
