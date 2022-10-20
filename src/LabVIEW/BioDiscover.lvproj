@@ -81,6 +81,7 @@
 					<Item Name="Image_Processing_Queue.vi" Type="VI" URL="../Image_Processing_Queue.vi"/>
 					<Item Name="Image_Processing_Queue_Info.vi" Type="VI" URL="../Image_Processing_Queue_Info.vi"/>
 					<Item Name="Image_Detect_Object_HQ.vi" Type="VI" URL="../Image_Detect_Object_HQ.vi"/>
+					<Item Name="Image_Crop.vi" Type="VI" URL="../Image_Crop.vi"/>
 				</Item>
 			</Item>
 			<Item Name="System" Type="Folder">
@@ -115,8 +116,11 @@
 				<Item Name="CSV_Image_Data_Append.vi" Type="VI" URL="../CSV_Image_Data_Append.vi"/>
 				<Item Name="CSV_Image_Data_Create.vi" Type="VI" URL="../CSV_Image_Data_Create.vi"/>
 			</Item>
+			<Item Name="labbitMQ" Type="Folder"/>
 			<Item Name="Timestamp.vi" Type="VI" URL="../Timestamp.vi"/>
 			<Item Name="Save_Truth_Table.vi" Type="VI" URL="../Save_Truth_Table.vi"/>
+			<Item Name="Timestamp_Converter.vi" Type="VI" URL="../Timestamp_Converter.vi"/>
+			<Item Name="MainWindow.vi" Type="VI" URL="../MainWindow.vi"/>
 		</Item>
 		<Item Name="Test Functions" Type="Folder">
 			<Item Name="Camera_Trigger_Manual.vi" Type="VI" URL="../Camera_Trigger_Manual.vi"/>
@@ -141,9 +145,7 @@
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
 		<Item Name="SRS.rtm" Type="Document" URL="../SRS.rtm"/>
-		<Item Name="MainWindow.vi" Type="VI" URL="../MainWindow.vi"/>
-		<Item Name="Image_Crop.vi" Type="VI" URL="../Image_Crop.vi"/>
-		<Item Name="Timestamp_Converter.vi" Type="VI" URL="../Timestamp_Converter.vi"/>
+		<Item Name="labbitMQ.vi" Type="VI" URL="../labbitMQ.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
@@ -293,6 +295,14 @@
 				<Item Name="LV70DateRecToTimeStamp.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/LV70DateRecToTimeStamp.vi"/>
 				<Item Name="LV70DateRecToU32.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/LV70DateRecToU32.vi"/>
 				<Item Name="Trim Whitespace One-Sided.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Trim Whitespace One-Sided.vi"/>
+				<Item Name="Exchange.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Distrio/LabbitMQ/Exchange/Exchange.lvclass"/>
+				<Item Name="Connection.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Distrio/LabbitMQ/Connection/Connection.lvclass"/>
+				<Item Name="Channel.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Distrio/LabbitMQ/Channel/Channel.lvclass"/>
+				<Item Name="Queue.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/Distrio/LabbitMQ/Queue/Queue.lvclass"/>
+				<Item Name="Example fanout.vi" Type="VI" URL="/&lt;vilib&gt;/Distrio/LabbitMQ/Example fanout.vi"/>
+				<Item Name="RabbitMQ.Client.dll" Type="Document" URL="/&lt;vilib&gt;/Distrio/LabbitMQ/RabbitMQ.Client.dll"/>
+				<Item Name="Example one to two.vi" Type="VI" URL="/&lt;vilib&gt;/Distrio/LabbitMQ/Example one to two.vi"/>
+				<Item Name="Example two to one.vi" Type="VI" URL="/&lt;vilib&gt;/Distrio/LabbitMQ/Example two to one.vi"/>
 			</Item>
 			<Item Name="niimaqdx.dll" Type="Document" URL="niimaqdx.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -316,6 +326,9 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="mscorlib" Type="VI" URL="mscorlib">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 		</Item>
