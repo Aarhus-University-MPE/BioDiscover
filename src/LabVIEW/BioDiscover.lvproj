@@ -146,6 +146,7 @@
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
 		<Item Name="SRS.rtm" Type="Document" URL="../SRS.rtm"/>
 		<Item Name="labbitMQ.vi" Type="VI" URL="../labbitMQ.vi"/>
+		<Item Name="httpProducer.vi" Type="VI" URL="../httpProducer.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
@@ -198,8 +199,6 @@
 				<Item Name="Error Cluster From Error Code.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Error Cluster From Error Code.vi"/>
 				<Item Name="NI_FileType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/lvfile.llb/NI_FileType.lvlib"/>
 				<Item Name="Application Directory.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Application Directory.vi"/>
-				<Item Name="ROI Descriptor" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/ROI Descriptor"/>
-				<Item Name="NI_Vision_Development_Module.lvlib" Type="Library" URL="/&lt;vilib&gt;/vision/NI_Vision_Development_Module.lvlib"/>
 				<Item Name="IVA Mask from ROI.vi" Type="VI" URL="/&lt;vilib&gt;/vision/Vision Assistant Utils.llb/IVA Mask from ROI.vi"/>
 				<Item Name="Particle Parameters" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Particle Parameters"/>
 				<Item Name="Stall Data Flow.vim" Type="VI" URL="/&lt;vilib&gt;/Utility/Stall Data Flow.vim"/>
@@ -237,9 +236,6 @@
 				<Item Name="Write Delimited Spreadsheet.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Write Delimited Spreadsheet.vi"/>
 				<Item Name="IMAQ ReadFile 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ ReadFile 2"/>
 				<Item Name="IMAQ Rectangle" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Rectangle"/>
-				<Item Name="IMAQ WindEraseROI" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Display.llb/IMAQ WindEraseROI"/>
-				<Item Name="IMAQ Convert ROI to Rectangle" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Conversion.llb/IMAQ Convert ROI to Rectangle"/>
-				<Item Name="IMAQ ConstructROI" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Display.llb/IMAQ ConstructROI"/>
 				<Item Name="IMAQ Select Rectangle" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Construct.llb/IMAQ Select Rectangle"/>
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
 				<Item Name="IMAQ Bayer To RGB" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Bayer To RGB"/>
@@ -303,6 +299,18 @@
 				<Item Name="RabbitMQ.Client.dll" Type="Document" URL="/&lt;vilib&gt;/Distrio/LabbitMQ/RabbitMQ.Client.dll"/>
 				<Item Name="Example one to two.vi" Type="VI" URL="/&lt;vilib&gt;/Distrio/LabbitMQ/Example one to two.vi"/>
 				<Item Name="Example two to one.vi" Type="VI" URL="/&lt;vilib&gt;/Distrio/LabbitMQ/Example two to one.vi"/>
+				<Item Name="IMAQ Absolute Difference" Type="VI" URL="/&lt;vilib&gt;/vision/Operator.llb/IMAQ Absolute Difference"/>
+				<Item Name="IMAQ ExtractSingleColorPlane" Type="VI" URL="/&lt;vilib&gt;/vision/Color.llb/IMAQ ExtractSingleColorPlane"/>
+				<Item Name="IMAQ Threshold" Type="VI" URL="/&lt;vilib&gt;/vision/Process.llb/IMAQ Threshold"/>
+				<Item Name="IMAQ Particle Analysis" Type="VI" URL="/&lt;vilib&gt;/vision/Analysis.llb/IMAQ Particle Analysis"/>
+				<Item Name="IMAQ ROIToMask" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Tools.llb/IMAQ ROIToMask"/>
+				<Item Name="IMAQ Xor" Type="VI" URL="/&lt;vilib&gt;/vision/Operator.llb/IMAQ Xor"/>
+				<Item Name="IMAQ Mask" Type="VI" URL="/&lt;vilib&gt;/vision/Operator.llb/IMAQ Mask"/>
+				<Item Name="IMAQ Extract" Type="VI" URL="/&lt;vilib&gt;/vision/Image Manipulation.llb/IMAQ Extract"/>
+				<Item Name="IMAQ Subtract" Type="VI" URL="/&lt;vilib&gt;/vision/Operator.llb/IMAQ Subtract"/>
+				<Item Name="Path To Command Line String.vi" Type="VI" URL="/&lt;vilib&gt;/AdvancedString/Path To Command Line String.vi"/>
+				<Item Name="LabVIEWHTTPClient.lvlib" Type="Library" URL="/&lt;vilib&gt;/httpClient/LabVIEWHTTPClient.lvlib"/>
+				<Item Name="PathToUNIXPathString.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/CFURL.llb/PathToUNIXPathString.vi"/>
 			</Item>
 			<Item Name="niimaqdx.dll" Type="Document" URL="niimaqdx.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
