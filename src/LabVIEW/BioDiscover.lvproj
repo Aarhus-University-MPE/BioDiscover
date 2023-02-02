@@ -81,6 +81,7 @@
 					<Item Name="Image_Processing_Queue.vi" Type="VI" URL="../Image_Processing_Queue.vi"/>
 					<Item Name="Image_Processing_Queue_Info.vi" Type="VI" URL="../Image_Processing_Queue_Info.vi"/>
 					<Item Name="Image_Detect_Object_HQ.vi" Type="VI" URL="../Image_Detect_Object_HQ.vi"/>
+					<Item Name="Image_Crop.vi" Type="VI" URL="../Image_Crop.vi"/>
 				</Item>
 			</Item>
 			<Item Name="System" Type="Folder">
@@ -116,6 +117,7 @@
 				<Item Name="CSV_Image_Data_Create.vi" Type="VI" URL="../CSV_Image_Data_Create.vi"/>
 			</Item>
 			<Item Name="Timestamp.vi" Type="VI" URL="../Timestamp.vi"/>
+			<Item Name="Timestamp_Converter.vi" Type="VI" URL="../Timestamp_Converter.vi"/>
 			<Item Name="Save_Truth_Table.vi" Type="VI" URL="../Save_Truth_Table.vi"/>
 		</Item>
 		<Item Name="Test Functions" Type="Folder">
@@ -142,8 +144,6 @@
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
 		<Item Name="SRS.rtm" Type="Document" URL="../SRS.rtm"/>
 		<Item Name="MainWindow.vi" Type="VI" URL="../MainWindow.vi"/>
-		<Item Name="Image_Crop.vi" Type="VI" URL="../Image_Crop.vi"/>
-		<Item Name="Timestamp_Converter.vi" Type="VI" URL="../Timestamp_Converter.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
@@ -334,7 +334,7 @@
 				<Property Name="Bld_localDestDir" Type="Path">/D/Projects/NI_AB_PROJECTNAME/Builds/Full Build</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{09FD23A0-93D2-46A2-B12D-FA02255F97C6}</Property>
-				<Property Name="Bld_version.build" Type="Int">32</Property>
+				<Property Name="Bld_version.build" Type="Int">35</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">9</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
@@ -470,7 +470,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.34</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.37</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">22308000</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
@@ -524,7 +524,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">Update.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.43</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.46</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">22308000</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
