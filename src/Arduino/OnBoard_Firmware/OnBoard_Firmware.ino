@@ -15,9 +15,9 @@
 //              Initialize              //
 //--------------------------------------//
 
-#define CAM_ID1           23466451        // ID for camera 1
-#define CAM_ID2           23466452        // ID for camera 2
-#define SYS_SERIAL        "1.2-01-07.21"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
+#define CAM_ID1           23466450        // ID for camera 1
+#define CAM_ID2           23734554        // ID for camera 2
+#define SYS_SERIAL        "1.2-03-06.21"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
 
 // Request ID's
 #define CMD_CLOSE         101  // Start Closing maneuver
@@ -51,8 +51,8 @@ unsigned long delayStart = 0;      // the time the delay started
 const int manual_dur      = 3000;  // Manual actuator duration [ms]
 const int Safety_Duration = 6000;  // Actuator safety duration [ms]
 
-const int RTRCT_Pos = 45;   // End position
-const int EXTND_Pos = 705;  // End position
+const int RTRCT_Pos = 370;   // End position
+const int EXTND_Pos = 1020;  // End position
 
 // Pinout
 const int HB_ENABLE = PIN_D5;
