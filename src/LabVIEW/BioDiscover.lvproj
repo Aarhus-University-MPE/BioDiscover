@@ -122,7 +122,11 @@
 			</Item>
 			<Item Name="Timestamp.vi" Type="VI" URL="../Timestamp.vi"/>
 			<Item Name="Timestamp_Converter.vi" Type="VI" URL="../Timestamp_Converter.vi"/>
+			<Item Name="Sample_String_Splitter.vi" Type="VI" URL="../Sample_String_Splitter.vi"/>
 			<Item Name="Save_Truth_Table.vi" Type="VI" URL="../Save_Truth_Table.vi"/>
+			<Item Name="Double2Float.vi" Type="VI" URL="../Double2Float.vi"/>
+			<Item Name="Aperture2String.vi" Type="VI" URL="../Aperture2String.vi"/>
+			<Item Name="Integer2String.vi" Type="VI" URL="../Integer2String.vi"/>
 		</Item>
 		<Item Name="Test Functions" Type="Folder">
 			<Item Name="Camera_Trigger_Manual.vi" Type="VI" URL="../Camera_Trigger_Manual.vi"/>
@@ -296,6 +300,9 @@
 				<Item Name="LV70DateRecToTimeStamp.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/LV70DateRecToTimeStamp.vi"/>
 				<Item Name="LV70DateRecToU32.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/LV70DateRecToU32.vi"/>
 				<Item Name="Trim Whitespace One-Sided.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Trim Whitespace One-Sided.vi"/>
+				<Item Name="Get File Extension.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Get File Extension.vi"/>
+				<Item Name="Is Path and Not Empty.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Is Path and Not Empty.vi"/>
+				<Item Name="Show in File System.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Show in File System.vi"/>
 			</Item>
 			<Item Name="niimaqdx.dll" Type="Document" URL="niimaqdx.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
