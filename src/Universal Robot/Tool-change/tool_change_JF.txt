@@ -1,0 +1,88 @@
+ Program
+   Robot Program
+     MoveJ
+       Tool_change
+     Set
+     If Old_Tool≟1
+       If Tool1≟ False 
+         MoveL
+           Tool_1_safe
+           Tool1_on
+           tool_1
+         Set TC_active=Off
+         Set TC_release=On
+         Wait: 0.5
+         Set TC_release=Off
+         MoveL
+           Tool1_on
+       Else
+         Popup
+     'skipping tool 0-> No tool on robot'
+     If Old_Tool≟2
+       If Tool2≟ False 
+         MoveL
+           Tool_2_safe
+           tool2_on
+           tool_2
+         Set TC_active=Off
+         Set TC_release=On
+         Wait: 0.5
+         Set TC_release=Off
+         MoveL
+           tool2_on
+       Else
+         Popup
+     If Old_Tool≟3
+       If Tool3≟ False 
+         MoveL
+           Tool_3_safe
+           tool_3_on
+           tool_3
+         Set TC_active=Off
+         Set TC_release=On
+         Wait: 0.5
+         Set TC_release=Off
+         MoveL
+           tool_3_on
+       Else
+         Popup
+     If New_Tool≟1
+       If Tool1≟ True 
+         MoveL
+           Tool1_on
+           tool_1
+         Set TC_active=On
+         Wait: 0.5
+         MoveL
+           Tool1_on
+           Tool_1_safe
+       Else
+         Popup
+     If New_Tool≟2
+       If Tool2≟ True 
+         MoveL
+           tool2_on
+           tool_2
+         Set TC_active=On
+         Set Schunk_reset=HI:Pulse 0.5
+         Wait: 0.5
+         MoveL
+           tool2_on
+           Tool_2_safe
+       Else
+         Popup
+     If New_Tool≟3
+       If Tool3≟ True 
+         MoveL
+           tool_3_on
+           tool_3
+         Set TC_active=On
+         Wait: 0.5
+         MoveL
+           tool_3_on
+           Tool_3_safe
+       Else
+         Popup
+     MoveJ
+       Tool_change
+     Old_Tool≔New_Tool

@@ -1,0 +1,71 @@
+ Program
+   Robot Program
+     MoveJ
+       Tip_change
+     Set
+     'skipping tip 0-> No tool on robot'
+     If Old_tip≟3
+       MoveL
+         Tip1_high
+         Tip1_Slip
+         Tip1_Lock
+         Tip1_Twistoff
+         Tip1_high
+       'MoveL'
+     If Old_tip≟4
+       MoveL
+         Tip2_High
+         Tip2_Slip
+         Tip2_Lock
+         Tip2_Twistoff
+         Tip2_High
+       'MoveL'
+     If Old_tip≟5
+       MoveL
+         Tip3_High
+         Tip3_Slip
+         Tip3_Lock
+         Tip3_Twistoff
+         Tip3_High
+       'MoveL'
+     If Old_tip≟6
+       MoveL
+         Tip4_High
+         Tip4_Slip
+         Tip4_Lock
+         Tip4_Twistoff
+         Tip4_High
+       'MoveL'
+     If New_tip≟3
+       MoveL
+         Tip1_high
+         Tip1_press
+         Tip1_Lock
+         Tip1_Slip
+         Tip1_high
+     If New_tip≟4
+       MoveL
+         Tip2_High
+         Tip2_Press
+         Tip2_Lock
+         Tip2_Slip
+         Tip2_High
+     If New_tip≟5
+       MoveL
+         Tip3_High
+         Tip3_Press
+         Tip3_Lock
+         Tip3_Slip
+         Tip3_High
+     If New_tip≟6
+       MoveL
+         Tip4_High
+         Tip4_Press
+         Tip4_Lock
+         Tip4_Slip
+         Tip4_High
+     MoveJ
+       Tip_change
+     If New_tip≠0
+       Set
+     Old_tip≔New_tip
