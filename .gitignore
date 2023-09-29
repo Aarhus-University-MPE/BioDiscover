@@ -1,4 +1,5 @@
 *.zip
-/Builds
+*.exe
+/Builds/bin
 /src/Arduino/ArduinoOutput
 /src/LabVIEW/images

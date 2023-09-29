@@ -1,0 +1,5 @@
+;!@Install@!UTF-8!
+Title="BioDiscover Updater"
+BeginPrompt="Do you want to update BioDiscover Software?"
+RunProgram="./Update/Volume/update.exe"
+;!@InstallEnd@!
