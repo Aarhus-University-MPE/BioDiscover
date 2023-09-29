@@ -1,0 +1,374 @@
+ Program
+   BeforeStart
+     open≔socket_open("192.168.0.15",30002)
+     Old_Tool≔0
+     Old_tip≔0
+     Set Nano_bit0=Off
+     Set Nano_bit1=Off
+     Set Nano_bit2=Off
+     Set Nano_bit3=Off
+     Set Power_Nano_TB66=On
+     Set Power_18V=On
+     Call Tool_initiation_tjeck
+   Robot Program
+     Loop open≟ False 
+       open≔socket_open("192.168.0.15",30002)
+       Wait: 0.5
+     data≔socket_read_ascii_float(8)
+     Wait: 0.5
+     If data[0]≠0
+       task≔data[1]
+       New_Tool_Setup≔data[2]
+       X_axis≔data[3]
+       Y_axis≔data[4]
+       Z_axis≔data[5]
+       X_rot≔data[6]
+       Y_rot≔data[7]
+       Z_rot≔data[8]
+       Rot≔[d2r(data[6]),d2r(data[7]),d2r(data[8])]
+       rot_v≔rpy2rotvec(Rot)
+       Insect_pos_High≔p[X_axis,Y_axis,Z_axis+0.05,rot_v[0],rot_v[1],rot_v[2]]
+       Insect_pos≔p[X_axis,Y_axis,Z_axis,rot_v[0],rot_v[1],rot_v[2]]
+       If New_Tool_Setup≠0
+         If New_Tool_Setup>3
+           New_tip≔New_Tool_Setup-1
+           New_Tool≔1
+           Set
+         Else
+           New_tip≔0
+           New_Tool≔New_Tool_Setup
+       Else
+         New_Tool≔0
+         New_tip≔0
+       If Old_Tool≟1 and New_tip≠Old_tip
+         Call tip_change_JF
+       'Switch New_Tool'
+       If New_Tool≠Old_Tool
+         Call tool_change_JF
+       If New_tip≠Old_tip
+         Call tip_change_JF
+       'If New_tip≠Old_tip'
+       If task≟1
+         Wait: 0.5
+         Set Nano_bit0=HI:Pulse 0.5
+         Set Nano_bit1=HI:Pulse 0.5
+         Set Nano_bit2=HI:Pulse 0.5
+         Set Nano_bit3=HI:Pulse 0.5
+         Wait Nano_done_bit>4.0
+         Wait: 0.5
+         MoveL
+           'ST_0_pos'
+           Cam_point
+           Wait: 12.0
+           'Waypoint_1'
+       If task≟2
+         Wait: 0.5
+         Set Nano_bit0=HI:Pulse 0.5
+         Set Nano_bit1=HI:Pulse 0.5
+         Set Nano_bit2=HI:Pulse 0.5
+         Set Nano_bit3=HI:Pulse 0.5
+         Wait Nano_done_bit>4.0
+         Wait: 0.5
+       If task≟3
+         Wait: 0.5
+         Set Nano_bit2=HI:Pulse 0.5
+         Set Nano_bit3=HI:Pulse 0.5
+         Wait Nano_done_bit>4.0
+         Wait: 0.5
+       If task≟4
+         Wait: 0.5
+         Set Nano_bit0=HI:Pulse 0.5
+         Set Nano_bit2=HI:Pulse 0.5
+         Set Nano_bit3=HI:Pulse 0.5
+         Wait Nano_done_bit>4.0
+         Wait: 0.5
+       If task≟5
+         Wait: 0.5
+         Set Nano_bit1=HI:Pulse 0.5
+         Set Nano_bit2=HI:Pulse 0.5
+         Set Nano_bit3=HI:Pulse 0.5
+         Wait Nano_done_bit>4.0
+         Wait: 0.5
+       If task≟6
+         Wait: 0.5
+         Set Nano_bit0=HI:Pulse 0.5
+         Wait Nano_done_bit>4.0
+         Wait: 0.5
+         Set Nano_bit1=HI:Pulse 0.5
+         Wait Nano_done_bit>4.0
+         Wait: 0.5
+       If task≟7
+         Wait: 0.5
+         If New_Tool_Setup≟1
+           Set
+         Else
+           Set
+         MoveL
+           'Task7_Picup1'
+           'Task7_Picup2'
+           Insect_pos_High
+           'Insect_pos'
+         Set Nano_bit2=HI:Pulse 0.5
+         Wait Nano_done_bit>4.0
+         MoveL
+           Insect_pos
+         Set Nano_bit1=HI:Pulse 0.5
+         Set Nano_bit2=HI:Pulse 0.5
+         Wait Nano_done_bit>4.0
+         Wait: 0.5
+         MoveL
+           'Task7_Picup1'
+           Insect_pos_High
+           Task7_Place1
+           Task7_Place2
+         Set Nano_bit0=HI:Pulse 0.5
+         Set Nano_bit1=HI:Pulse 0.5
+         Wait Nano_done_bit>4.0
+         Wait: 0.5
+         MoveL
+           Task7_Place1
+         Wait: 0.5
+       If task≟8
+         Wait: 0.5
+         Set AO[0]=10.0
+         Set AO[1]=8.0
+         MoveL
+           'Task8_Picup1'
+           Insect_pos_High
+         Set Tool2_Open=HI:Pulse 2.5
+         Wait: 2.5
+         MoveL
+           'Task8_Picup2'
+           Insect_pos
+         Set Tool2_Closed=HI:Pulse 2.5
+         Wait: 2.5
+         MoveL
+           'Task8_Picup1'
+           Insect_pos_High
+           Task8_Place1
+           Task8_Place2
+         Set Tool2_Open=HI:Pulse 2.5
+         Wait: 2.5
+         MoveL
+           Task8_Place1
+         Wait: 0.5
+       If task≟9
+         Wait: 0.5
+         Set Tool3_Air=On
+         Set tool3_close=HI:Pulse 0.2
+         Wait: 0.5
+         MoveL
+           Task9_Picup1
+           Task9_Picup2
+         Set tool3_open=HI:Pulse 0.2
+         Wait: 0.5
+         MoveL
+           Task9_Picup1
+         Set Tool3_Air=Off
+         Wait: 0.5
+       If task≟10
+         Wait: 0.5
+         If New_Tool≟1
+           Set
+         If New_Tool≟2
+           Set
+         If New_Tool≟3
+           Set
+         If New_tip≠0
+           Set
+         Wait: 0.5
+         MoveL
+           Insect_pos
+         Wait: 0.5
+       If task≟55
+         MoveJ
+           Reset_pos
+         socket_send_string("Done")
+         Popup
+       'pos_calc≔p[pos_raw[1]/1000,pos_raw[2]/1000,pos_raw[3]/1000,d2r(pos_raw[4]),d2r(pos_raw[5]),d2r(pos_raw[6])]'
+       'act_pos≔get_actual_tcp_pose()'
+       'transfer≔pose_trans(act_pos,pos_calc)'
+       'MoveJ'
+       'socket_send_string("Done")'
+       'socket_close()'
+     socket_send_string("Done")
+   Tool_initiation_tjeck
+     Active_tools≔0
+     If Tool1≟ False 
+       Old_Tool≔1
+       Active_tools≔Active_tools+1
+       Set TC_active=On
+       'Popup'
+     If Tool2≟ False 
+       Old_Tool≔2
+       Active_tools≔Active_tools+1
+       Set TC_active=On
+       'Popup'
+     If Tool3≟ False 
+       Old_Tool≔3
+       Active_tools≔Active_tools+1
+       Set TC_active=On
+       'Popup'
+     If Tool1 and Tool2 and Tool3≟ True 
+       Old_Tool≔0
+       'Popup'
+     If Active_tools>1
+       Popup
+     'Wait: 5.0'
+   tool_change_JF
+     MoveJ
+       Tool_change
+     Set
+     If Old_Tool≟1
+       If Tool1≟ False 
+         MoveL
+           Tool_1_safe
+           Tool1_on
+           tool_1
+         Set TC_active=Off
+         Set TC_release=On
+         Wait: 0.5
+         Set TC_release=Off
+         MoveL
+           Tool1_on
+       Else
+         Popup
+     'skipping tool 0-> No tool on robot'
+     If Old_Tool≟2
+       If Tool2≟ False 
+         MoveL
+           Tool_2_safe
+           tool2_on
+           tool_2
+         Set TC_active=Off
+         Set TC_release=On
+         Wait: 0.5
+         Set TC_release=Off
+         MoveL
+           tool2_on
+       Else
+         Popup
+     If Old_Tool≟3
+       If Tool3≟ False 
+         MoveL
+           Tool_3_safe
+           tool_3_on
+           tool_3
+         Set TC_active=Off
+         Set TC_release=On
+         Wait: 0.5
+         Set TC_release=Off
+         MoveL
+           tool_3_on
+       Else
+         Popup
+     If New_Tool≟1
+       If Tool1≟ True 
+         MoveL
+           Tool1_on
+           tool_1
+         Set TC_active=On
+         Wait: 0.5
+         MoveL
+           Tool1_on
+           Tool_1_safe
+       Else
+         Popup
+     If New_Tool≟2
+       If Tool2≟ True 
+         MoveL
+           tool2_on
+           tool_2
+         Set TC_active=On
+         Set Schunk_reset=HI:Pulse 0.5
+         Wait: 0.5
+         MoveL
+           tool2_on
+           Tool_2_safe
+       Else
+         Popup
+     If New_Tool≟3
+       If Tool3≟ True 
+         MoveL
+           tool_3_on
+           tool_3
+         Set TC_active=On
+         Wait: 0.5
+         MoveL
+           tool_3_on
+           Tool_3_safe
+       Else
+         Popup
+     MoveJ
+       Tool_change
+     Old_Tool≔New_Tool
+   tip_change_JF
+     MoveJ
+       Tip_change
+     Set
+     'skipping tip 0-> No tool on robot'
+     If Old_tip≟3
+       MoveL
+         Tip1_high
+         Tip1_Slip
+         Tip1_Lock
+         Tip1_Twistoff
+         Tip1_high
+       'MoveL'
+     If Old_tip≟4
+       MoveL
+         Tip2_High
+         Tip2_Slip
+         Tip2_Lock
+         Tip2_Twistoff
+         Tip2_High
+       'MoveL'
+     If Old_tip≟5
+       MoveL
+         Tip3_High
+         Tip3_Slip
+         Tip3_Lock
+         Tip3_Twistoff
+         Tip3_High
+       'MoveL'
+     If Old_tip≟6
+       MoveL
+         Tip4_High
+         Tip4_Slip
+         Tip4_Lock
+         Tip4_Twistoff
+         Tip4_High
+       'MoveL'
+     If New_tip≟3
+       MoveL
+         Tip1_high
+         Tip1_press
+         Tip1_Lock
+         Tip1_Slip
+         Tip1_high
+     If New_tip≟4
+       MoveL
+         Tip2_High
+         Tip2_Press
+         Tip2_Lock
+         Tip2_Slip
+         Tip2_High
+     If New_tip≟5
+       MoveL
+         Tip3_High
+         Tip3_Press
+         Tip3_Lock
+         Tip3_Slip
+         Tip3_High
+     If New_tip≟6
+       MoveL
+         Tip4_High
+         Tip4_Press
+         Tip4_Lock
+         Tip4_Slip
+         Tip4_High
+     MoveJ
+       Tip_change
+     If New_tip≠0
+       Set
+     Old_tip≔New_tip

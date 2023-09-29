@@ -1,0 +1,926 @@
+def Main_JF():
+  set_tool_voltage(24)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 1)
+  set_analog_outputdomain(1, 1)
+  set_input_actions_to_default()
+  set_runstate_configurable_digital_outputs([0,2])
+  set_runstate_configurable_digital_output_to_value(0, 1)
+  set_runstate_configurable_digital_output_to_value(2, 1)
+  set_safety_mode_transition_hardness(1)
+  set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+  set_payload(0.78,[0.0,0.0,0.0])
+  set_gravity([0.0, 0.0, 9.82])
+  global Old_Tool=0
+  global Old_tip=0
+  global open=True
+  global New_Tool=0
+  global New_tip=0
+  global Plane_1=p[-0.0770007253691134,-0.2569038687826412,-0.14164607246586347,-1.3815727388786158E-4,3.9157092093331376E-4,4.846773329003927E-4]
+  global Plane_2=p[-0.05274787273759442,-0.37769989477481725,-0.1108362793604244,-1.9373205353577651E-4,6.361596437533793E-5,0.004578877010584004]
+  rtde_set_watchdog("speed_slider_mask", 10.0, "ignore")
+  $ 194 "Tool_initiation_tjeck"
+  def Tool_initiation_tjeck():
+    $ 195 "Active_tools≔0"
+    global Active_tools=0
+    $ 196 "If Tool1≟ False "
+    if (get_standard_digital_in(4) ==   False  ):
+      $ 197 "Old_Tool≔1"
+      global Old_Tool=1
+      $ 198 "Active_tools≔Active_tools+1"
+      global Active_tools=Active_tools+1
+      $ 199 "Set TC_active=On"
+      set_standard_digital_out(6, True)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+    end
+    $ 201 "If Tool2≟ False "
+    if (get_standard_digital_in(5) ==   False  ):
+      $ 202 "Old_Tool≔2"
+      global Old_Tool=2
+      $ 203 "Active_tools≔Active_tools+1"
+      global Active_tools=Active_tools+1
+      $ 204 "Set TC_active=On"
+      set_standard_digital_out(6, True)
+      set_tcp(p[0.0,0.0,0.27304,-1.0E-4,3.1415,0.0])
+    end
+    $ 206 "If Tool3≟ False "
+    if (get_standard_digital_in(6) ==   False  ):
+      $ 207 "Old_Tool≔3"
+      global Old_Tool=3
+      $ 208 "Active_tools≔Active_tools+1"
+      global Active_tools=Active_tools+1
+      $ 209 "Set TC_active=On"
+      set_standard_digital_out(6, True)
+      set_tcp(p[0.0,0.0,0.22568000000000002,-1.0E-4,3.1415,1.0E-4])
+    end
+    $ 211 "If Tool1 and Tool2 and Tool3≟ True "
+    if (get_standard_digital_in(4)  and  get_standard_digital_in(5)  and  get_standard_digital_in(6) ==   True  ):
+      $ 212 "Old_Tool≔0"
+      global Old_Tool=0
+    end
+    $ 214 "If Active_tools>1"
+    if (Active_tools>1):
+      $ 215 "Popup"
+      popup("Reset Tools", "Message", False, False, blocking=True)
+    end
+  end
+  $ 217 "tool_change_JF"
+  def tool_change_JF():
+    $ 218 "MoveJ"
+    $ 219 "Tool_change"
+    set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+    movej(get_inverse_kin(p[.075984110183, -.313148453483, .341083493274, -.000042858037, .000070803764, -.276387971492], qnear=[-0.9849045912372034, -1.1239455381976526, -2.0033910910235804, -1.5859487692462366, 1.5805548429489136, 0.8629750609397888]), a=1.3962634015954636, v=1.0471975511965976)
+    $ 220 "Set"
+    set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+    $ 221 "If Old_Tool≟1"
+    if (Old_Tool == 1):
+      $ 222 "If Tool1≟ False "
+      if (get_standard_digital_in(4) ==   False  ):
+        $ 223 "MoveL"
+        $ 224 "Tool_1_safe"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.227333104409, -.476653285049, .081629542694, .006761875985, .000730114175, -.253146353508], a=1.2, v=0.25)
+        $ 225 "Tool1_on"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.376177722324, -.474572338450, .076626112925, .006734442537, .000772338054, -.253187983482], a=1.2, v=0.25)
+        $ 226 "tool_1"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.376117052871, -.474426260259, .051326529792, .006760266829, .000776520042, -.281322979308], a=1.2, v=0.25)
+        $ 227 "Set TC_active=Off"
+        set_standard_digital_out(6, False)
+        $ 228 "Set TC_release=On"
+        set_standard_digital_out(7, True)
+        set_payload_mass(0.78)
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        $ 229 "Wait: 0.5"
+        sleep(0.5)
+        $ 230 "Set TC_release=Off"
+        set_standard_digital_out(7, False)
+        $ 231 "MoveL"
+        $ 232 "Tool1_on"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.376177722324, -.474572338450, .076626112925, .006734442537, .000772338054, -.253187983482], a=1.2, v=0.25)
+      else:
+        $ 233 "Else"
+        $ 234 "Popup"
+        popup("something blocking tool 1 storage", "Message", False, False, blocking=True)
+      end
+    end
+    $ 235 "'skipping tool 0-> No tool on robot'"
+    # 'skipping tool 0-> No tool on robot'
+    $ 236 "If Old_Tool≟2"
+    if (Old_Tool == 2):
+      $ 237 "If Tool2≟ False "
+      if (get_standard_digital_in(5) ==   False  ):
+        $ 238 "MoveL"
+        $ 239 "Tool_2_safe"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.223877764355, -.311697955209, .082740421901, .007143465893, .000770317874, -.253183650068], a=1.2, v=0.25)
+        $ 240 "tool2_on"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.373864019551, -.309584482399, .077742797730, .007074699072, .000685741978, -.253094303142], a=1.2, v=0.25)
+        $ 241 "tool_2"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.373870385429, -.309418349740, .052275307580, .006908690682, .000796876617, -.276628255771], a=1.2, v=0.25)
+        $ 242 "Set TC_active=Off"
+        set_standard_digital_out(6, False)
+        $ 243 "Set TC_release=On"
+        set_standard_digital_out(7, True)
+        set_payload_mass(0.78)
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        $ 244 "Wait: 0.5"
+        sleep(0.5)
+        $ 245 "Set TC_release=Off"
+        set_standard_digital_out(7, False)
+        $ 246 "MoveL"
+        $ 247 "tool2_on"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.373864019551, -.309584482399, .077742797730, .007074699072, .000685741978, -.253094303142], a=1.2, v=0.25)
+      else:
+        $ 248 "Else"
+        $ 249 "Popup"
+        popup("something blocking tool 2", "Message", False, False, blocking=True)
+      end
+    end
+    $ 250 "If Old_Tool≟3"
+    if (Old_Tool == 3):
+      $ 251 "If Tool3≟ False "
+      if (get_standard_digital_in(6) ==   False  ):
+        $ 252 "MoveL"
+        $ 253 "Tool_3_safe"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.221625806347, -.146718903381, .083867370615, .007068651101, .000788549024, -.253186030071], a=1.2, v=0.25)
+        $ 254 "tool_3_on"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.371646013537, -.144640367910, .078859174225, .007092456814, .000741576227, -.253181891639], a=1.2, v=0.25)
+        $ 255 "tool_3"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.371625635523, -.144442019172, .053375808638, .007078600978, .000722990893, -.253246104689], a=1.2, v=0.25)
+        $ 256 "Set TC_active=Off"
+        set_standard_digital_out(6, False)
+        $ 257 "Set TC_release=On"
+        set_standard_digital_out(7, True)
+        set_payload_mass(0.78)
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        $ 258 "Wait: 0.5"
+        sleep(0.5)
+        $ 259 "Set TC_release=Off"
+        set_standard_digital_out(7, False)
+        $ 260 "MoveL"
+        $ 261 "tool_3_on"
+        movel(p[-.371646013537, -.144640367910, .078859174225, .007092456814, .000741576227, -.253181891639], a=1.2, v=0.25)
+      else:
+        $ 262 "Else"
+        $ 263 "Popup"
+        popup("something blocking tool3 storage", "Message", False, False, blocking=True)
+      end
+    end
+    $ 264 "If New_Tool≟1"
+    if (New_Tool == 1):
+      $ 265 "If Tool1≟ True "
+      if (get_standard_digital_in(4) ==   True  ):
+        $ 266 "MoveL"
+        $ 267 "Tool1_on"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.376177722324, -.474572338450, .076626112925, .006734442537, .000772338054, -.253187983482], a=1.2, v=0.25)
+        $ 268 "tool_1"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.376117052871, -.474426260259, .051326529792, .006760266829, .000776520042, -.281322979308], a=1.2, v=0.25)
+        $ 269 "Set TC_active=On"
+        set_standard_digital_out(6, True)
+        set_payload_mass(1.41)
+        set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+        $ 270 "Wait: 0.5"
+        sleep(0.5)
+        $ 271 "MoveL"
+        $ 272 "Tool1_on"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.376177722324, -.474572338450, .076626112925, .006734442537, .000772338054, -.253187983482], a=1.2, v=0.25)
+        $ 273 "Tool_1_safe"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.227333104409, -.476653285049, .081629542694, .006761875985, .000730114175, -.253146353508], a=1.2, v=0.25)
+      else:
+        $ 274 "Else"
+        $ 275 "Popup"
+        popup("tool 1 not in place", "Message", False, False, blocking=True)
+      end
+    end
+    $ 276 "If New_Tool≟2"
+    if (New_Tool == 2):
+      $ 277 "If Tool2≟ True "
+      if (get_standard_digital_in(5) ==   True  ):
+        $ 278 "MoveL"
+        $ 279 "tool2_on"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.373864019551, -.309584482399, .077742797730, .007074699072, .000685741978, -.253094303142], a=1.2, v=0.25)
+        $ 280 "tool_2"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.373870385429, -.309418349740, .052275307580, .006908690682, .000796876617, -.276628255771], a=1.2, v=0.25)
+        $ 281 "Set TC_active=On"
+        set_standard_digital_out(6, True)
+        set_payload_mass(1.87)
+        set_tcp(p[0.0,0.0,0.27304,-1.0E-4,3.1415,0.0])
+        $ 282 "Set Schunk_reset=HI:Pulse 0.5"
+        thread SinglePulse0():
+          set_standard_digital_out(0, True)
+          sleep(0.5)
+          set_standard_digital_out(0, False)
+        end
+        singlePulse0 = run SinglePulse0()
+        $ 283 "Wait: 0.5"
+        sleep(0.5)
+        $ 284 "MoveL"
+        $ 285 "tool2_on"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.373864019551, -.309584482399, .077742797730, .007074699072, .000685741978, -.253094303142], a=1.2, v=0.25)
+        $ 286 "Tool_2_safe"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.223877764355, -.311697955209, .082740421901, .007143465893, .000770317874, -.253183650068], a=1.2, v=0.25)
+      else:
+        $ 287 "Else"
+        $ 288 "Popup"
+        popup("tool 2 not in place", "Message", False, False, blocking=True)
+      end
+    end
+    $ 289 "If New_Tool≟3"
+    if (New_Tool == 3):
+      $ 290 "If Tool3≟ True "
+      if (get_standard_digital_in(6) ==   True  ):
+        $ 291 "MoveL"
+        $ 292 "tool_3_on"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.371646013537, -.144640367910, .078859174225, .007092456814, .000741576227, -.253181891639], a=1.2, v=0.25)
+        $ 293 "tool_3"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.371625635523, -.144442019172, .053375808638, .007078600978, .000722990893, -.253246104689], a=1.2, v=0.25)
+        $ 294 "Set TC_active=On"
+        set_standard_digital_out(6, True)
+        set_payload_mass(1.28)
+        set_tcp(p[0.0,0.0,0.22568000000000002,-1.0E-4,3.1415,1.0E-4])
+        $ 295 "Wait: 0.5"
+        sleep(0.5)
+        $ 296 "MoveL"
+        $ 297 "tool_3_on"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.371646013537, -.144640367910, .078859174225, .007092456814, .000741576227, -.253181891639], a=1.2, v=0.25)
+        $ 298 "Tool_3_safe"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movel(p[-.221625806347, -.146718903381, .083867370615, .007068651101, .000788549024, -.253186030071], a=1.2, v=0.25)
+      else:
+        $ 299 "Else"
+        $ 300 "Popup"
+        popup("tool  3 not in place", "Message", False, False, blocking=True)
+      end
+    end
+    $ 301 "MoveJ"
+    $ 302 "Tool_change"
+    movej(get_inverse_kin(p[.075984110183, -.313148453483, .341083493274, -.000042858037, .000070803764, -.276387971492], qnear=[-0.9849045912372034, -1.1239455381976526, -2.0033910910235804, -1.5859487692462366, 1.5805548429489136, 0.8629750609397888]), a=1.3962634015954636, v=1.0471975511965976)
+    $ 303 "Old_Tool≔New_Tool"
+    global Old_Tool=New_Tool
+  end
+  def tip_change_JF():
+    set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+    movej(get_inverse_kin(p[-.081571041689, -.272848135185, .299256207466, .000010599753, .000091034070, -1.545000225581], qnear=[-1.2314394156085413, -0.8807929197894495, -1.7776911894427698, -1.8250792662249964, 1.475998878479004, 2.150223970413208]), a=1.3962634015954636, v=1.0471975511965976)
+    set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+    # 'skipping tip 0-> No tool on robot'
+    if (Old_tip == 3):
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538968396853, -.338377608337, .326941763397, -.006750101562, .008486174075, 3.126496266078], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538568398257, -.337869202387, .236938532763, -.006755020820, .008472033663, 3.124160891745], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538583486898, -.338869073989, .236943928390, .001253579096, -.008321164788, -2.111822295346], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538643361780, -.338792623777, .250943591614, -.002675953729, -.006760978995, -1.059027481881], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538968396853, -.338377608337, .326941763397, -.006750101562, .008486174075, 3.126496266078], a=1.2, v=0.25)
+    end
+    if (Old_tip == 4):
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538643991063, -.316880368898, .326825757409, -.006750101602, .008486174121, 3.126496266077], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538243992466, -.316371962948, .236822526775, -.006750101593, .008486174136, 3.126496266077], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538259081108, -.317371834550, .236827922402, .001243202613, -.008318897712, -2.109462831304], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538318955990, -.317295384338, .250827585625, -.002665764994, -.006767286638, -1.062270799953], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538643991063, -.316880368898, .326825757409, -.006750101602, .008486174121, 3.126496266077], a=1.2, v=0.25)
+    end
+    if (Old_tip == 5):
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538312040952, -.294883193659, .326707053607, -.006750099425, .008486175583, 3.126496266085], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537912042355, -.294374787708, .236703822973, -.006750100039, .008486175795, 3.126496244998], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537927130996, -.295374659310, .236709218600, .001243202004, -.008318897244, -2.109462831333], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537987005878, -.295298209098, .250708881824, -.002665764998, -.006767286701, -1.062270799982], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538312040952, -.294883193659, .326707053607, -.006750099425, .008486175583, 3.126496266085], a=1.2, v=0.25)
+    end
+    if (Old_tip == 6):
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537987635161, -.273385954220, .326591047619, -.006750099220, .008486175790, 3.126496266072], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537587636565, -.272877548270, .236587816985, -.006750101228, .008486170773, 3.126496266091], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537602725206, -.273877419871, .236593212612, .001243202483, -.008318897768, -2.109462831485], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537662600088, -.273800969659, .250592875836, -.002665764970, -.006767286671, -1.062270799718], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537987635161, -.273385954220, .326591047619, -.006750099220, .008486175790, 3.126496266072], a=1.2, v=0.25)
+    end
+    if (New_tip == 3):
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538968396853, -.338377608337, .326941763397, -.006750101562, .008486174075, 3.126496266078], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538579210121, -.338874534718, .235943952446, .001253579086, -.008321164729, -2.111822295034], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538583486898, -.338869073989, .236943928390, .001253579096, -.008321164788, -2.111822295346], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538568398257, -.337869202387, .236938532763, -.006755020820, .008472033663, 3.124160891745], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538968396853, -.338377608337, .326941763397, -.006750101562, .008486174075, 3.126496266078], a=1.2, v=0.25)
+    end
+    if (New_tip == 4):
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538643991063, -.316880368898, .326825757409, -.006750101602, .008486174121, 3.126496266077], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538254804330, -.317377295280, .235827946458, .001243202464, -.008318897779, -2.109462831330], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538259081108, -.317371834550, .236827922402, .001243202613, -.008318897712, -2.109462831304], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538243992466, -.316371962948, .236822526775, -.006750101593, .008486174136, 3.126496266077], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538643991063, -.316880368898, .326825757409, -.006750101602, .008486174121, 3.126496266077], a=1.2, v=0.25)
+    end
+    if (New_tip == 5):
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538312040952, -.294883193659, .326707053607, -.006750099425, .008486175583, 3.126496266085], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537922854219, -.295380120040, .235709242656, .001243201428, -.008318898387, -2.109462831387], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537927130996, -.295374659310, .236709218600, .001243202004, -.008318897244, -2.109462831333], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537912042355, -.294374787708, .236703822973, -.006750100039, .008486175795, 3.126496244998], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.538312040952, -.294883193659, .326707053607, -.006750099425, .008486175583, 3.126496266085], a=1.2, v=0.25)
+    end
+    if (New_tip == 6):
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537987635161, -.273385954220, .326591047619, -.006750099220, .008486175790, 3.126496266072], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537598448429, -.273882880601, .235593236668, .001243202486, -.008318897795, -2.109462831338], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537602725206, -.273877419871, .236593212612, .001243202483, -.008318897768, -2.109462831485], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537587636565, -.272877548270, .236587816985, -.006750101228, .008486170773, 3.126496266091], a=1.2, v=0.25)
+      set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+      movel(p[-.537987635161, -.273385954220, .326591047619, -.006750099220, .008486175790, 3.126496266072], a=1.2, v=0.25)
+    end
+    set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+    movej(get_inverse_kin(p[-.081571041689, -.272848135185, .299256207466, .000010599753, .000091034070, -1.545000225581], qnear=[-1.2314394156085413, -0.8807929197894495, -1.7776911894427698, -1.8250792662249964, 1.475998878479004, 2.150223970413208]), a=1.3962634015954636, v=1.0471975511965976)
+    if (New_tip != 0):
+      set_tcp(p[0.011745600311572041,-0.030167310562900784,0.3146076892043139,-0.4010849336735409,-2.8625213313900866,-0.008012866968354904])
+    end
+    global Old_tip=New_tip
+  end
+  $ 1 "BeforeStart"
+  $ 2 "open≔socket_open('192.168.0.15',30002)"
+  global open=socket_open("192.168.0.15",30002)
+  $ 3 "Old_Tool≔0"
+  global Old_Tool=0
+  $ 4 "Old_tip≔0"
+  global Old_tip=0
+  $ 5 "Set Nano_bit0=Off"
+  set_configurable_digital_out(4, False)
+  $ 6 "Set Nano_bit1=Off"
+  set_configurable_digital_out(5, False)
+  $ 7 "Set Nano_bit2=Off"
+  set_configurable_digital_out(6, False)
+  $ 8 "Set Nano_bit3=Off"
+  set_configurable_digital_out(7, False)
+  $ 9 "Set Power_Nano_TB66=On"
+  set_configurable_digital_out(0, True)
+  $ 10 "Set Power_18V=On"
+  set_configurable_digital_out(2, True)
+  $ 11 "Call Tool_initiation_tjeck"
+  Tool_initiation_tjeck()
+  while (True):
+    $ 12 "Robot Program"
+    $ 13 "Loop open≟ False "
+    while (open ==   False  ):
+      $ 14 "open≔socket_open('192.168.0.15',30002)"
+      global open=socket_open("192.168.0.15",30002)
+      $ 15 "Wait: 0.5"
+      sleep(0.5)
+    end
+    $ 16 "data≔socket_read_ascii_float(8)"
+    global data=socket_read_ascii_float(8)
+    $ 17 "Wait: 0.5"
+    sleep(0.5)
+    $ 18 "If data[0]≠0"
+    if (data[0] != 0):
+      $ 19 "task≔data[1]"
+      global task=data[1]
+      $ 20 "New_Tool_Setup≔data[2]"
+      global New_Tool_Setup=data[2]
+      $ 21 "X_axis≔data[3]"
+      global X_axis=data[3]
+      $ 22 "Y_axis≔data[4]"
+      global Y_axis=data[4]
+      $ 23 "Z_axis≔data[5]"
+      global Z_axis=data[5]
+      $ 24 "X_rot≔data[6]"
+      global X_rot=data[6]
+      $ 25 "Y_rot≔data[7]"
+      global Y_rot=data[7]
+      $ 26 "Z_rot≔data[8]"
+      global Z_rot=data[8]
+      $ 27 "Rot≔[d2r(data[6]),d2r(data[7]),d2r(data[8])]"
+      global Rot=[ d2r (data[6]), d2r (data[7]), d2r (data[8])]
+      $ 28 "rot_v≔rpy2rotvec(Rot)"
+      global rot_v=rpy2rotvec(Rot)
+      $ 29 "Insect_pos_High≔p[X_axis,Y_axis,Z_axis+0.05,rot_v[0],rot_v[1],rot_v[2]]"
+      global Insect_pos_High=p[X_axis,Y_axis,Z_axis+0.05,rot_v[0],rot_v[1],rot_v[2]]
+      $ 30 "Insect_pos≔p[X_axis,Y_axis,Z_axis,rot_v[0],rot_v[1],rot_v[2]]"
+      global Insect_pos=p[X_axis,Y_axis,Z_axis,rot_v[0],rot_v[1],rot_v[2]]
+      $ 31 "If New_Tool_Setup≠0"
+      if (New_Tool_Setup != 0):
+        $ 32 "If New_Tool_Setup>3"
+        if (New_Tool_Setup>3):
+          $ 33 "New_tip≔New_Tool_Setup-1"
+          global New_tip=New_Tool_Setup-1
+          $ 34 "New_Tool≔1"
+          global New_Tool=1
+          $ 35 "Set"
+          set_tcp(p[0.011745600311572041,-0.030167310562900784,0.3146076892043139,-0.4010849336735409,-2.8625213313900866,-0.008012866968354904])
+        else:
+          $ 36 "Else"
+          $ 37 "New_tip≔0"
+          global New_tip=0
+          $ 38 "New_Tool≔New_Tool_Setup"
+          global New_Tool=New_Tool_Setup
+        end
+      else:
+        $ 39 "Else"
+        $ 40 "New_Tool≔0"
+        global New_Tool=0
+        $ 41 "New_tip≔0"
+        global New_tip=0
+      end
+      $ 42 "If Old_Tool≟1 and New_tip≠Old_tip"
+      if (Old_Tool == 1  and  New_tip != Old_tip):
+        $ 43 "Call tip_change_JF"
+        tip_change_JF()
+      end
+      $ 45 "If New_Tool≠Old_Tool"
+      if (New_Tool != Old_Tool):
+        $ 46 "Call tool_change_JF"
+        tool_change_JF()
+      end
+      $ 47 "If New_tip≠Old_tip"
+      if (New_tip != Old_tip):
+        $ 48 "Call tip_change_JF"
+        tip_change_JF()
+      end
+      $ 50 "If task≟1"
+      if (task == 1):
+        $ 51 "Wait: 0.5"
+        sleep(0.5)
+        $ 52 "Set Nano_bit0=HI:Pulse 0.5"
+        thread SinglePulse1():
+          set_configurable_digital_out(4, True)
+          sleep(0.5)
+          set_configurable_digital_out(4, False)
+        end
+        singlePulse1 = run SinglePulse1()
+        $ 53 "Set Nano_bit1=HI:Pulse 0.5"
+        thread SinglePulse2():
+          set_configurable_digital_out(5, True)
+          sleep(0.5)
+          set_configurable_digital_out(5, False)
+        end
+        singlePulse2 = run SinglePulse2()
+        $ 54 "Set Nano_bit2=HI:Pulse 0.5"
+        thread SinglePulse3():
+          set_configurable_digital_out(6, True)
+          sleep(0.5)
+          set_configurable_digital_out(6, False)
+        end
+        singlePulse3 = run SinglePulse3()
+        $ 55 "Set Nano_bit3=HI:Pulse 0.5"
+        thread SinglePulse4():
+          set_configurable_digital_out(7, True)
+          sleep(0.5)
+          set_configurable_digital_out(7, False)
+        end
+        singlePulse4 = run SinglePulse4()
+        $ 56 "Wait Nano_done_bit>4.0"
+        while (get_standard_analog_in(0) < 4.0):
+          sync()
+        end
+        $ 57 "Wait: 0.5"
+        sleep(0.5)
+        $ 58 "MoveL"
+        $ 60 "Cam_point"
+        set_tcp(p[-0.15362149905484232,8.705693278034388E-4,0.12048643284308916,3.118167541786826,0.006975677653179894,-0.01545673135427779])
+        movel(p[-.011710503588, -.320975799852, .158380445241, -.000539707745, -.000307874865, -3.141136272418], a=1.2, v=0.25)
+        $ 61 "Wait: 12.0"
+        sleep(12.0)
+      end
+      $ 63 "If task≟2"
+      if (task == 2):
+        $ 64 "Wait: 0.5"
+        sleep(0.5)
+        $ 65 "Set Nano_bit0=HI:Pulse 0.5"
+        thread SinglePulse5():
+          set_configurable_digital_out(4, True)
+          sleep(0.5)
+          set_configurable_digital_out(4, False)
+        end
+        singlePulse5 = run SinglePulse5()
+        $ 66 "Set Nano_bit1=HI:Pulse 0.5"
+        thread SinglePulse6():
+          set_configurable_digital_out(5, True)
+          sleep(0.5)
+          set_configurable_digital_out(5, False)
+        end
+        singlePulse6 = run SinglePulse6()
+        $ 67 "Set Nano_bit2=HI:Pulse 0.5"
+        thread SinglePulse7():
+          set_configurable_digital_out(6, True)
+          sleep(0.5)
+          set_configurable_digital_out(6, False)
+        end
+        singlePulse7 = run SinglePulse7()
+        $ 68 "Set Nano_bit3=HI:Pulse 0.5"
+        thread SinglePulse8():
+          set_configurable_digital_out(7, True)
+          sleep(0.5)
+          set_configurable_digital_out(7, False)
+        end
+        singlePulse8 = run SinglePulse8()
+        $ 69 "Wait Nano_done_bit>4.0"
+        while (get_standard_analog_in(0) < 4.0):
+          sync()
+        end
+        $ 70 "Wait: 0.5"
+        sleep(0.5)
+      end
+      $ 71 "If task≟3"
+      if (task == 3):
+        $ 72 "Wait: 0.5"
+        sleep(0.5)
+        $ 73 "Set Nano_bit2=HI:Pulse 0.5"
+        thread SinglePulse9():
+          set_configurable_digital_out(6, True)
+          sleep(0.5)
+          set_configurable_digital_out(6, False)
+        end
+        singlePulse9 = run SinglePulse9()
+        $ 74 "Set Nano_bit3=HI:Pulse 0.5"
+        thread SinglePulse10():
+          set_configurable_digital_out(7, True)
+          sleep(0.5)
+          set_configurable_digital_out(7, False)
+        end
+        singlePulse10 = run SinglePulse10()
+        $ 75 "Wait Nano_done_bit>4.0"
+        while (get_standard_analog_in(0) < 4.0):
+          sync()
+        end
+        $ 76 "Wait: 0.5"
+        sleep(0.5)
+      end
+      $ 77 "If task≟4"
+      if (task == 4):
+        $ 78 "Wait: 0.5"
+        sleep(0.5)
+        $ 79 "Set Nano_bit0=HI:Pulse 0.5"
+        thread SinglePulse11():
+          set_configurable_digital_out(4, True)
+          sleep(0.5)
+          set_configurable_digital_out(4, False)
+        end
+        singlePulse11 = run SinglePulse11()
+        $ 80 "Set Nano_bit2=HI:Pulse 0.5"
+        thread SinglePulse12():
+          set_configurable_digital_out(6, True)
+          sleep(0.5)
+          set_configurable_digital_out(6, False)
+        end
+        singlePulse12 = run SinglePulse12()
+        $ 81 "Set Nano_bit3=HI:Pulse 0.5"
+        thread SinglePulse13():
+          set_configurable_digital_out(7, True)
+          sleep(0.5)
+          set_configurable_digital_out(7, False)
+        end
+        singlePulse13 = run SinglePulse13()
+        $ 82 "Wait Nano_done_bit>4.0"
+        while (get_standard_analog_in(0) < 4.0):
+          sync()
+        end
+        $ 83 "Wait: 0.5"
+        sleep(0.5)
+      end
+      $ 84 "If task≟5"
+      if (task == 5):
+        $ 85 "Wait: 0.5"
+        sleep(0.5)
+        $ 86 "Set Nano_bit1=HI:Pulse 0.5"
+        thread SinglePulse14():
+          set_configurable_digital_out(5, True)
+          sleep(0.5)
+          set_configurable_digital_out(5, False)
+        end
+        singlePulse14 = run SinglePulse14()
+        $ 87 "Set Nano_bit2=HI:Pulse 0.5"
+        thread SinglePulse15():
+          set_configurable_digital_out(6, True)
+          sleep(0.5)
+          set_configurable_digital_out(6, False)
+        end
+        singlePulse15 = run SinglePulse15()
+        $ 88 "Set Nano_bit3=HI:Pulse 0.5"
+        thread SinglePulse16():
+          set_configurable_digital_out(7, True)
+          sleep(0.5)
+          set_configurable_digital_out(7, False)
+        end
+        singlePulse16 = run SinglePulse16()
+        $ 89 "Wait Nano_done_bit>4.0"
+        while (get_standard_analog_in(0) < 4.0):
+          sync()
+        end
+        $ 90 "Wait: 0.5"
+        sleep(0.5)
+      end
+      $ 91 "If task≟6"
+      if (task == 6):
+        $ 92 "Wait: 0.5"
+        sleep(0.5)
+        $ 93 "Set Nano_bit0=HI:Pulse 0.5"
+        thread SinglePulse17():
+          set_configurable_digital_out(4, True)
+          sleep(0.5)
+          set_configurable_digital_out(4, False)
+        end
+        singlePulse17 = run SinglePulse17()
+        $ 94 "Wait Nano_done_bit>4.0"
+        while (get_standard_analog_in(0) < 4.0):
+          sync()
+        end
+        $ 95 "Wait: 0.5"
+        sleep(0.5)
+        $ 96 "Set Nano_bit1=HI:Pulse 0.5"
+        thread SinglePulse18():
+          set_configurable_digital_out(5, True)
+          sleep(0.5)
+          set_configurable_digital_out(5, False)
+        end
+        singlePulse18 = run SinglePulse18()
+        $ 97 "Wait Nano_done_bit>4.0"
+        while (get_standard_analog_in(0) < 4.0):
+          sync()
+        end
+        $ 98 "Wait: 0.5"
+        sleep(0.5)
+      end
+      $ 99 "If task≟7"
+      if (task == 7):
+        $ 100 "Wait: 0.5"
+        sleep(0.5)
+        $ 101 "If New_Tool_Setup≟1"
+        if (New_Tool_Setup == 1):
+          $ 102 "Set"
+          set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+        else:
+          $ 103 "Else"
+          $ 104 "Set"
+          set_tcp(p[0.011745600311572041,-0.030167310562900784,0.3146076892043139,-0.4010849336735409,-2.8625213313900866,-0.008012866968354904])
+        end
+        $ 105 "MoveL"
+        $ 108 "Insect_pos_High"
+        movel(pose_trans(p[0.0,0.0,0.0,0.0,0.0,0.0], Insect_pos_High), a=1.2, v=0.25)
+        $ 110 "Set Nano_bit2=HI:Pulse 0.5"
+        thread SinglePulse19():
+          set_configurable_digital_out(6, True)
+          sleep(0.5)
+          set_configurable_digital_out(6, False)
+        end
+        singlePulse19 = run SinglePulse19()
+        $ 111 "Wait Nano_done_bit>4.0"
+        while (get_standard_analog_in(0) < 4.0):
+          sync()
+        end
+        $ 112 "MoveL"
+        $ 113 "Insect_pos"
+        movel(pose_trans(p[0.0,0.0,0.0,0.0,0.0,0.0], Insect_pos), a=1.2, v=0.25)
+        $ 114 "Set Nano_bit1=HI:Pulse 0.5"
+        thread SinglePulse20():
+          set_configurable_digital_out(5, True)
+          sleep(0.5)
+          set_configurable_digital_out(5, False)
+        end
+        singlePulse20 = run SinglePulse20()
+        $ 115 "Set Nano_bit2=HI:Pulse 0.5"
+        thread SinglePulse21():
+          set_configurable_digital_out(6, True)
+          sleep(0.5)
+          set_configurable_digital_out(6, False)
+        end
+        singlePulse21 = run SinglePulse21()
+        $ 116 "Wait Nano_done_bit>4.0"
+        while (get_standard_analog_in(0) < 4.0):
+          sync()
+        end
+        $ 117 "Wait: 0.5"
+        sleep(0.5)
+        $ 118 "MoveL"
+        $ 120 "Insect_pos_High"
+        movel(pose_trans(p[0.0,0.0,0.0,0.0,0.0,0.0], Insect_pos_High), a=1.2, v=0.25)
+        $ 121 "Task7_Place1"
+        movel(p[.286893798094, -.296293330532, -.090182614367, -.000138157290, .000391570934, .000484677317], a=1.2, v=0.25)
+        $ 122 "Task7_Place2"
+        movel(p[.286843328013, -.296295506939, -.134285864746, -.000138187654, .000516845181, .000484668668], a=1.2, v=0.25)
+        $ 123 "Set Nano_bit0=HI:Pulse 0.5"
+        thread SinglePulse22():
+          set_configurable_digital_out(4, True)
+          sleep(0.5)
+          set_configurable_digital_out(4, False)
+        end
+        singlePulse22 = run SinglePulse22()
+        $ 124 "Set Nano_bit1=HI:Pulse 0.5"
+        thread SinglePulse23():
+          set_configurable_digital_out(5, True)
+          sleep(0.5)
+          set_configurable_digital_out(5, False)
+        end
+        singlePulse23 = run SinglePulse23()
+        $ 125 "Wait Nano_done_bit>4.0"
+        while (get_standard_analog_in(0) < 4.0):
+          sync()
+        end
+        $ 126 "Wait: 0.5"
+        sleep(0.5)
+        $ 127 "MoveL"
+        $ 128 "Task7_Place1"
+        movel(p[.286893798094, -.296293330532, -.090182614367, -.000138157290, .000391570934, .000484677317], a=1.2, v=0.25)
+        $ 129 "Wait: 0.5"
+        sleep(0.5)
+      end
+      $ 130 "If task≟8"
+      if (task == 8):
+        $ 131 "Wait: 0.5"
+        sleep(0.5)
+        $ 132 "Set AO[0]=10.0"
+        set_standard_analog_out(0, 1.0)
+        $ 133 "Set AO[1]=8.0"
+        set_standard_analog_out(1, 0.8)
+        $ 134 "MoveL"
+        $ 136 "Insect_pos_High"
+        set_tcp(p[0.0,0.0,0.27304,-1.0E-4,3.1415,0.0])
+        movel(pose_trans(p[0.0,0.0,0.0,0.0,0.0,0.0], Insect_pos_High), a=1.2, v=0.25)
+        $ 137 "Set Tool2_Open=HI:Pulse 2.5"
+        thread SinglePulse24():
+          set_standard_digital_out(2, True)
+          sleep(2.5)
+          set_standard_digital_out(2, False)
+        end
+        singlePulse24 = run SinglePulse24()
+        $ 138 "Wait: 2.5"
+        sleep(2.5)
+        $ 139 "MoveL"
+        $ 141 "Insect_pos"
+        set_tcp(p[0.0,0.0,0.27304,-1.0E-4,3.1415,0.0])
+        movel(pose_trans(p[0.0,0.0,0.0,0.0,0.0,0.0], Insect_pos), a=1.2, v=0.25)
+        $ 142 "Set Tool2_Closed=HI:Pulse 2.5"
+        thread SinglePulse25():
+          set_standard_digital_out(1, True)
+          sleep(2.5)
+          set_standard_digital_out(1, False)
+        end
+        singlePulse25 = run SinglePulse25()
+        $ 143 "Wait: 2.5"
+        sleep(2.5)
+        $ 144 "MoveL"
+        $ 146 "Insect_pos_High"
+        set_tcp(p[0.0,0.0,0.27304,-1.0E-4,3.1415,0.0])
+        movel(pose_trans(p[0.0,0.0,0.0,0.0,0.0,0.0], Insect_pos_High), a=1.2, v=0.25)
+        $ 147 "Task8_Place1"
+        set_tcp(p[0.0,0.0,0.27304,-1.0E-4,3.1415,0.0])
+        movel(p[.284493608264, -.296270692267, -.092184873129, -.000225768217, -.000231603438, .003537121606], a=1.2, v=0.25)
+        $ 148 "Task8_Place2"
+        set_tcp(p[0.0,0.0,0.27304,-1.0E-4,3.1415,0.0])
+        movel(p[.284497082693, -.296262887643, -.137469644831, -.000237570542, -.000211125119, .003659004965], a=1.2, v=0.25)
+        $ 149 "Set Tool2_Open=HI:Pulse 2.5"
+        thread SinglePulse26():
+          set_standard_digital_out(2, True)
+          sleep(2.5)
+          set_standard_digital_out(2, False)
+        end
+        singlePulse26 = run SinglePulse26()
+        $ 150 "Wait: 2.5"
+        sleep(2.5)
+        $ 151 "MoveL"
+        $ 152 "Task8_Place1"
+        set_tcp(p[0.0,0.0,0.27304,-1.0E-4,3.1415,0.0])
+        movel(p[.284493608264, -.296270692267, -.092184873129, -.000225768217, -.000231603438, .003537121606], a=1.2, v=0.25)
+        $ 153 "Wait: 0.5"
+        sleep(0.5)
+      end
+      $ 154 "If task≟9"
+      if (task == 9):
+        $ 155 "Wait: 0.5"
+        sleep(0.5)
+        $ 156 "Set Tool3_Air=On"
+        set_standard_digital_out(3, True)
+        $ 157 "Set tool3_close=HI:Pulse 0.2"
+        thread SinglePulse27():
+          set_standard_digital_out(4, True)
+          sleep(0.2)
+          set_standard_digital_out(4, False)
+        end
+        singlePulse27 = run SinglePulse27()
+        $ 158 "Wait: 0.5"
+        sleep(0.5)
+        $ 159 "MoveL"
+        $ 160 "Task9_Picup1"
+        set_tcp(p[0.0,0.0,0.22568000000000002,-1.0E-4,3.1415,1.0E-4])
+        movel(p[-.005552820566, -.328417229467, -.081630218925, -.000118878262, -.000034377724, -.279367105061], a=1.2, v=0.25)
+        $ 161 "Task9_Picup2"
+        set_tcp(p[0.0,0.0,0.22568000000000002,-1.0E-4,3.1415,1.0E-4])
+        movel(p[-.005569315519, -.328419601363, -.131615450543, -.000217286393, -.000109259933, -.279490452455], a=1.2, v=0.25)
+        $ 162 "Set tool3_open=HI:Pulse 0.2"
+        thread SinglePulse28():
+          set_standard_digital_out(5, True)
+          sleep(0.2)
+          set_standard_digital_out(5, False)
+        end
+        singlePulse28 = run SinglePulse28()
+        $ 163 "Wait: 0.5"
+        sleep(0.5)
+        $ 164 "MoveL"
+        $ 165 "Task9_Picup1"
+        set_tcp(p[0.0,0.0,0.22568000000000002,-1.0E-4,3.1415,1.0E-4])
+        movel(p[-.005552820566, -.328417229467, -.081630218925, -.000118878262, -.000034377724, -.279367105061], a=1.2, v=0.25)
+        $ 166 "Set Tool3_Air=Off"
+        set_standard_digital_out(3, False)
+        $ 167 "Wait: 0.5"
+        sleep(0.5)
+      end
+      $ 168 "If task≟10"
+      if (task == 10):
+        $ 169 "Wait: 0.5"
+        sleep(0.5)
+        $ 170 "If New_Tool≟1"
+        if (New_Tool == 1):
+          $ 171 "Set"
+          set_tcp(p[-0.0028,-0.02585,0.25053,-0.3984838016857738,-2.8957812454408103,-0.023838734981926585])
+        end
+        $ 172 "If New_Tool≟2"
+        if (New_Tool == 2):
+          $ 173 "Set"
+          set_tcp(p[0.0,0.0,0.27304,-1.0E-4,3.1415,0.0])
+        end
+        $ 174 "If New_Tool≟3"
+        if (New_Tool == 3):
+          $ 175 "Set"
+          set_tcp(p[0.0,0.0,0.22568000000000002,-1.0E-4,3.1415,1.0E-4])
+        end
+        $ 176 "If New_tip≠0"
+        if (New_tip != 0):
+          $ 177 "Set"
+          set_tcp(p[0.011745600311572041,-0.030167310562900784,0.3146076892043139,-0.4010849336735409,-2.8625213313900866,-0.008012866968354904])
+        end
+        $ 178 "Wait: 0.5"
+        sleep(0.5)
+        $ 179 "MoveL"
+        $ 180 "Insect_pos"
+        movel(pose_trans(p[0.0,0.0,0.0,0.0,0.0,0.0], Insect_pos), a=1.2, v=0.25)
+        $ 181 "Wait: 0.5"
+        sleep(0.5)
+      end
+      $ 182 "If task≟55"
+      if (task == 55):
+        $ 183 "MoveJ"
+        $ 184 "Reset_pos"
+        set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+        movej(get_inverse_kin(p[-.050952277072, -.229592796845, .487928783696, -.197907631487, -.212225646490, -1.813416364912], qnear=[-1.2314632574664515, -0.8807929197894495, -1.7776549498187464, -1.8251269499408167, 1.4759869575500488, 2.1501998901367188]), a=1.3962634015954636, v=1.0471975511965976)
+        $ 185 "socket_send_string('Done')"
+        socket_send_string("Done")
+        $ 186 "Popup"
+        popup("Labview stopped", "Message", False, False, blocking=False)
+        halt
+      end
+    end
+    $ 193 "socket_send_string('Done')"
+    socket_send_string("Done")
+  end
+end

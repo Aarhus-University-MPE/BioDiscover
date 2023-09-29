@@ -1,0 +1,21 @@
+ Program
+   Robot Program
+     Active_tools≔0
+     If Tool1≟ False 
+       old_tool_1≔1
+       Active_tools≔Active_tools+1
+       'Popup'
+     If Tool2≟ False 
+       old_tool_1≔2
+       Active_tools≔Active_tools+1
+       'Popup'
+     If Tool3≟ False 
+       old_tool_1≔3
+       Active_tools≔Active_tools+1
+       'Popup'
+     If Tool1 and Tool2 and Tool3≟ True 
+       old_tool_1≔0
+       'Popup'
+     If Active_tools>1
+       Popup
+     'Wait: 5.0'

@@ -1,0 +1,61 @@
+def Tool_initiation_tjeck():
+  set_tool_voltage(24)
+  set_standard_analog_input_domain(0, 1)
+  set_standard_analog_input_domain(1, 1)
+  set_tool_analog_input_domain(0, 1)
+  set_tool_analog_input_domain(1, 1)
+  set_analog_outputdomain(0, 1)
+  set_analog_outputdomain(1, 1)
+  set_input_actions_to_default()
+  set_runstate_configurable_digital_outputs([0,2])
+  set_runstate_configurable_digital_output_to_value(0, 1)
+  set_runstate_configurable_digital_output_to_value(2, 1)
+  set_safety_mode_transition_hardness(1)
+  set_tcp(p[0.0,0.0,0.055979999999999995,-1.3458268116173266E-4,3.1415016619819633,3.9681461675370393E-5])
+  set_payload(0.78,[0.0,0.0,0.0])
+  set_gravity([0.0, 0.0, 9.82])
+  global Old_Tool=0
+  global Old_tip=0
+  global open=True
+  global New_Tool=0
+  global New_tip=0
+  global Plane_1=p[-0.0770007253691134,-0.2569038687826412,-0.14164607246586347,-1.3815727388786158E-4,3.9157092093331376E-4,4.846773329003927E-4]
+  global Plane_2=p[-0.05274787273759442,-0.37769989477481725,-0.1108362793604244,-1.9373205353577651E-4,6.361596437533793E-5,0.004578877010584004]
+  rtde_set_watchdog("speed_slider_mask", 10.0, "ignore")
+  while (True):
+    $ 1 "Robot Program"
+    $ 2 "Active_tools≔0"
+    global Active_tools=0
+    $ 3 "If Tool1≟ False "
+    if (get_standard_digital_in(4) ==   False  ):
+      $ 4 "old_tool_1≔1"
+      global old_tool_1=1
+      $ 5 "Active_tools≔Active_tools+1"
+      global Active_tools=Active_tools+1
+    end
+    $ 7 "If Tool2≟ False "
+    if (get_standard_digital_in(5) ==   False  ):
+      $ 8 "old_tool_1≔2"
+      global old_tool_1=2
+      $ 9 "Active_tools≔Active_tools+1"
+      global Active_tools=Active_tools+1
+    end
+    $ 11 "If Tool3≟ False "
+    if (get_standard_digital_in(6) ==   False  ):
+      $ 12 "old_tool_1≔3"
+      global old_tool_1=3
+      $ 13 "Active_tools≔Active_tools+1"
+      global Active_tools=Active_tools+1
+    end
+    $ 15 "If Tool1 and Tool2 and Tool3≟ True "
+    if (get_standard_digital_in(4)  and  get_standard_digital_in(5)  and  get_standard_digital_in(6) ==   True  ):
+      $ 16 "old_tool_1≔0"
+      global old_tool_1=0
+    end
+    $ 18 "If Active_tools>1"
+    if (Active_tools>1):
+      $ 19 "Popup"
+      popup("Reset Tools", "Message", False, False, blocking=True)
+    end
+  end
+end
