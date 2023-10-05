@@ -218,7 +218,7 @@
 				<Item Name="IMAQ Image.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Image.ctl"/>
 				<Item Name="Image Type" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Image Type"/>
 				<Item Name="IMAQ Create" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Create"/>
-				<Item Name="IMAQ Dispose" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Dispose"/>
+				<Item Name="Imaq Dispose" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/Imaq Dispose"/>
 				<Item Name="IMAQ Write TIFF File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write TIFF File 2"/>
 				<Item Name="IMAQ Write PNG File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write PNG File 2"/>
 				<Item Name="IMAQ Write JPEG2000 File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write JPEG2000 File 2"/>
@@ -369,18 +369,34 @@
 			<Item Name="imaq.dll" Type="Document" URL="imaq.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="_ChannelSupport.lvlib" Type="Library" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/_ChannelSupport.lvlib"/>
-			<Item Name="Tag-bool.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool.lvlib"/>
-			<Item Name="ChannelProbePositionAndTitle.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbePositionAndTitle.vi"/>
-			<Item Name="ChannelProbeWindowStagger.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbeWindowStagger.vi"/>
-			<Item Name="Tag-c(bool,bool).lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool).lvlib"/>
-			<Item Name="Tag-t&apos;Data.ctl&apos;.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;.lvlib"/>
 			<Item Name="version.dll" Type="Document" URL="version.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="))Channel.ctl" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool)/))Channel.ctl"/>
+			<Item Name="Write.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool)/Write.vi"/>
+			<Item Name="Write With Abort.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool)/Write With Abort.vi"/>
+			<Item Name="Endpoint.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool)/Endpoint.vi"/>
+			<Item Name="Read.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool/Read.vi"/>
+			<Item Name="Write.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool/Write.vi"/>
+			<Item Name="Read With Abort.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool/Read With Abort.vi"/>
+			<Item Name="Write With Abort.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool/Write With Abort.vi"/>
+			<Item Name="Instantiate.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool/Instantiate.vi"/>
+			<Item Name="EndpointRead.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool/EndpointRead.vi"/>
+			<Item Name="Endpoint.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool/Endpoint.vi"/>
+			<Item Name="Read.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;/Read.vi"/>
+			<Item Name="Read.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool)/Read.vi"/>
+			<Item Name="Write.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;/Write.vi"/>
+			<Item Name="Read With Abort.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;/Read With Abort.vi"/>
+			<Item Name="Read With Abort.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool)/Read With Abort.vi"/>
+			<Item Name="Write With Abort.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;/Write With Abort.vi"/>
+			<Item Name="Instantiate.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool)/Instantiate.vi"/>
+			<Item Name="Instantiate.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;/Instantiate.vi"/>
+			<Item Name="EndpointRead.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;/EndpointRead.vi"/>
+			<Item Name="EndpointRead.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool)/EndpointRead.vi"/>
+			<Item Name="Endpoint.vi" Type="VI" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;/Endpoint.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="SRS" Type="EXE">
