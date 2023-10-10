@@ -166,6 +166,7 @@
 				<Item Name="robot_comSUBVI.vi" Type="VI" URL="../src/IHS/robot_comSUBVI.vi"/>
 				<Item Name="robot_init.vi" Type="VI" URL="../src/IHS/robot_init.vi"/>
 				<Item Name="Robot_listen.vi" Type="VI" URL="../src/IHS/Robot_listen.vi"/>
+				<Item Name="Communications test.vi" Type="VI" URL="../src/IHS/Communications test.vi"/>
 			</Item>
 			<Item Name="Data headlines.vi" Type="VI" URL="../src/IHS/Data headlines.vi"/>
 			<Item Name="DBL_2_STRING_ARRAY.vi" Type="VI" URL="../src/IHS/DBL_2_STRING_ARRAY.vi"/>
