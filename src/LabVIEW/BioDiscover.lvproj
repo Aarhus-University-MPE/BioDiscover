@@ -96,6 +96,8 @@
 				<Item Name="Windows SYSTEMTIME to String.vi" Type="VI" URL="../Windows SYSTEMTIME to String.vi"/>
 				<Item Name="Read Exe Version.vi" Type="VI" URL="../Read Exe Version.vi"/>
 				<Item Name="Read Exe WriteDate.vi" Type="VI" URL="../Read Exe WriteDate.vi"/>
+				<Item Name="SRS.rtm" Type="Document" URL="../SRS.rtm"/>
+				<Item Name="MainWindow.vi" Type="VI" URL="../MainWindow.vi"/>
 			</Item>
 			<Item Name="Calibration" Type="Folder">
 				<Item Name="Calibration_Folder.vi" Type="VI" URL="../Calibration_Folder.vi"/>
@@ -142,8 +144,6 @@
 			<Item Name="Icon.ico" Type="Document" URL="../resources/Icon.ico"/>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
-		<Item Name="SRS.rtm" Type="Document" URL="../SRS.rtm"/>
-		<Item Name="MainWindow.vi" Type="VI" URL="../MainWindow.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
@@ -376,7 +376,7 @@
 				<Property Name="Source[4].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[4].type" Type="Str">Container</Property>
 				<Property Name="Source[5].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[5].itemID" Type="Ref">/My Computer/SRS.rtm</Property>
+				<Property Name="Source[5].itemID" Type="Ref">/My Computer/src/System/SRS.rtm</Property>
 				<Property Name="Source[5].lvfile" Type="Bool">true</Property>
 				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[6].Container.applyInclusion" Type="Bool">true</Property>
