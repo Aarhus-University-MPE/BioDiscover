@@ -92,7 +92,7 @@ void loop() {
   if (MODE == CLOSE) {
     if (POS <= RTRCT_Pos || ((millis() - delayStart) >= Safety_Duration))  // Endstop reached or timeout
     {
-      (VALVE_CLOSE, LOW);
+      valve(VALVE_CLOSE, LOW);
       delay(50);
       POS = analogRead(ACT_POS);
       if (POS >= RTRCT_Pos && ((millis() - delayStart) <= Safety_Duration)) {
@@ -102,6 +102,8 @@ void loop() {
         MODE = STDBY;
         Serial.println(2);  // Close Complete
       }
+    } else {
+      valveStop();
     }
   }
 
