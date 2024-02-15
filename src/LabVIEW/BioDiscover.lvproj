@@ -185,7 +185,7 @@
 				<Item Name="IMAQ Image.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/IMAQ Image.ctl"/>
 				<Item Name="Image Type" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Image Type"/>
 				<Item Name="IMAQ Create" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Create"/>
-				<Item Name="Imaq Dispose" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/Imaq Dispose"/>
+				<Item Name="IMAQ Dispose" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Dispose"/>
 				<Item Name="IMAQ Write TIFF File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write TIFF File 2"/>
 				<Item Name="IMAQ Write PNG File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write PNG File 2"/>
 				<Item Name="IMAQ Write JPEG2000 File 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ Write JPEG2000 File 2"/>
@@ -334,7 +334,7 @@
 				<Property Name="Bld_localDestDir" Type="Path">/D/Projects/NI_AB_PROJECTNAME/Builds/Full Build</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{09FD23A0-93D2-46A2-B12D-FA02255F97C6}</Property>
-				<Property Name="Bld_version.build" Type="Int">36</Property>
+				<Property Name="Bld_version.build" Type="Int">47</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">9</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
@@ -417,16 +417,16 @@
 				<Property Name="DistPart[3].productName" Type="Str">NI-IMAQdx Runtime 22.5</Property>
 				<Property Name="DistPart[3].upgradeCode" Type="Str">{3D104AB3-CE10-43C0-B647-07600754072C}</Property>
 				<Property Name="DistPart[4].flavorID" Type="Str">_full_</Property>
-				<Property Name="DistPart[4].productID" Type="Str">{32AD5200-879B-4D23-9785-747C4B19067E}</Property>
-				<Property Name="DistPart[4].productName" Type="Str">NI-Serial Runtime 21.5</Property>
+				<Property Name="DistPart[4].productID" Type="Str">{F12C6F92-5B1C-4EAB-9364-96026CE1920D}</Property>
+				<Property Name="DistPart[4].productName" Type="Str">NI-Serial Runtime 20.0</Property>
 				<Property Name="DistPart[4].upgradeCode" Type="Str">{01D82F43-B48D-46FF-8601-FC4FAAE20F41}</Property>
 				<Property Name="DistPart[5].flavorID" Type="Str">_deployment_</Property>
 				<Property Name="DistPart[5].productID" Type="Str">{016644E7-BFD9-410F-902D-962614CB4E72}</Property>
 				<Property Name="DistPart[5].productName" Type="Str">NI-VISA Runtime 22.5</Property>
 				<Property Name="DistPart[5].upgradeCode" Type="Str">{8627993A-3F66-483C-A562-0D3BA3F267B1}</Property>
 				<Property Name="DistPart[6].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[6].productID" Type="Str">{C3D70637-8D8E-42F8-B1DD-B234C817D122}</Property>
-				<Property Name="DistPart[6].productName" Type="Str">NI LabVIEW Runtime 2022 Q3 (64-bit)</Property>
+				<Property Name="DistPart[6].productID" Type="Str">{3954BD22-4321-42BB-BA6C-F687895AD8F0}</Property>
+				<Property Name="DistPart[6].productName" Type="Str">NI LabVIEW Runtime 2022 Q3 Patch 1 (64-bit)</Property>
 				<Property Name="DistPart[6].SoftDep[0].exclude" Type="Bool">false</Property>
 				<Property Name="DistPart[6].SoftDep[0].productName" Type="Str">NI ActiveX Container (64-bit)</Property>
 				<Property Name="DistPart[6].SoftDep[0].upgradeCode" Type="Str">{1038A887-23E1-4289-B0BD-0C4B83C6BA21}</Property>
@@ -465,14 +465,14 @@
 				<Property Name="DistPartCount" Type="Int">7</Property>
 				<Property Name="INST_author" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="INST_autoIncrement" Type="Bool">true</Property>
-				<Property Name="INST_buildLocation" Type="Path">/D/Projects/BioDiscover/Builds/Installer</Property>
+				<Property Name="INST_buildLocation" Type="Path">/C/Projects/BioDiscover/Builds</Property>
 				<Property Name="INST_buildSpecName" Type="Str">SRS Installer</Property>
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
-				<Property Name="INST_installerName" Type="Str">install.exe</Property>
+				<Property Name="INST_installerName" Type="Str">Installer</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.37</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.39</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
-				<Property Name="InstSpecVersion" Type="Str">22308000</Property>
+				<Property Name="InstSpecVersion" Type="Str">22318008</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="MSI_arpContact" Type="Str">mrj@ase.au.dk</Property>
 				<Property Name="MSI_arpPhone" Type="Str">+45 20 89 43 32</Property>
@@ -519,14 +519,14 @@
 				<Property Name="DestinationCount" Type="Int">1</Property>
 				<Property Name="INST_author" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="INST_autoIncrement" Type="Bool">true</Property>
-				<Property Name="INST_buildLocation" Type="Path">/D/Projects/BioDiscover/Builds/Update</Property>
+				<Property Name="INST_buildLocation" Type="Path">/C/Projects/BioDiscover/Builds</Property>
 				<Property Name="INST_buildSpecName" Type="Str">Update</Property>
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
-				<Property Name="INST_installerName" Type="Str">Update.exe</Property>
+				<Property Name="INST_installerName" Type="Str">Update</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.46</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.48</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
-				<Property Name="InstSpecVersion" Type="Str">22308000</Property>
+				<Property Name="InstSpecVersion" Type="Str">22318008</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="MSI_arpContact" Type="Str">mrj@ase.au.dk</Property>
 				<Property Name="MSI_arpPhone" Type="Str">+45 20 89 43 32</Property>
