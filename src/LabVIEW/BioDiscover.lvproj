@@ -41,6 +41,7 @@
 					<Item Name="Snap2.vi" Type="VI" URL="../Snap2.vi"/>
 					<Item Name="Snap4.vi" Type="VI" URL="../Snap4.vi"/>
 					<Item Name="Snap16.vi" Type="VI" URL="../Snap16.vi"/>
+					<Item Name="Snap_timestamp.vi" Type="VI" URL="../Snap_timestamp.vi"/>
 				</Item>
 				<Item Name="Camera_ID.vi" Type="VI" URL="../Camera_ID.vi"/>
 				<Item Name="Camera_init.vi" Type="VI" URL="../Camera_init.vi"/>
@@ -144,6 +145,7 @@
 			<Item Name="Icon.ico" Type="Document" URL="../resources/Icon.ico"/>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../Main.vi"/>
+		<Item Name="Control 1.ctl" Type="VI" URL="../controls/Control 1.ctl"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
