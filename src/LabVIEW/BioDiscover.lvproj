@@ -41,6 +41,7 @@
 					<Item Name="Snap2.vi" Type="VI" URL="../Snap2.vi"/>
 					<Item Name="Snap4.vi" Type="VI" URL="../Snap4.vi"/>
 					<Item Name="Snap16.vi" Type="VI" URL="../Snap16.vi"/>
+					<Item Name="Snap_Timestamp.vi" Type="VI" URL="../Snap_Timestamp.vi"/>
 				</Item>
 				<Item Name="Camera_ID.vi" Type="VI" URL="../Camera_ID.vi"/>
 				<Item Name="Camera_init.vi" Type="VI" URL="../Camera_init.vi"/>
