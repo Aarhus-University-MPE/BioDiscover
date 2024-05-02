@@ -41,7 +41,6 @@
 					<Item Name="Snap2.vi" Type="VI" URL="../Snap2.vi"/>
 					<Item Name="Snap4.vi" Type="VI" URL="../Snap4.vi"/>
 					<Item Name="Snap16.vi" Type="VI" URL="../Snap16.vi"/>
-					<Item Name="Snap_Timestamp.vi" Type="VI" URL="../Snap_Timestamp.vi"/>
 				</Item>
 				<Item Name="Camera_ID.vi" Type="VI" URL="../Camera_ID.vi"/>
 				<Item Name="Camera_init.vi" Type="VI" URL="../Camera_init.vi"/>
@@ -333,24 +332,23 @@
 				<Property Name="Bld_buildSpecName" Type="Str">SRS</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">/D/Projects/NI_AB_PROJECTNAME/Builds/Full Build</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/SRS</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{09FD23A0-93D2-46A2-B12D-FA02255F97C6}</Property>
-				<Property Name="Bld_version.build" Type="Int">50</Property>
+				<Property Name="Bld_version.build" Type="Int">51</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">9</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">SRS.exe</Property>
-				<Property Name="Destination[0].path" Type="Path">/D/Projects/NI_AB_PROJECTNAME/Builds/Full Build/SRS.exe</Property>
-				<Property Name="Destination[0].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/SRS/SRS.exe</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">/D/Projects/NI_AB_PROJECTNAME/Builds/Full Build/data</Property>
-				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/SRS/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
 				<Property Name="Exe_iconItemID" Type="Ref">/My Computer/resources/Icon.ico</Property>
-				<Property Name="Source[0].itemID" Type="Str">{C7032A9C-1EA9-42CE-AFCB-5FE1F5D66FDF}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{BA25AC8B-D838-4B09-B0EB-6F209076E060}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Main.vi</Property>
@@ -472,7 +470,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.42</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.43</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">22318008</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
@@ -492,21 +490,13 @@
 				<Property Name="Source[0].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[0].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[0].name" Type="Str">SRS.exe</Property>
-				<Property Name="Source[0].File[0].Shortcut[0].destIndex" Type="Int">0</Property>
-				<Property Name="Source[0].File[0].Shortcut[0].name" Type="Str">SRS</Property>
-				<Property Name="Source[0].File[0].Shortcut[0].subDir" Type="Str">SRS</Property>
-				<Property Name="Source[0].File[0].ShortcutCount" Type="Int">1</Property>
 				<Property Name="Source[0].File[0].tag" Type="Str">{A9B9C488-ADD7-40F6-AAC2-547427E5CB24}</Property>
-				<Property Name="Source[0].File[0].unlock" Type="Bool">true</Property>
 				<Property Name="Source[0].File[1].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[1].name" Type="Str">SRS.aliases</Property>
 				<Property Name="Source[0].File[1].tag" Type="Str">{B511CD8F-BE21-4470-A7C4-3ACBADFC72C8}</Property>
-				<Property Name="Source[0].File[1].unlock" Type="Bool">true</Property>
 				<Property Name="Source[0].File[2].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[2].name" Type="Str">SRS.ini</Property>
 				<Property Name="Source[0].File[2].tag" Type="Str">{78EABFCD-5B97-4F87-AF3F-FF129EE73305}</Property>
-				<Property Name="Source[0].File[2].unlock" Type="Bool">true</Property>
-				<Property Name="Source[0].FileCount" Type="Int">3</Property>
 				<Property Name="Source[0].name" Type="Str">SRS</Property>
 				<Property Name="Source[0].tag" Type="Ref">/My Computer/Build Specifications/SRS</Property>
 				<Property Name="Source[0].type" Type="Str">EXE</Property>
@@ -526,7 +516,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">update.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.51</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.52</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">22318008</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
@@ -544,21 +534,13 @@
 				<Property Name="Source[0].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[0].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[0].name" Type="Str">SRS.exe</Property>
-				<Property Name="Source[0].File[0].Shortcut[0].destIndex" Type="Int">0</Property>
-				<Property Name="Source[0].File[0].Shortcut[0].name" Type="Str">SRS</Property>
-				<Property Name="Source[0].File[0].Shortcut[0].subDir" Type="Str">SRS</Property>
-				<Property Name="Source[0].File[0].ShortcutCount" Type="Int">1</Property>
 				<Property Name="Source[0].File[0].tag" Type="Str">{A9B9C488-ADD7-40F6-AAC2-547427E5CB24}</Property>
-				<Property Name="Source[0].File[0].unlock" Type="Bool">true</Property>
 				<Property Name="Source[0].File[1].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[1].name" Type="Str">SRS.aliases</Property>
 				<Property Name="Source[0].File[1].tag" Type="Str">{B511CD8F-BE21-4470-A7C4-3ACBADFC72C8}</Property>
-				<Property Name="Source[0].File[1].unlock" Type="Bool">true</Property>
 				<Property Name="Source[0].File[2].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[2].name" Type="Str">SRS.ini</Property>
 				<Property Name="Source[0].File[2].tag" Type="Str">{78EABFCD-5B97-4F87-AF3F-FF129EE73305}</Property>
-				<Property Name="Source[0].File[2].unlock" Type="Bool">true</Property>
-				<Property Name="Source[0].FileCount" Type="Int">3</Property>
 				<Property Name="Source[0].name" Type="Str">SRS</Property>
 				<Property Name="Source[0].tag" Type="Ref">/My Computer/Build Specifications/SRS</Property>
 				<Property Name="Source[0].type" Type="Str">EXE</Property>
