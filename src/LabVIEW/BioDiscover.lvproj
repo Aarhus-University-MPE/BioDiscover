@@ -82,6 +82,7 @@
 					<Item Name="Image_Processing_Queue_Info.vi" Type="VI" URL="../Image_Processing_Queue_Info.vi"/>
 					<Item Name="Image_Detect_Object_HQ.vi" Type="VI" URL="../Image_Detect_Object_HQ.vi"/>
 					<Item Name="Image_Crop.vi" Type="VI" URL="../Image_Crop.vi"/>
+					<Item Name="Detect rotation and calculate pixel to mm ratio.vi" Type="VI" URL="../Detect rotation and calculate pixel to mm ratio.vi"/>
 				</Item>
 			</Item>
 			<Item Name="System" Type="Folder">
