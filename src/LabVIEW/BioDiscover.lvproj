@@ -395,23 +395,22 @@
 				<Property Name="Bld_buildSpecName" Type="Str">SRS</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">/D/Projects/NI_AB_PROJECTNAME/Builds/bin/Full Build</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/SRS</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{09FD23A0-93D2-46A2-B12D-FA02255F97C6}</Property>
-				<Property Name="Bld_version.build" Type="Int">37</Property>
+				<Property Name="Bld_version.build" Type="Int">40</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">9</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">SRS.exe</Property>
-				<Property Name="Destination[0].path" Type="Path">/D/Projects/NI_AB_PROJECTNAME/Builds/bin/Full Build/SRS.exe</Property>
-				<Property Name="Destination[0].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/SRS/SRS.exe</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">/D/Projects/NI_AB_PROJECTNAME/Builds/bin/Full Build/data</Property>
-				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/SRS/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{D4542A37-FE92-4089-827A-E0D373127B59}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{5E75733D-CCA8-4C4A-93C3-FFF7C2A5A6D1}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Main.vi</Property>
@@ -461,21 +460,20 @@
 				<Property Name="Bld_buildSpecName" Type="Str">IHS</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
-				<Property Name="Bld_localDestDir" Type="Path">/D/Projects/NI_AB_PROJECTNAME/Builds/bin/IHS</Property>
+				<Property Name="Bld_localDestDir" Type="Path">../builds/NI_AB_PROJECTNAME/IHS</Property>
+				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{9AC70069-B77D-48A2-858D-76D34FC679AD}</Property>
-				<Property Name="Bld_version.build" Type="Int">2</Property>
+				<Property Name="Bld_version.build" Type="Int">5</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">IHS.exe</Property>
-				<Property Name="Destination[0].path" Type="Path">/D/Projects/NI_AB_PROJECTNAME/Builds/bin/IHS/IHS.exe</Property>
-				<Property Name="Destination[0].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/IHS/IHS.exe</Property>
 				<Property Name="Destination[0].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[0].type" Type="Str">App</Property>
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
-				<Property Name="Destination[1].path" Type="Path">/D/Projects/NI_AB_PROJECTNAME/Builds/bin/IHS/data</Property>
-				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
+				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/IHS/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{D4542A37-FE92-4089-827A-E0D373127B59}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{5E75733D-CCA8-4C4A-93C3-FFF7C2A5A6D1}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Main.vi</Property>
@@ -525,28 +523,28 @@
 				<Property Name="Destination[0].unlock" Type="Bool">true</Property>
 				<Property Name="DestinationCount" Type="Int">1</Property>
 				<Property Name="DistPart[0].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[0].productID" Type="Str">{C8E6A834-3F86-4C97-A020-8DE0F5522BF9}</Property>
-				<Property Name="DistPart[0].productName" Type="Str">NI Vision Common Resources 2023 Q1</Property>
+				<Property Name="DistPart[0].productID" Type="Str">{0C3CAF31-4F7C-4135-A5BD-44701BEC0CBE}</Property>
+				<Property Name="DistPart[0].productName" Type="Str">NI Vision Common Resources 2022 Q3</Property>
 				<Property Name="DistPart[0].upgradeCode" Type="Str">{409BEFA9-EB3E-472F-AD77-271A4A1D5927}</Property>
 				<Property Name="DistPart[1].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[1].productID" Type="Str">{31AB186F-BCAD-4EF6-9192-7D44C7587B99}</Property>
-				<Property Name="DistPart[1].productName" Type="Str">NI Vision Runtime 2023 Q1</Property>
+				<Property Name="DistPart[1].productID" Type="Str">{4A099A0F-EEAB-4E52-8721-5515D0162D04}</Property>
+				<Property Name="DistPart[1].productName" Type="Str">NI Vision Runtime 2022 Q3</Property>
 				<Property Name="DistPart[1].upgradeCode" Type="Str">{63DF74E5-A5C9-11D4-814E-005004D6CDD6}</Property>
 				<Property Name="DistPart[2].flavorID" Type="Str">_full_</Property>
-				<Property Name="DistPart[2].productID" Type="Str">{45E21CB8-05D7-4E12-B56D-2DDF6EC5B1CB}</Property>
-				<Property Name="DistPart[2].productName" Type="Str">NI-488.2 Runtime 23.5</Property>
+				<Property Name="DistPart[2].productID" Type="Str">{F19060DD-AA3B-4C3D-8E47-5792E36DFF3A}</Property>
+				<Property Name="DistPart[2].productName" Type="Str">NI-488.2 Runtime 21.5</Property>
 				<Property Name="DistPart[2].upgradeCode" Type="Str">{357F6618-C660-41A2-A185-5578CC876D1D}</Property>
 				<Property Name="DistPart[3].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[3].productID" Type="Str">{600831DA-D9CA-4B20-A4B3-3293A741324F}</Property>
-				<Property Name="DistPart[3].productName" Type="Str">NI-IMAQdx Runtime 23.0</Property>
+				<Property Name="DistPart[3].productID" Type="Str">{DD57CE9F-9633-4315-A200-EFCF37011AFF}</Property>
+				<Property Name="DistPart[3].productName" Type="Str">NI-IMAQdx Runtime 22.5</Property>
 				<Property Name="DistPart[3].upgradeCode" Type="Str">{3D104AB3-CE10-43C0-B647-07600754072C}</Property>
 				<Property Name="DistPart[4].flavorID" Type="Str">_full_</Property>
-				<Property Name="DistPart[4].productID" Type="Str">{ECF7D15D-85F8-4DE3-B7AC-294D306FA70F}</Property>
-				<Property Name="DistPart[4].productName" Type="Str">NI-Serial Runtime 23.3</Property>
+				<Property Name="DistPart[4].productID" Type="Str">{F12C6F92-5B1C-4EAB-9364-96026CE1920D}</Property>
+				<Property Name="DistPart[4].productName" Type="Str">NI-Serial Runtime 20.0</Property>
 				<Property Name="DistPart[4].upgradeCode" Type="Str">{01D82F43-B48D-46FF-8601-FC4FAAE20F41}</Property>
 				<Property Name="DistPart[5].flavorID" Type="Str">_deployment_</Property>
-				<Property Name="DistPart[5].productID" Type="Str">{95D24B70-E5A0-4A12-B606-D732ADB7DC8F}</Property>
-				<Property Name="DistPart[5].productName" Type="Str">NI-VISA Runtime 23.5</Property>
+				<Property Name="DistPart[5].productID" Type="Str">{016644E7-BFD9-410F-902D-962614CB4E72}</Property>
+				<Property Name="DistPart[5].productName" Type="Str">NI-VISA Runtime 22.5</Property>
 				<Property Name="DistPart[5].upgradeCode" Type="Str">{8627993A-3F66-483C-A562-0D3BA3F267B1}</Property>
 				<Property Name="DistPart[6].flavorID" Type="Str">DefaultFull</Property>
 				<Property Name="DistPart[6].productID" Type="Str">{3954BD22-4321-42BB-BA6C-F687895AD8F0}</Property>
@@ -589,14 +587,14 @@
 				<Property Name="DistPartCount" Type="Int">7</Property>
 				<Property Name="INST_author" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="INST_autoIncrement" Type="Bool">true</Property>
-				<Property Name="INST_buildLocation" Type="Path">/D/Projects/BioDiscover/Builds/bin/Installer</Property>
+				<Property Name="INST_buildLocation" Type="Path">/C/Projects/BioDiscover/Builds/bin/Installer</Property>
 				<Property Name="INST_buildSpecName" Type="Str">Installer</Property>
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.38</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.39</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
-				<Property Name="InstSpecVersion" Type="Str">22308000</Property>
+				<Property Name="InstSpecVersion" Type="Str">22318008</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="MSI_arpContact" Type="Str">mrj@ase.au.dk</Property>
 				<Property Name="MSI_arpPhone" Type="Str">+45 20 89 43 32</Property>
@@ -644,14 +642,14 @@
 				<Property Name="DestinationCount" Type="Int">1</Property>
 				<Property Name="INST_author" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="INST_autoIncrement" Type="Bool">true</Property>
-				<Property Name="INST_buildLocation" Type="Path">/D/Projects/BioDiscover/Builds/bin/Update</Property>
+				<Property Name="INST_buildLocation" Type="Path">/C/Projects/BioDiscover/Builds/bin/Update</Property>
 				<Property Name="INST_buildSpecName" Type="Str">Update</Property>
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">update.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.47</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.48</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
-				<Property Name="InstSpecVersion" Type="Str">22308000</Property>
+				<Property Name="InstSpecVersion" Type="Str">22318008</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="MSI_arpContact" Type="Str">mrj@ase.au.dk</Property>
 				<Property Name="MSI_arpPhone" Type="Str">+45 20 89 43 32</Property>
@@ -674,10 +672,15 @@
 				<Property Name="Source[0].File[2].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[2].name" Type="Str">SRS.ini</Property>
 				<Property Name="Source[0].File[2].tag" Type="Str">{78EABFCD-5B97-4F87-AF3F-FF129EE73305}</Property>
+				<Property Name="Source[0].FileCount" Type="Int">1</Property>
 				<Property Name="Source[0].name" Type="Str">SRS</Property>
 				<Property Name="Source[0].tag" Type="Ref">/My Computer/Build Specifications/SRS</Property>
 				<Property Name="Source[0].type" Type="Str">EXE</Property>
 				<Property Name="Source[1].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
+				<Property Name="Source[1].File[0].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
+				<Property Name="Source[1].File[0].name" Type="Str">IHS.exe</Property>
+				<Property Name="Source[1].File[0].tag" Type="Str">{8A6E9157-7132-417F-BF00-B9EE27F0A6EF}</Property>
+				<Property Name="Source[1].FileCount" Type="Int">1</Property>
 				<Property Name="Source[1].name" Type="Str">IHS</Property>
 				<Property Name="Source[1].tag" Type="Ref">/My Computer/Build Specifications/IHS</Property>
 				<Property Name="Source[1].type" Type="Str">EXE</Property>
