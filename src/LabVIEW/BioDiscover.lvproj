@@ -70,6 +70,7 @@
 					<Item Name="Image_Save.vi" Type="VI" URL="../Image_Save.vi"/>
 					<Item Name="Folder_Create.vi" Type="VI" URL="../Folder_Create.vi"/>
 					<Item Name="Image_Save_Dequeue.vi" Type="VI" URL="../Image_Save_Dequeue.vi"/>
+					<Item Name="Binary_Image_Save.vi" Type="VI" URL="../Binary_Image_Save.vi"/>
 					<Item Name="Image_Save_Handler.vi" Type="VI" URL="../Image_Save_Handler.vi"/>
 				</Item>
 				<Item Name="Detect and Crop" Type="Folder">
