@@ -18,6 +18,8 @@
 //              Initialize              //
 //--------------------------------------//
 
+#include <Arduino.h>
+
 #define CAM_ID1           11111111        // ID for camera 1
 #define CAM_ID2           40462643        // ID for camera 2
 #define SYS_SERIAL        "1.4-01-11.24"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
@@ -31,21 +33,10 @@
 #define CMD_CAM2          109  // Report Camera 2 ID
 #define CMD_CLOSE_MNL     111  // Manual Close (50 ms)
 #define CMD_OPEN_MNL      112  // Manual Open (50 ms)
-#define CMD_REQ_RTRCT_POS 121  // Request retracted position (fully closed)
-#define CMD_REQ_EXTND_POS 122  // Request extended position (fully open)
-
-/*
-#define PIN_D5            5
-#define PIN_D6            6
-#define PIN_D7            7
-#define PIN_D8            8
-#define PIN_D9            9
-#define PIN_D10           10
-*/
 
 #define STDBY             0
-#define OPEN              1
-#define CLOSE             2
+#define CLOSE             1
+#define OPEN              2
 
 #define PIN_D9            9
 #define PIN_D10          10
@@ -59,42 +50,28 @@
 
 int MODE                 = STDBY;  // Current MODE (Standby (0), OPEN (1) or CLOSE (2))
 unsigned long delayStart = 0;      // the time the delay started
+int POS                  = STDBY;      // Current Position
 
-/*
-const int manual_dur      = 3000;  // Manual actuator duration [ms]
-const int Safety_Duration = 6000;  // Actuator safety duration [ms]
-
-const int RTRCT_Pos = 370;   // End position
-const int EXTND_Pos = 1020;  // End position
-*/
 
 // Pinout
-/*
-const int HB_ENABLE = PIN_D5;
-const int HB_DIR2   = PIN_D6;
-const int HB_DIR1   = PIN_D7;
-const int ACT_POS   = A0;
-*/
-const int Valve_Close = PIN_9;
-const int Valve_Open  = PIN_10;
-
+const int Valve_Close = PIN_D9;
+const int Valve_Open  = PIN_D10;
 
 //--------------------------------------//
 //                SETUP                 //
 //--------------------------------------//
 
 void setup() {
- /* 
-  pinMode(HB_ENABLE, OUTPUT);
-  pinMode(HB_DIR1, OUTPUT);
-  pinMode(HB_DIR2, OUTPUT);
-  digitalWrite(HB_ENABLE, LOW);
-  digitalWrite(HB_DIR1, LOW);
-  digitalWrite(HB_DIR2, LOW);
-  pinMode(ACT_POS, INPUT);
-*/
   pinMode(Valve_Close, OUTPUT);
   pinMode(Valve_Open, OUTPUT);
+
+  digitalWrite(Valve_Close, LOW);
+  digitalWrite(Valve_Open, LOW);
+  delay(50);
+  digitalWrite(Valve_Close, HIGH);
+  delay(50);
+  digitalWrite(Valve_Close, LOW);
+  POS = CLOSE;
 
   Serial.begin(9600);
   while (!Serial) {
@@ -113,39 +90,32 @@ void loop() {
 
   // Closing
   if (MODE == CLOSE) {
-    if (POS <= RTRCT_Pos || ((millis() - delayStart) >= Safety_Duration))  // Endstop reached or timeout
-    {
-      valve(VALVE_CLOSE, LOW);
+    if (digitalRead (Valve_Open) == HIGH) {
+      digitalWrite(Valve_Open, LOW);
       delay(50);
-      POS = analogRead(ACT_POS);
-      if (POS >= RTRCT_Pos && ((millis() - delayStart) <= Safety_Duration)) {
-        valve(VALVE_CLOSE, HIGH);
-        delay(50);
-      } else {
-        MODE = STDBY;
-        Serial.println(2);  // Close Complete
       }
-    } else {
-      valveStop();
-    }
+
+    digitalWrite(Valve_Close, HIGH);
+    delay(50);
+    digitalWrite(Valve_Close, LOW);
+    MODE = STDBY;
+    POS  = CLOSE;
+    //Serial.println("CLOSE");  // Close Complete (Can only be active when testing with direct serial not labview)
   }
 
   // Opening
   else if (MODE == OPEN) {
-    if (POS >= EXTND_Pos || ((millis() - delayStart) >= Safety_Duration))  // Endstop reached or timeout
-    {
-      valve(VALVE_OPEN, LOW);
+    if (digitalRead (Valve_Close) == HIGH) {
+      digitalWrite(Valve_Close, LOW);
       delay(50);
-      POS = analogRead(ACT_POS);
-      if (POS <= EXTND_Pos && ((millis() - delayStart) <= Safety_Duration)) {
-        valve(VALVE_OPEN, HIGH);
-      } else {
-        MODE = STDBY;
-        Serial.println(1);  // Open Complete
       }
-    }
-  } else {
-    valveStop();
+
+    digitalWrite(Valve_Open, HIGH);
+    delay(50);
+    digitalWrite(Valve_Open, LOW);
+    MODE = STDBY;
+    POS  = OPEN;
+    //Serial.println("OPEN");  // Open Complete (Can only be active when testing with direct serial not labview)
   }
 
   //------------------Commands------------------//
@@ -157,12 +127,10 @@ void loop() {
     switch (CMD) {
       case CMD_CLOSE:
         MODE = CLOSE;
-        valve(VALVE_CLOSE, HIGH);
         delayStart = millis();
         break;
       case CMD_OPEN:
         MODE = OPEN;
-        valve(VALVE_OPEN, HIGH);
         delayStart = millis();
         break;
       case CMD_POS:
@@ -178,35 +146,15 @@ void loop() {
         Serial.println(CAM_ID2);
         break;
       case CMD_CLOSE_MNL:
-        Serial.println("Closing for 50 ms");
-        valve(VALVE_CLOSE, HIGH);
-        delay(50);
-        valve(VALVE_CLOSE, LOW);
-        Serial.println("Done");
+       MODE = CLOSE;
+       delayStart = millis();
         break;
       case CMD_OPEN_MNL:
-        Serial.println("Opening for 50 ms");
-        valve(VALVE_OPEN, HIGH);
-        delay(50);
-        valve(VALVE_OPEN, LOW);
-        Serial.println("Done");
+        MODE = OPEN;
+        delayStart = millis();
         break;
-      case CMD_REQ_RTRCT_POS:
-        Serial.println(RTRCT_Pos);
-        break;
-      case CMD_REQ_EXTND_POS:
-        Serial.println(EXTND_Pos);
-        break;
-
       default:
         break;
     }
   }
 }
-
-//----------------------------------------//
-//              Valve Control             //
-//----------------------------------------//
-
-void Valve_control(bool);
-

@@ -113,6 +113,7 @@ void loop() {
 
   // Closing
   if (MODE == CLOSE) {
+    /*
     if (POS <= RTRCT_Pos || ((millis() - delayStart) >= Safety_Duration))  // Endstop reached or timeout
     {
       valve(VALVE_CLOSE, LOW);
@@ -128,6 +129,7 @@ void loop() {
     } else {
       valveStop();
     }
+    */
   }
 
   // Opening
