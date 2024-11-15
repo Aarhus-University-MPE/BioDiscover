@@ -20,8 +20,8 @@
 
 #include <Arduino.h>
 
-#define CAM_ID1           11111111        // ID for camera 1
-#define CAM_ID2           40462643        // ID for camera 2
+#define CAM_ID1           23466451        // ID for camera 1
+#define CAM_ID2           30088089        // ID for camera 2
 #define SYS_SERIAL        "1.4-01-11.24"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
 
 // Request ID's
