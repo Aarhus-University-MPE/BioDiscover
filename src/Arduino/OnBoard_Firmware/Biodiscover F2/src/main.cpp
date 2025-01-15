@@ -23,9 +23,9 @@
 // New camera_30088089
 // Old camera1_23466452
 // Old camera2_23466451
-#define CAM_ID1           23466452        // ID for camera 1
-#define CAM_ID2           30088089        // ID for camera 2
-#define SYS_SERIAL        "1.4-01-11.24"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
+#define CAM_ID1           30088089        // ID for camera 1
+#define CAM_ID2           23466452       // ID for camera 2
+#define SYS_SERIAL        "1.4XL-01-11.24"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
 
 // Request ID's
 #define CMD_CLOSE         101  // Start Closing maneuver
@@ -34,8 +34,6 @@
 #define CMD_SERIAL        107  // Report System Serial number
 #define CMD_CAM1          108  // Report Camera 1 ID
 #define CMD_CAM2          109  // Report Camera 2 ID
-#define CMD_CLOSE_MNL     111  // Manual Close (50 ms)
-#define CMD_OPEN_MNL      112  // Manual Open (50 ms)
 
 #define STDBY             0
 #define CLOSE             1
@@ -53,8 +51,8 @@
 
 int MODE                 = STDBY;  // Current MODE (Standby (0), OPEN (1) or CLOSE (2))
 unsigned long delayStart = 0;      // the time the delay started
-int POS                  = STDBY;      // Current Position
-
+int POS                  = STDBY;      // Current Positionint
+int Cnt                  = 0;
 
 // Pinout
 const int Valve_Close = PIN_D9;
@@ -87,7 +85,7 @@ void setup() {
 //--------------------------------------//
 
 void loop() {
-
+  Cnt = Cnt + 1;
   //------------Linear Actuator Mode------------//
   //--------------------------------------------//
 
@@ -130,11 +128,9 @@ void loop() {
     switch (CMD) {
       case CMD_CLOSE:
         MODE = CLOSE;
-        delayStart = millis();
         break;
       case CMD_OPEN:
         MODE = OPEN;
-        delayStart = millis();
         break;
       case CMD_POS:
         Serial.println(POS);
@@ -148,16 +144,9 @@ void loop() {
       case CMD_CAM2:
         Serial.println(CAM_ID2);
         break;
-      case CMD_CLOSE_MNL:
-       MODE = CLOSE;
-       delayStart = millis();
-        break;
-      case CMD_OPEN_MNL:
-        MODE = OPEN;
-        delayStart = millis();
-        break;
       default:
         break;
     }
   }
+  Serial.println(Cnt);
 }
