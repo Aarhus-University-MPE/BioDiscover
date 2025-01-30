@@ -23,7 +23,7 @@
 // New camera_30088089
 // Old camera1_23466452
 // Old camera2_23466451
-#define CAM_ID1           30088089        // ID for camera 1
+#define CAM_ID1           23466451        // ID for camera 1
 #define CAM_ID2           23466452       // ID for camera 2
 #define SYS_SERIAL        "1.4XL-01-11.24"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
 
@@ -45,14 +45,10 @@
 #define PIN_D12          12
 #define PIN_D13          13
 
-
-#define VALVE_OPEN        HIGH  // Extend
-#define VALVE_CLOSE       LOW   // Retract
-
 int MODE                 = STDBY;  // Current MODE (Standby (0), OPEN (1) or CLOSE (2))
 unsigned long delayStart = 0;      // the time the delay started
 int POS                  = STDBY;      // Current Positionint
-int Cnt                  = 0;
+int Cnt                  = 0; 
 
 // Pinout
 const int Valve_Close = PIN_D9;
@@ -62,15 +58,40 @@ const int Valve_Open  = PIN_D10;
 //                SETUP                 //
 //--------------------------------------//
 
+void valveClose(){
+  if (digitalRead (Valve_Open) == HIGH) {
+      digitalWrite(Valve_Open, LOW);
+      delay(20);
+      }
+
+    digitalWrite(Valve_Close, HIGH);
+    delay(20);
+    digitalWrite(Valve_Close, LOW);
+    MODE = STDBY;
+    POS  = CLOSE;
+}
+void valveOpen(){
+      if (digitalRead (Valve_Close) == HIGH) {
+      digitalWrite(Valve_Close, LOW);
+      delay(20);
+      }
+
+    digitalWrite(Valve_Open, HIGH);
+    delay(20);
+    digitalWrite(Valve_Open, LOW);
+    MODE = STDBY;
+    POS  = OPEN;}
+
+
 void setup() {
   pinMode(Valve_Close, OUTPUT);
   pinMode(Valve_Open, OUTPUT);
 
   digitalWrite(Valve_Close, LOW);
   digitalWrite(Valve_Open, LOW);
-  delay(50);
+  delay(20);
   digitalWrite(Valve_Close, HIGH);
-  delay(50);
+  delay(20);
   digitalWrite(Valve_Close, LOW);
   POS = CLOSE;
 
@@ -85,39 +106,13 @@ void setup() {
 //--------------------------------------//
 
 void loop() {
-  Cnt = Cnt + 1;
+  // Cnt = Cnt + 1;
   //------------Linear Actuator Mode------------//
   //--------------------------------------------//
 
   // Closing
-  if (MODE == CLOSE) {
-    if (digitalRead (Valve_Open) == HIGH) {
-      digitalWrite(Valve_Open, LOW);
-      delay(50);
-      }
-
-    digitalWrite(Valve_Close, HIGH);
-    delay(50);
-    digitalWrite(Valve_Close, LOW);
-    MODE = STDBY;
-    POS  = CLOSE;
-    //Serial.println("CLOSE");  // Close Complete (Can only be active when testing with direct serial not labview)
-  }
 
   // Opening
-  else if (MODE == OPEN) {
-    if (digitalRead (Valve_Close) == HIGH) {
-      digitalWrite(Valve_Close, LOW);
-      delay(50);
-      }
-
-    digitalWrite(Valve_Open, HIGH);
-    delay(50);
-    digitalWrite(Valve_Open, LOW);
-    MODE = STDBY;
-    POS  = OPEN;
-    //Serial.println("OPEN");  // Open Complete (Can only be active when testing with direct serial not labview)
-  }
 
   //------------------Commands------------------//
   //--------------------------------------------//
@@ -128,9 +123,11 @@ void loop() {
     switch (CMD) {
       case CMD_CLOSE:
         MODE = CLOSE;
+        valveClose();
         break;
       case CMD_OPEN:
         MODE = OPEN;
+        valveOpen();
         break;
       case CMD_POS:
         Serial.println(POS);
@@ -148,5 +145,5 @@ void loop() {
         break;
     }
   }
-  Serial.println(Cnt);
+  // Serial.println(Cnt);  Check speed of loop
 }
