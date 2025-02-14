@@ -148,6 +148,7 @@
 		<Item Name="IHS.vi" Type="VI" URL="../IHS/IHS.vi"/>
 		<Item Name="Arduino_communication_Testcode.vi" Type="VI" URL="../SRS/Arduino_communication_Testcode.vi"/>
 		<Item Name="Pump_commands_Testcode.vi" Type="VI" URL="../SRS/Pump_commands_Testcode.vi"/>
+		<Item Name="Global_val_1.vi" Type="VI" URL="../SRS/Global_val_1.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="IMAQdx.ctl" Type="VI" URL="/&lt;vilib&gt;/userdefined/High Color/IMAQdx.ctl"/>
