@@ -140,15 +140,14 @@
 			<Item Name="Pump_Status.vi" Type="VI" URL="../SRS/Pump_Status.vi"/>
 			<Item Name="Bayer12bit.vi" Type="VI" URL="../SRS/Bayer12bit.vi"/>
 			<Item Name="PumpCommand.vi" Type="VI" URL="../SRS/PumpCommand.vi"/>
+			<Item Name="Arduino_communication_Testcode.vi" Type="VI" URL="../SRS/Arduino_communication_Testcode.vi"/>
+			<Item Name="Pump_commands_Testcode.vi" Type="VI" URL="../SRS/Pump_commands_Testcode.vi"/>
 		</Item>
 		<Item Name="resources" Type="Folder">
 			<Item Name="Icon.ico" Type="Document" URL="../SRS/assets/Icon.ico"/>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../SRS/Main.vi"/>
 		<Item Name="IHS.vi" Type="VI" URL="../IHS/IHS.vi"/>
-		<Item Name="Arduino_communication_Testcode.vi" Type="VI" URL="../SRS/Arduino_communication_Testcode.vi"/>
-		<Item Name="Pump_commands_Testcode.vi" Type="VI" URL="../SRS/Pump_commands_Testcode.vi"/>
-		<Item Name="Global_val_1.vi" Type="VI" URL="../SRS/Global_val_1.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="IMAQdx.ctl" Type="VI" URL="/&lt;vilib&gt;/userdefined/High Color/IMAQdx.ctl"/>
@@ -342,7 +341,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{09FD23A0-93D2-46A2-B12D-FA02255F97C6}</Property>
-				<Property Name="Bld_version.build" Type="Int">55</Property>
+				<Property Name="Bld_version.build" Type="Int">59</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">9</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
@@ -353,8 +352,7 @@
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
 				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/SRS/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Exe_iconItemID" Type="Ref"></Property>
-				<Property Name="Source[0].itemID" Type="Str">{BA25AC8B-D838-4B09-B0EB-6F209076E060}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{B9D9999B-F99E-48FB-99C3-6E66C6F3A4F6}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Main.vi</Property>
@@ -381,17 +379,13 @@
 				<Property Name="Source[4].itemID" Type="Ref">/My Computer/Type Definitions</Property>
 				<Property Name="Source[4].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[4].type" Type="Str">Container</Property>
+				<Property Name="Source[5].Container.applyInclusion" Type="Bool">true</Property>
+				<Property Name="Source[5].Container.depDestIndex" Type="Int">0</Property>
 				<Property Name="Source[5].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[5].itemID" Type="Ref"></Property>
-				<Property Name="Source[5].lvfile" Type="Bool">true</Property>
+				<Property Name="Source[5].itemID" Type="Ref">/My Computer/resources</Property>
 				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
-				<Property Name="Source[6].Container.applyInclusion" Type="Bool">true</Property>
-				<Property Name="Source[6].Container.depDestIndex" Type="Int">0</Property>
-				<Property Name="Source[6].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[6].itemID" Type="Ref">/My Computer/resources</Property>
-				<Property Name="Source[6].sourceInclusion" Type="Str">Include</Property>
-				<Property Name="Source[6].type" Type="Str">Container</Property>
-				<Property Name="SourceCount" Type="Int">7</Property>
+				<Property Name="Source[5].type" Type="Str">Container</Property>
+				<Property Name="SourceCount" Type="Int">6</Property>
 				<Property Name="TgtF_fileDescription" Type="Str">Species Recognition System - beta</Property>
 				<Property Name="TgtF_internalName" Type="Str">SRS</Property>
 				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2012 </Property>
@@ -589,7 +583,7 @@
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
 				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/IHS/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{CAB2C0C3-B59C-4FBF-B73E-32F3489D187F}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{B9D9999B-F99E-48FB-99C3-6E66C6F3A4F6}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/IHS.vi</Property>
