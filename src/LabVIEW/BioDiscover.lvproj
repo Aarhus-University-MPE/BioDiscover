@@ -120,6 +120,13 @@
 				<Item Name="CSV_Image_Data_Append.vi" Type="VI" URL="../SRS/CSV_Image_Data_Append.vi"/>
 				<Item Name="CSV_Image_Data_Create.vi" Type="VI" URL="../SRS/CSV_Image_Data_Create.vi"/>
 			</Item>
+			<Item Name="Phase 3" Type="Folder">
+				<Item Name="SaveBarcodeString.vi" Type="VI" URL="../SRS/SaveBarcodeString.vi"/>
+				<Item Name="ContainerNumToBarcode.vi" Type="VI" URL="../SRS/ContainerNumToBarcode.vi"/>
+				<Item Name="ArearToIndex.vi" Type="VI" URL="../SRS/ArearToIndex.vi"/>
+				<Item Name="Container selection.vi" Type="VI" URL="../SRS/Container selection.vi"/>
+				<Item Name="Ini_GetBarcodeString.vi" Type="VI" URL="../SRS/Ini_GetBarcodeString.vi"/>
+			</Item>
 			<Item Name="Timestamp.vi" Type="VI" URL="../SRS/Timestamp.vi"/>
 			<Item Name="Timestamp_Converter.vi" Type="VI" URL="../SRS/Timestamp_Converter.vi"/>
 			<Item Name="Save_Truth_Table.vi" Type="VI" URL="../SRS/Save_Truth_Table.vi"/>
