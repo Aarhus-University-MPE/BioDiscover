@@ -23,9 +23,9 @@
 // New camera_30088089
 // Old camera1_23466452
 // Old camera2_23466451
-#define CAM_ID1           23466451        // ID for camera 1
-#define CAM_ID2           23466452       // ID for camera 2
-#define SYS_SERIAL        "1.4XL-01-11.24"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
+#define CAM_ID1           23734553        // ID for camera 1
+#define CAM_ID2           23466442        // ID for camera 2
+#define SYS_SERIAL        "1.5XL-01-03.25"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
 
 // Request ID's
 #define CMD_CLOSE         101  // Start Closing maneuver
@@ -61,11 +61,11 @@ const int Valve_Open  = PIN_D10;
 void valveClose(){
   if (digitalRead (Valve_Open) == HIGH) {
       digitalWrite(Valve_Open, LOW);
-      delay(20);
+      delay(100);
       }
 
     digitalWrite(Valve_Close, HIGH);
-    delay(20);
+    delay(100);
     digitalWrite(Valve_Close, LOW);
     MODE = STDBY;
     POS  = CLOSE;
@@ -73,11 +73,11 @@ void valveClose(){
 void valveOpen(){
       if (digitalRead (Valve_Close) == HIGH) {
       digitalWrite(Valve_Close, LOW);
-      delay(20);
+      delay(100);
       }
 
     digitalWrite(Valve_Open, HIGH);
-    delay(20);
+    delay(100);
     digitalWrite(Valve_Open, LOW);
     MODE = STDBY;
     POS  = OPEN;}
@@ -89,9 +89,9 @@ void setup() {
 
   digitalWrite(Valve_Close, LOW);
   digitalWrite(Valve_Open, LOW);
-  delay(20);
+  delay(100);
   digitalWrite(Valve_Close, HIGH);
-  delay(20);
+  delay(100);
   digitalWrite(Valve_Close, LOW);
   POS = CLOSE;
 
