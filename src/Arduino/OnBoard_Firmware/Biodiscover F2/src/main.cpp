@@ -26,8 +26,10 @@
 #define CAM_ID1           23734553        // ID for camera 1
 #define CAM_ID2           23466442        // ID for camera 2
 #define SYS_SERIAL        "1.5XL-01-03.25"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
+#define Identification    "F2"              // Identification
 
-// Request ID's
+// Request ID's       
+#define CMD_Ident         201  // Request ID for Identification
 #define CMD_CLOSE         101  // Start Closing maneuver
 #define CMD_OPEN          102  // Start Opening maneuver
 #define CMD_POS           104  // Report Position
@@ -121,6 +123,9 @@ void loop() {
     int CMD = Serial.parseInt();
 
     switch (CMD) {
+      case CMD_Ident:
+        Serial.println(Identification);
+        break;
       case CMD_CLOSE:
         MODE = CLOSE;
         valveClose();
