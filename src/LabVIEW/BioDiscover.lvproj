@@ -120,6 +120,13 @@
 				<Item Name="CSV_Image_Data_Append.vi" Type="VI" URL="../SRS/CSV_Image_Data_Append.vi"/>
 				<Item Name="CSV_Image_Data_Create.vi" Type="VI" URL="../SRS/CSV_Image_Data_Create.vi"/>
 			</Item>
+			<Item Name="Phase 3" Type="Folder">
+				<Item Name="SaveBarcodeString.vi" Type="VI" URL="../SRS/SaveBarcodeString.vi"/>
+				<Item Name="ContainerNumToBarcode.vi" Type="VI" URL="../SRS/ContainerNumToBarcode.vi"/>
+				<Item Name="ArearToIndex.vi" Type="VI" URL="../SRS/ArearToIndex.vi"/>
+				<Item Name="Container selection.vi" Type="VI" URL="../SRS/Container selection.vi"/>
+				<Item Name="Ini_GetBarcodeString.vi" Type="VI" URL="../SRS/Ini_GetBarcodeString.vi"/>
+			</Item>
 			<Item Name="Timestamp.vi" Type="VI" URL="../SRS/Timestamp.vi"/>
 			<Item Name="Timestamp_Converter.vi" Type="VI" URL="../SRS/Timestamp_Converter.vi"/>
 			<Item Name="Save_Truth_Table.vi" Type="VI" URL="../SRS/Save_Truth_Table.vi"/>
@@ -140,6 +147,8 @@
 			<Item Name="Pump_Status.vi" Type="VI" URL="../SRS/Pump_Status.vi"/>
 			<Item Name="Bayer12bit.vi" Type="VI" URL="../SRS/Bayer12bit.vi"/>
 			<Item Name="PumpCommand.vi" Type="VI" URL="../SRS/PumpCommand.vi"/>
+			<Item Name="Arduino_communication_Testcode.vi" Type="VI" URL="../SRS/Arduino_communication_Testcode.vi"/>
+			<Item Name="Pump_commands_Testcode.vi" Type="VI" URL="../SRS/Pump_commands_Testcode.vi"/>
 		</Item>
 		<Item Name="resources" Type="Folder">
 			<Item Name="Icon.ico" Type="Document" URL="../SRS/assets/Icon.ico"/>
@@ -260,7 +269,7 @@
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
 				<Item Name="IVA Mask from ROI.vi" Type="VI" URL="/&lt;vilib&gt;/vision/Vision Assistant Utils.llb/IVA Mask from ROI.vi"/>
 				<Item Name="System Exec.vi" Type="VI" URL="/&lt;vilib&gt;/Platform/system.llb/System Exec.vi"/>
-				<Item Name="Add State(s) to Queue__JKI_lib_State_Machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__JKI_lib_State_Machine.vi"/>
+				<Item Name="Add State(s) to Queue__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Add State(s) to Queue__jki_lib_state_machine.vi"/>
 				<Item Name="Parse State Queue__JKI_lib_State_Machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Parse State Queue__JKI_lib_State_Machine.vi"/>
 				<Item Name="IMAQ Image Bit Depth" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Image Bit Depth"/>
 				<Item Name="IMAQ Bayer To RGB" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Bayer To RGB"/>
@@ -312,7 +321,7 @@
 				<Item Name="Image Unit" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Image Unit"/>
 				<Item Name="Vision Info Type2.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Vision Info Type2.ctl"/>
 				<Item Name="IVA Clear Coordsys Errors.vi" Type="VI" URL="/&lt;vilib&gt;/vision/Vision Assistant Utils.llb/IVA Clear Coordsys Errors.vi"/>
-				<Item Name="Imaq GetImageInfo" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/Imaq GetImageInfo"/>
+				<Item Name="IMAQ GetImageInfo" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ GetImageInfo"/>
 				<Item Name="IVA Store Particles Results.vi" Type="VI" URL="/&lt;vilib&gt;/vision/Vision Assistant Utils.llb/IVA Store Particles Results.vi"/>
 				<Item Name="Vision Info Type" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Vision Info Type"/>
 				<Item Name="IVA Result Manager Function.ctl" Type="VI" URL="/&lt;vilib&gt;/vision/Vision Assistant Utils.llb/IVA Result Manager Function.ctl"/>
@@ -323,10 +332,6 @@
 				<Item Name="Sort 2D Array - Push Stack.vi" Type="VI" URL="/&lt;vilib&gt;/Array/Sort 2D Array - Push Stack.vi"/>
 				<Item Name="Assert Block Data Type.vim" Type="VI" URL="/&lt;vilib&gt;/Utility/TypeAssert/Assert Block Data Type.vim"/>
 			</Item>
-			<Item Name="Tag-c(bool,bool).lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool).lvlib"/>
-			<Item Name="_ChannelSupport.lvlib" Type="Library" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/_ChannelSupport.lvlib"/>
-			<Item Name="Tag-bool.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool.lvlib"/>
-			<Item Name="Tag-t&apos;Data.ctl&apos;.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;.lvlib"/>
 			<Item Name="niimaqdx.dll" Type="Document" URL="niimaqdx.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -336,8 +341,6 @@
 			<Item Name="nivision.dll" Type="Document" URL="nivision.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="ChannelProbePositionAndTitle.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbePositionAndTitle.vi"/>
-			<Item Name="ChannelProbeWindowStagger.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbeWindowStagger.vi"/>
 			<Item Name="kernel32.dll" Type="Document" URL="kernel32.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -349,6 +352,12 @@
 			</Item>
 			<Item Name="Settings_Save.vi" Type="VI" URL="../SRS/Settings_Save.vi"/>
 			<Item Name="Camera_Config_Manual.vi" Type="VI" URL="../SRS/Camera_Config_Manual.vi"/>
+			<Item Name="_ChannelSupport.lvlib" Type="Library" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/_ChannelSupport.lvlib"/>
+			<Item Name="Tag-bool.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool.lvlib"/>
+			<Item Name="ChannelProbePositionAndTitle.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbePositionAndTitle.vi"/>
+			<Item Name="ChannelProbeWindowStagger.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbeWindowStagger.vi"/>
+			<Item Name="Tag-c(bool,bool).lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool).lvlib"/>
+			<Item Name="Tag-t&apos;Data.ctl&apos;.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;.lvlib"/>
 			<Item Name="Robot_listen.vi" Type="VI" URL="../IHS/Robot_listen.vi"/>
 			<Item Name="robot_comSUBVI.vi" Type="VI" URL="../IHS/robot_comSUBVI.vi"/>
 			<Item Name="Object_number.vi" Type="VI" URL="../IHS/Object_number.vi"/>
@@ -382,7 +391,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{09FD23A0-93D2-46A2-B12D-FA02255F97C6}</Property>
-				<Property Name="Bld_version.build" Type="Int">55</Property>
+				<Property Name="Bld_version.build" Type="Int">61</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">9</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
@@ -393,8 +402,7 @@
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
 				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/SRS/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Exe_iconItemID" Type="Ref"></Property>
-				<Property Name="Source[0].itemID" Type="Str">{BA25AC8B-D838-4B09-B0EB-6F209076E060}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{B9D9999B-F99E-48FB-99C3-6E66C6F3A4F6}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/Main.vi</Property>
@@ -421,17 +429,13 @@
 				<Property Name="Source[4].itemID" Type="Ref">/My Computer/Type Definitions</Property>
 				<Property Name="Source[4].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[4].type" Type="Str">Container</Property>
+				<Property Name="Source[5].Container.applyInclusion" Type="Bool">true</Property>
+				<Property Name="Source[5].Container.depDestIndex" Type="Int">0</Property>
 				<Property Name="Source[5].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[5].itemID" Type="Ref"></Property>
-				<Property Name="Source[5].lvfile" Type="Bool">true</Property>
+				<Property Name="Source[5].itemID" Type="Ref">/My Computer/resources</Property>
 				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
-				<Property Name="Source[6].Container.applyInclusion" Type="Bool">true</Property>
-				<Property Name="Source[6].Container.depDestIndex" Type="Int">0</Property>
-				<Property Name="Source[6].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[6].itemID" Type="Ref">/My Computer/resources</Property>
-				<Property Name="Source[6].sourceInclusion" Type="Str">Include</Property>
-				<Property Name="Source[6].type" Type="Str">Container</Property>
-				<Property Name="SourceCount" Type="Int">7</Property>
+				<Property Name="Source[5].type" Type="Str">Container</Property>
+				<Property Name="SourceCount" Type="Int">6</Property>
 				<Property Name="TgtF_fileDescription" Type="Str">Species Recognition System - beta</Property>
 				<Property Name="TgtF_internalName" Type="Str">SRS</Property>
 				<Property Name="TgtF_legalCopyright" Type="Str">Copyright © 2012 </Property>
@@ -447,65 +451,64 @@
 				<Property Name="Destination[0].unlock" Type="Bool">true</Property>
 				<Property Name="DestinationCount" Type="Int">1</Property>
 				<Property Name="DistPart[0].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[0].productID" Type="Str">{0C3CAF31-4F7C-4135-A5BD-44701BEC0CBE}</Property>
-				<Property Name="DistPart[0].productName" Type="Str">NI Vision Common Resources 2022 Q3</Property>
+				<Property Name="DistPart[0].productID" Type="Str">{2D542C29-1946-4350-8129-BFE20993C097}</Property>
+				<Property Name="DistPart[0].productName" Type="Str">NI Vision Common Resources 2024 Q1</Property>
 				<Property Name="DistPart[0].upgradeCode" Type="Str">{409BEFA9-EB3E-472F-AD77-271A4A1D5927}</Property>
 				<Property Name="DistPart[1].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[1].productID" Type="Str">{4A099A0F-EEAB-4E52-8721-5515D0162D04}</Property>
-				<Property Name="DistPart[1].productName" Type="Str">NI Vision Runtime 2022 Q3</Property>
+				<Property Name="DistPart[1].productID" Type="Str">{79ED725A-DC64-4D66-A45D-08B133F71CAC}</Property>
+				<Property Name="DistPart[1].productName" Type="Str">NI Vision Runtime 2024 Q1</Property>
 				<Property Name="DistPart[1].upgradeCode" Type="Str">{63DF74E5-A5C9-11D4-814E-005004D6CDD6}</Property>
 				<Property Name="DistPart[2].flavorID" Type="Str">_full_</Property>
-				<Property Name="DistPart[2].productID" Type="Str">{F19060DD-AA3B-4C3D-8E47-5792E36DFF3A}</Property>
-				<Property Name="DistPart[2].productName" Type="Str">NI-488.2 Runtime 21.5</Property>
+				<Property Name="DistPart[2].productID" Type="Str">{45E21CB8-05D7-4E12-B56D-2DDF6EC5B1CB}</Property>
+				<Property Name="DistPart[2].productName" Type="Str">NI-488.2 Runtime 23.5</Property>
 				<Property Name="DistPart[2].upgradeCode" Type="Str">{357F6618-C660-41A2-A185-5578CC876D1D}</Property>
 				<Property Name="DistPart[3].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[3].productID" Type="Str">{DD57CE9F-9633-4315-A200-EFCF37011AFF}</Property>
-				<Property Name="DistPart[3].productName" Type="Str">NI-IMAQdx Runtime 22.5</Property>
+				<Property Name="DistPart[3].productID" Type="Str">{600831DA-D9CA-4B20-A4B3-3293A741324F}</Property>
+				<Property Name="DistPart[3].productName" Type="Str">NI-IMAQdx Runtime 23.0</Property>
 				<Property Name="DistPart[3].upgradeCode" Type="Str">{3D104AB3-CE10-43C0-B647-07600754072C}</Property>
-				<Property Name="DistPart[4].flavorID" Type="Str">_full_</Property>
-				<Property Name="DistPart[4].productID" Type="Str">{F12C6F92-5B1C-4EAB-9364-96026CE1920D}</Property>
-				<Property Name="DistPart[4].productName" Type="Str">NI-Serial Runtime 20.0</Property>
-				<Property Name="DistPart[4].upgradeCode" Type="Str">{01D82F43-B48D-46FF-8601-FC4FAAE20F41}</Property>
-				<Property Name="DistPart[5].flavorID" Type="Str">_deployment_</Property>
-				<Property Name="DistPart[5].productID" Type="Str">{016644E7-BFD9-410F-902D-962614CB4E72}</Property>
-				<Property Name="DistPart[5].productName" Type="Str">NI-VISA Runtime 22.5</Property>
-				<Property Name="DistPart[5].upgradeCode" Type="Str">{8627993A-3F66-483C-A562-0D3BA3F267B1}</Property>
-				<Property Name="DistPart[6].flavorID" Type="Str">DefaultFull</Property>
-				<Property Name="DistPart[6].productID" Type="Str">{34D9C224-BFA4-4288-9226-EAF4EEDC48BD}</Property>
-				<Property Name="DistPart[6].productName" Type="Str">NI LabVIEW Runtime 2024 Q1 Patch 1 (64-bit)</Property>
-				<Property Name="DistPart[6].SoftDep[0].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[0].productName" Type="Str">NI ActiveX Container (64-bit)</Property>
-				<Property Name="DistPart[6].SoftDep[0].upgradeCode" Type="Str">{1038A887-23E1-4289-B0BD-0C4B83C6BA21}</Property>
-				<Property Name="DistPart[6].SoftDep[1].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[1].productName" Type="Str">NI Deployment Framework 2024 (64-bit)</Property>
-				<Property Name="DistPart[6].SoftDep[1].upgradeCode" Type="Str">{E0D3C7F9-4512-438F-8123-E2050457972B}</Property>
-				<Property Name="DistPart[6].SoftDep[2].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[2].productName" Type="Str">NI Error Reporting 2020 (64-bit)</Property>
-				<Property Name="DistPart[6].SoftDep[2].upgradeCode" Type="Str">{785BE224-E5B2-46A5-ADCB-55C949B5C9C7}</Property>
-				<Property Name="DistPart[6].SoftDep[3].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[3].productName" Type="Str">NI Logos 24.1</Property>
-				<Property Name="DistPart[6].SoftDep[3].upgradeCode" Type="Str">{5E4A4CE3-4D06-11D4-8B22-006008C16337}</Property>
-				<Property Name="DistPart[6].SoftDep[4].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[4].productName" Type="Str">NI LabVIEW Web Server 2024 (64-bit)</Property>
-				<Property Name="DistPart[6].SoftDep[4].upgradeCode" Type="Str">{5F449D4C-83B9-492E-986B-6B85A29C431D}</Property>
-				<Property Name="DistPart[6].SoftDep[5].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[5].productName" Type="Str">NI mDNS Responder 24.0</Property>
-				<Property Name="DistPart[6].SoftDep[5].upgradeCode" Type="Str">{9607874B-4BB3-42CB-B450-A2F5EF60BA3B}</Property>
-				<Property Name="DistPart[6].SoftDep[6].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[6].productName" Type="Str">Math Kernel Libraries 2017</Property>
-				<Property Name="DistPart[6].SoftDep[6].upgradeCode" Type="Str">{699C1AC5-2CF2-4745-9674-B19536EBA8A3}</Property>
-				<Property Name="DistPart[6].SoftDep[7].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[7].productName" Type="Str">Math Kernel Libraries 2020</Property>
-				<Property Name="DistPart[6].SoftDep[7].upgradeCode" Type="Str">{9872BBBA-FB96-42A4-80A2-9605AC5CBCF1}</Property>
-				<Property Name="DistPart[6].SoftDep[8].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[8].productName" Type="Str">NI VC2015 Runtime</Property>
-				<Property Name="DistPart[6].SoftDep[8].upgradeCode" Type="Str">{D42E7BAE-6589-4570-B6A3-3E28889392E7}</Property>
-				<Property Name="DistPart[6].SoftDep[9].exclude" Type="Bool">false</Property>
-				<Property Name="DistPart[6].SoftDep[9].productName" Type="Str">NI TDM Streaming 24.1</Property>
-				<Property Name="DistPart[6].SoftDep[9].upgradeCode" Type="Str">{4CD11BE6-6BB7-4082-8A27-C13771BC309B}</Property>
-				<Property Name="DistPart[6].SoftDepCount" Type="Int">10</Property>
-				<Property Name="DistPart[6].upgradeCode" Type="Str">{B2695A3E-34C2-3082-9B16-BB16F4DF1A07}</Property>
-				<Property Name="DistPartCount" Type="Int">7</Property>
+				<Property Name="DistPart[4].flavorID" Type="Str">_deployment_</Property>
+				<Property Name="DistPart[4].productID" Type="Str">{57642ED1-74E5-4FA3-9407-9499E414A555}</Property>
+				<Property Name="DistPart[4].productName" Type="Str">NI-VISA Runtime 24.0</Property>
+				<Property Name="DistPart[4].upgradeCode" Type="Str">{8627993A-3F66-483C-A562-0D3BA3F267B1}</Property>
+				<Property Name="DistPart[5].flavorID" Type="Str">DefaultFull</Property>
+				<Property Name="DistPart[5].productID" Type="Str">{34D9C224-BFA4-4288-9226-EAF4EEDC48BD}</Property>
+				<Property Name="DistPart[5].productName" Type="Str">NI LabVIEW Runtime 2024 Q1 Patch 1 (64-bit)</Property>
+				<Property Name="DistPart[5].SoftDep[0].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[5].SoftDep[0].productName" Type="Str">NI ActiveX Container (64-bit)</Property>
+				<Property Name="DistPart[5].SoftDep[0].upgradeCode" Type="Str">{1038A887-23E1-4289-B0BD-0C4B83C6BA21}</Property>
+				<Property Name="DistPart[5].SoftDep[1].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[5].SoftDep[1].productName" Type="Str">NI Deployment Framework 2024 (64-bit)</Property>
+				<Property Name="DistPart[5].SoftDep[1].upgradeCode" Type="Str">{E0D3C7F9-4512-438F-8123-E2050457972B}</Property>
+				<Property Name="DistPart[5].SoftDep[10].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[5].SoftDep[10].productName" Type="Str">NI TDM Streaming 24.1</Property>
+				<Property Name="DistPart[5].SoftDep[10].upgradeCode" Type="Str">{4CD11BE6-6BB7-4082-8A27-C13771BC309B}</Property>
+				<Property Name="DistPart[5].SoftDep[2].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[5].SoftDep[2].productName" Type="Str">NI Error Reporting 2020 (64-bit)</Property>
+				<Property Name="DistPart[5].SoftDep[2].upgradeCode" Type="Str">{785BE224-E5B2-46A5-ADCB-55C949B5C9C7}</Property>
+				<Property Name="DistPart[5].SoftDep[3].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[5].SoftDep[3].productName" Type="Str">NI LabVIEW Real-Time NBFifo 2024</Property>
+				<Property Name="DistPart[5].SoftDep[3].upgradeCode" Type="Str">{57233740-EFE9-3C47-BF6A-4C5981105136}</Property>
+				<Property Name="DistPart[5].SoftDep[4].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[5].SoftDep[4].productName" Type="Str">NI Logos 24.1</Property>
+				<Property Name="DistPart[5].SoftDep[4].upgradeCode" Type="Str">{5E4A4CE3-4D06-11D4-8B22-006008C16337}</Property>
+				<Property Name="DistPart[5].SoftDep[5].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[5].SoftDep[5].productName" Type="Str">NI LabVIEW Web Server 2024 (64-bit)</Property>
+				<Property Name="DistPart[5].SoftDep[5].upgradeCode" Type="Str">{5F449D4C-83B9-492E-986B-6B85A29C431D}</Property>
+				<Property Name="DistPart[5].SoftDep[6].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[5].SoftDep[6].productName" Type="Str">NI mDNS Responder 24.0</Property>
+				<Property Name="DistPart[5].SoftDep[6].upgradeCode" Type="Str">{9607874B-4BB3-42CB-B450-A2F5EF60BA3B}</Property>
+				<Property Name="DistPart[5].SoftDep[7].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[5].SoftDep[7].productName" Type="Str">Math Kernel Libraries 2017</Property>
+				<Property Name="DistPart[5].SoftDep[7].upgradeCode" Type="Str">{699C1AC5-2CF2-4745-9674-B19536EBA8A3}</Property>
+				<Property Name="DistPart[5].SoftDep[8].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[5].SoftDep[8].productName" Type="Str">Math Kernel Libraries 2020</Property>
+				<Property Name="DistPart[5].SoftDep[8].upgradeCode" Type="Str">{9872BBBA-FB96-42A4-80A2-9605AC5CBCF1}</Property>
+				<Property Name="DistPart[5].SoftDep[9].exclude" Type="Bool">false</Property>
+				<Property Name="DistPart[5].SoftDep[9].productName" Type="Str">NI VC2015 Runtime</Property>
+				<Property Name="DistPart[5].SoftDep[9].upgradeCode" Type="Str">{D42E7BAE-6589-4570-B6A3-3E28889392E7}</Property>
+				<Property Name="DistPart[5].SoftDepCount" Type="Int">11</Property>
+				<Property Name="DistPart[5].upgradeCode" Type="Str">{B2695A3E-34C2-3082-9B16-BB16F4DF1A07}</Property>
+				<Property Name="DistPartCount" Type="Int">6</Property>
 				<Property Name="INST_author" Type="Str">IHA Aarhus School of Engineering</Property>
 				<Property Name="INST_autoIncrement" Type="Bool">true</Property>
 				<Property Name="INST_buildLocation" Type="Path">/C/Projects/BioDiscover/Builds/bin/Installer</Property>
@@ -513,7 +516,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.48</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.49</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">24118001</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
@@ -572,7 +575,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">update.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.56</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.57</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">24118001</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
@@ -617,7 +620,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{7530510C-5C16-4FC1-ABD3-B7A81FAB0F7B}</Property>
-				<Property Name="Bld_version.build" Type="Int">3</Property>
+				<Property Name="Bld_version.build" Type="Int">5</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">IHS.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/IHS/IHS.exe</Property>
@@ -626,7 +629,7 @@
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
 				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/IHS/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{CAB2C0C3-B59C-4FBF-B73E-32F3489D187F}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{B9D9999B-F99E-48FB-99C3-6E66C6F3A4F6}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/IHS.vi</Property>

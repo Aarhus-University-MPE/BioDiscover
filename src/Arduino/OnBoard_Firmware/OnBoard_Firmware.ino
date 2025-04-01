@@ -5,6 +5,10 @@
     Mads Rosenhoej Jeppesen - Aarhus 2019
     mrj@mpe.au.dk
 
+    Later Eddited [for versions 1.4 and up] By
+    Jeppe Fogh Rasmussen - Aarhus 2024
+    jfr@mpe.au.dk
+
     Version update:
     - Implementation of Camera ID, store and request
     - 31/03/22 Added System Serial, store and request
@@ -14,9 +18,9 @@
 //              Initialize              //
 //--------------------------------------//
 
-#define CAM_ID1           23466450        // ID for camera 1
-#define CAM_ID2           23734554        // ID for camera 2
-#define SYS_SERIAL        "1.2-03-06.21"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
+#define CAM_ID1           11111111        // ID for camera 1
+#define CAM_ID2           40462643        // ID for camera 2
+#define SYS_SERIAL        "1.4-01-11.24"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
 
 // Request ID's
 #define CMD_CLOSE         101  // Start Closing maneuver
@@ -30,16 +34,25 @@
 #define CMD_REQ_RTRCT_POS 121  // Request retracted position (fully closed)
 #define CMD_REQ_EXTND_POS 122  // Request extended position (fully open)
 
+/*
 #define PIN_D5            5
 #define PIN_D6            6
 #define PIN_D7            7
 #define PIN_D8            8
 #define PIN_D9            9
 #define PIN_D10           10
+*/
 
 #define STDBY             0
 #define OPEN              1
 #define CLOSE             2
+
+#define PIN_D9            9
+#define PIN_D10          10
+#define PIN_D11          11
+#define PIN_D12          12
+#define PIN_D13          13
+
 
 #define VALVE_OPEN        HIGH  // Extend
 #define VALVE_CLOSE       LOW   // Retract
@@ -47,23 +60,31 @@
 int MODE                 = STDBY;  // Current MODE (Standby (0), OPEN (1) or CLOSE (2))
 unsigned long delayStart = 0;      // the time the delay started
 
+/*
 const int manual_dur      = 3000;  // Manual actuator duration [ms]
 const int Safety_Duration = 6000;  // Actuator safety duration [ms]
 
 const int RTRCT_Pos = 370;   // End position
 const int EXTND_Pos = 1020;  // End position
+*/
 
 // Pinout
+/*
 const int HB_ENABLE = PIN_D5;
 const int HB_DIR2   = PIN_D6;
 const int HB_DIR1   = PIN_D7;
 const int ACT_POS   = A0;
+*/
+const int Valve_Close = PIN_9;
+const int Valve_Open  = PIN_10;
+
 
 //--------------------------------------//
 //                SETUP                 //
 //--------------------------------------//
 
 void setup() {
+ /* 
   pinMode(HB_ENABLE, OUTPUT);
   pinMode(HB_DIR1, OUTPUT);
   pinMode(HB_DIR2, OUTPUT);
@@ -71,6 +92,9 @@ void setup() {
   digitalWrite(HB_DIR1, LOW);
   digitalWrite(HB_DIR2, LOW);
   pinMode(ACT_POS, INPUT);
+*/
+  pinMode(Valve_Close, OUTPUT);
+  pinMode(Valve_Open, OUTPUT);
 
   Serial.begin(9600);
   while (!Serial) {
@@ -83,7 +107,6 @@ void setup() {
 //--------------------------------------//
 
 void loop() {
-  int POS = analogRead(ACT_POS);
 
   //------------Linear Actuator Mode------------//
   //--------------------------------------------//
@@ -182,17 +205,8 @@ void loop() {
 }
 
 //----------------------------------------//
-//              Motor Control             //
+//              Valve Control             //
 //----------------------------------------//
 
-void valve(bool DIR, bool ACT) {
-  digitalWrite(HB_ENABLE, ACT);
-  digitalWrite(HB_DIR1, DIR);
-  digitalWrite(HB_DIR2, !DIR);
-}
+void Valve_control(bool);
 
-void valveStop() {
-  digitalWrite(HB_ENABLE, LOW);
-  digitalWrite(HB_DIR1, LOW);
-  digitalWrite(HB_DIR2, LOW);
-}
