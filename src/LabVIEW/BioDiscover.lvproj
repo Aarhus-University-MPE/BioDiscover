@@ -132,6 +132,12 @@
 			<Item Name="Save_Truth_Table.vi" Type="VI" URL="../SRS/Save_Truth_Table.vi"/>
 		</Item>
 		<Item Name="Test Functions" Type="Folder">
+			<Item Name="New camera test" Type="Folder">
+				<Item Name="New_camera_testcode.vi" Type="VI" URL="../SRS/New_camera_testcode.vi"/>
+				<Item Name="New_camera_connection_testcode.vi" Type="VI" URL="../SRS/New_camera_connection_testcode.vi"/>
+				<Item Name="New_camera_snap_testcode.vi" Type="VI" URL="../SRS/New_camera_snap_testcode.vi"/>
+				<Item Name="New_camera_Configuration_testcode.vi" Type="VI" URL="../SRS/New_camera_Configuration_testcode.vi"/>
+			</Item>
 			<Item Name="Camera_Trigger_Manual.vi" Type="VI" URL="../SRS/Camera_Trigger_Manual.vi"/>
 			<Item Name="CameraStream.vi" Type="VI" URL="../SRS/CameraStream.vi"/>
 			<Item Name="CameraStreamIMAQ.vi" Type="VI" URL="../SRS/CameraStreamIMAQ.vi"/>
