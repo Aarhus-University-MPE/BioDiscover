@@ -23,6 +23,8 @@
 // New camera_30088089
 // Old camera1_23466452
 // Old camera2_23466451
+// Old camera1.2_23734553
+// Old camera2.2_23466442
 #define CAM_ID1           23734553        // ID for camera 1
 #define CAM_ID2           23466442        // ID for camera 2
 #define SYS_SERIAL        "1.5XL-01-03.25"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
