@@ -36,6 +36,8 @@
 #define CMD_CLOSE         101  // Start Closing maneuver
 #define CMD_OPEN          102  // Start Opening maneuver
 #define CMD_POS           104  // Report Position
+#define CMD_URlow         105  // Send URSignal
+#define CMD_URhigh        106  // Send URSignal
 #define CMD_SERIAL        107  // Report System Serial number
 #define CMD_CAM1          108  // Report Camera 1 ID
 #define CMD_CAM2          109  // Report Camera 2 ID
@@ -52,12 +54,14 @@
 
 int MODE                 = STDBY;  // Current MODE (Standby (0), OPEN (1) or CLOSE (2))
 unsigned long delayStart = 0;      // the time the delay started
-int POS                  = STDBY;      // Current Positionint
+int POS                  = STDBY;  // Current Positionint
 int Cnt                  = 0; 
+int URPOS                = LOW;    // Current URSignal
 
 // Pinout
 const int Valve_Close = PIN_D9;
 const int Valve_Open  = PIN_D10;
+const int URSignal    = PIN_D11;
 
 //--------------------------------------//
 //                SETUP                 //
@@ -106,6 +110,16 @@ void setup() {
   }
 }
 
+void URlow(){
+  digitalWrite(URSignal, LOW);
+  URPOS = LOW;
+}
+
+void URhigh(){
+  digitalWrite(URSignal, HIGH);
+  URPOS = HIGH;
+}
+
 //--------------------------------------//
 //                MAIN                  //
 //--------------------------------------//
@@ -142,6 +156,14 @@ void loop() {
         break;
       case CMD_SERIAL:
         Serial.println(SYS_SERIAL);
+        break;
+      case CMD_URlow:
+        URlow();
+        Serial.println(URPOS);
+        break;
+      case CMD_URhigh:
+        URhigh();
+        Serial.println(URPOS);
         break;
       case CMD_CAM1:
         Serial.println(CAM_ID1);
