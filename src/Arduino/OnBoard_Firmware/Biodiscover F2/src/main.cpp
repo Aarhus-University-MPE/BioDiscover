@@ -74,7 +74,7 @@ void valveClose(){
       }
 
     digitalWrite(Valve_Close, HIGH);
-    delay(100);
+    delay(200);
     digitalWrite(Valve_Close, LOW);
     MODE = STDBY;
     POS  = CLOSE;
@@ -86,7 +86,7 @@ void valveOpen(){
       }
 
     digitalWrite(Valve_Open, HIGH);
-    delay(100);
+    delay(200);
     digitalWrite(Valve_Open, LOW);
     MODE = STDBY;
     POS  = OPEN;}
