@@ -155,6 +155,7 @@
 			<Item Name="PumpCommand.vi" Type="VI" URL="../SRS/PumpCommand.vi"/>
 			<Item Name="Arduino_communication_Testcode.vi" Type="VI" URL="../SRS/Arduino_communication_Testcode.vi"/>
 			<Item Name="Pump_commands_Testcode.vi" Type="VI" URL="../SRS/Pump_commands_Testcode.vi"/>
+			<Item Name="Test_Ethernet_Camera_F1.vi" Type="VI" URL="../SRS/Test_Ethernet_Camera_F1.vi"/>
 		</Item>
 		<Item Name="resources" Type="Folder">
 			<Item Name="Icon.ico" Type="Document" URL="../SRS/assets/Icon.ico"/>
