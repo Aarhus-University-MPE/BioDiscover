@@ -23,8 +23,11 @@
 // New camera_30088089
 // Old camera1_23466452
 // Old camera2_23466451
-#define CAM_ID1           23734553        // ID for camera 1
-#define CAM_ID2           23466442        // ID for camera 2
+// Old camera1.2_23734553
+// Old camera2.2_23466442
+// #define CAM_ID1           30088089        // ID for camera 1
+#define CAM_ID1           23466452        // ID for camera 1
+#define CAM_ID2           23466451        // ID for camera 2
 #define SYS_SERIAL        "1.5XL-01-03.25"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
 #define Identification    "F2"              // Identification
 
@@ -33,6 +36,8 @@
 #define CMD_CLOSE         101  // Start Closing maneuver
 #define CMD_OPEN          102  // Start Opening maneuver
 #define CMD_POS           104  // Report Position
+#define CMD_URlow         105  // Send URSignal
+#define CMD_URhigh        106  // Send URSignal
 #define CMD_SERIAL        107  // Report System Serial number
 #define CMD_CAM1          108  // Report Camera 1 ID
 #define CMD_CAM2          109  // Report Camera 2 ID
@@ -49,12 +54,14 @@
 
 int MODE                 = STDBY;  // Current MODE (Standby (0), OPEN (1) or CLOSE (2))
 unsigned long delayStart = 0;      // the time the delay started
-int POS                  = STDBY;      // Current Positionint
+int POS                  = STDBY;  // Current Positionint
 int Cnt                  = 0; 
+int URPOS                = LOW;    // Current URSignal
 
 // Pinout
 const int Valve_Close = PIN_D9;
 const int Valve_Open  = PIN_D10;
+const int URSignal    = PIN_D11;
 
 //--------------------------------------//
 //                SETUP                 //
@@ -67,7 +74,7 @@ void valveClose(){
       }
 
     digitalWrite(Valve_Close, HIGH);
-    delay(100);
+    delay(200);
     digitalWrite(Valve_Close, LOW);
     MODE = STDBY;
     POS  = CLOSE;
@@ -79,7 +86,7 @@ void valveOpen(){
       }
 
     digitalWrite(Valve_Open, HIGH);
-    delay(100);
+    delay(200);
     digitalWrite(Valve_Open, LOW);
     MODE = STDBY;
     POS  = OPEN;}
@@ -101,6 +108,16 @@ void setup() {
   while (!Serial) {
     ;  // wait for serial port to connect.
   }
+}
+
+void URlow(){
+  digitalWrite(URSignal, LOW);
+  URPOS = LOW;
+}
+
+void URhigh(){
+  digitalWrite(URSignal, HIGH);
+  URPOS = HIGH;
 }
 
 //--------------------------------------//
@@ -139,6 +156,14 @@ void loop() {
         break;
       case CMD_SERIAL:
         Serial.println(SYS_SERIAL);
+        break;
+      case CMD_URlow:
+        URlow();
+        Serial.println(URPOS);
+        break;
+      case CMD_URhigh:
+        URhigh();
+        Serial.println(URPOS);
         break;
       case CMD_CAM1:
         Serial.println(CAM_ID1);
