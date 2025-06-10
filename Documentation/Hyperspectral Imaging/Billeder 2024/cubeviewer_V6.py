@@ -10,8 +10,8 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 import numpy as np
 import os
 
-from mpltoolbar import NavigationToolbar2Ttk
-
+# from mpltoolbar import NavigationToolbar2Ttk
+from matplotlib.backends.backend_tkagg import NavigationToolbar2Tk # Erstartning af linjen over
 
 # Create a class that inherits from the tkinter.Tk class
 class App(tk.Tk):
@@ -177,7 +177,7 @@ class App(tk.Tk):
         canvas.get_tk_widget().pack(fill='both', expand=True)
 
         # generate the toolbar for the canvas
-        toolbar = NavigationToolbar2Ttk(canvas, tab_frame, pack_toolbar=True)
+        toolbar = NavigationToolbar2Tk(canvas, tab_frame, pack_toolbar=True) # Har lavet ændring for at mache ændring i linje 13-14
         # apply the custom styling to the toolbar
         toolbar.configure(background=self.style_color)
         toolbar.update()
