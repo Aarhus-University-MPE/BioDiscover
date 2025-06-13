@@ -10,6 +10,8 @@
             "includePath": [
                 "C:/Projects/BioDiscover/src/Arduino/OnBoard_Firmware/Biodiscover F2/include",
                 "C:/Projects/BioDiscover/src/Arduino/OnBoard_Firmware/Biodiscover F2/src",
+                "C:/Projects/BioDiscover/src/Arduino/OnBoard_Firmware/Biodiscover F2/.pio/libdeps/uno/DallasTemperature",
+                "C:/Projects/BioDiscover/src/Arduino/OnBoard_Firmware/Biodiscover F2/.pio/libdeps/uno/OneWire",
                 "C:/Users/au635973/.platformio/packages/framework-arduino-avr/cores/arduino",
                 "C:/Users/au635973/.platformio/packages/framework-arduino-avr/variants/standard",
                 "C:/Users/au635973/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
@@ -24,6 +26,8 @@
                 "path": [
                     "C:/Projects/BioDiscover/src/Arduino/OnBoard_Firmware/Biodiscover F2/include",
                     "C:/Projects/BioDiscover/src/Arduino/OnBoard_Firmware/Biodiscover F2/src",
+                    "C:/Projects/BioDiscover/src/Arduino/OnBoard_Firmware/Biodiscover F2/.pio/libdeps/uno/DallasTemperature",
+                    "C:/Projects/BioDiscover/src/Arduino/OnBoard_Firmware/Biodiscover F2/.pio/libdeps/uno/OneWire",
                     "C:/Users/au635973/.platformio/packages/framework-arduino-avr/cores/arduino",
                     "C:/Users/au635973/.platformio/packages/framework-arduino-avr/variants/standard",
                     "C:/Users/au635973/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
