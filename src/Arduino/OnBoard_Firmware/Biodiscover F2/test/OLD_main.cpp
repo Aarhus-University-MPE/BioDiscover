@@ -61,7 +61,9 @@ int URPOS                = LOW;    // Current URSignal
 // Pinout
 const int Valve_Close = PIN_D9;
 const int Valve_Open  = PIN_D10;
-const int URSignal    = PIN_D11;
+const int Fan_PWM     = PIN_D11;
+const int Temp_val    = PIN_D12;
+const int URSignal    = PIN_D13;
 
 //--------------------------------------//
 //                SETUP                 //

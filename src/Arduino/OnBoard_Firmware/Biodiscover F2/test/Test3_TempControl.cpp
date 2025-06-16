@@ -2,7 +2,7 @@
 #include <DallasTemperature.h>
 
 // --- Pin Definitions ---
-const int oneWireBus = 4;      // DS18B20 data pin (D4)
+const int oneWireBus = 12;      // DS18B20 data pin (D4)
 const int fanPWM = 11;         // PWM output pin for fan
 
 // --- Fan PWM Limits ---
@@ -96,6 +96,6 @@ void analogWriteMapped(int percent) {
 // --- Temp → PWM Mapping ---
 int calculateFanPWM(float temp) {
   if (temp <= minTemp) return 76;         // Fan Idle
-  if (temp >= maxTemp) return maxDuty;   // Full speed
+  if (temp >= maxTemp) return maxDuty;    // Full speed
   return map((int)(temp * 10), (int)(minTemp * 10), (int)(maxTemp * 10), minDuty, maxDuty);
 }
