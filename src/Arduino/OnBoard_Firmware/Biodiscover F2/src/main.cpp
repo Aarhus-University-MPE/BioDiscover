@@ -28,8 +28,8 @@
 // Old camera1.2_23734553
 // Old camera2.2_23466442
 // #define CAM_ID1           30088089        // ID for camera 1
-#define CAM_ID1           23466452        // ID for camera 1
-#define CAM_ID2           23466451        // ID for camera 2
+#define CAM_ID1           23734553        // ID for camera 1
+#define CAM_ID2           23466442        // ID for camera 2
 #define SYS_SERIAL        "1.5XL-01-03.25"  // System Serial Number (Version-Increment-Prod_Month.Prod_year)
 #define Identification    "F2"              // Identification
 
@@ -62,11 +62,11 @@ int Cnt                  = 0;
 int URPOS                = LOW;    // Current URSignal
 
 // Pinout
-const int Valve_Close = PIN_D9;
-const int Valve_Open  = PIN_D10;
+const int Valve_Close = PIN_D9;    // Valve close pin
+const int Valve_Open  = PIN_D10;   // Valve Open pin
 const int fanPWM      = PIN_D11;   // PWM output pin for fan
 const int oneWireBus  = PIN_D12;   // DS18B20 data pin (D4)
-const int URSignal    = PIN_D13;
+const int URSignal    = PIN_D13;   // UR Ready signal pin
 
 // --- Fan PWM Limits ---
 const int minDuty = 76;       // ~30% duty (fan lowest usable)
@@ -81,16 +81,8 @@ float tempC           = 0;
 OneWire oneWire(oneWireBus);
 DallasTemperature sensors(&oneWire);
 
-/*
-// --- State ---
-bool autoMode = false;
-int manualPercent = 0;
-*/
-
-//--------------------------------------//
-//                SETUP                 //
-//--------------------------------------//
-
+//-------------Valve - Commands---------------//
+//--------------------------------------------//
 void valveClose(){
   if (digitalRead (Valve_Open) == HIGH) {
     digitalWrite(Valve_Open, LOW);
@@ -117,6 +109,8 @@ void valveOpen(){
   POS  = OPEN;
 }
 
+//---------------UR - Commands----------------//
+//--------------------------------------------//
 void URlow(){
   digitalWrite(URSignal, LOW);
   URPOS = LOW;
@@ -127,13 +121,17 @@ void URhigh(){
   URPOS = HIGH;
 }
 
-// --- Temp → PWM Mapping ---
+//------------Temp → PWM Mapping--------------//
+//--------------------------------------------//
 int calculateFanPWM(float temp) {
   if (temp <= minTemp) return 76;         // Fan Idle
   if (temp >= maxTemp) return maxDuty;   // Full speed
   return map((int)(temp * 10), (int)(minTemp * 10), (int)(maxTemp * 10), minDuty, maxDuty);
 }
 
+//--------------------------------------//
+//                SETUP                 //
+//--------------------------------------//
 void setup() {
   pinMode(Valve_Close, OUTPUT);
   pinMode(Valve_Open, OUTPUT);
@@ -146,6 +144,14 @@ void setup() {
   digitalWrite(Valve_Close, LOW);
   POS = CLOSE;
 
+  Serial.begin(9600);
+  while (!Serial) {
+    ;  // wait for serial port to connect.
+  }
+  
+  // Set pinmode for PWM signal pin
+  pinMode(fanPWM, OUTPUT);
+  
   // Timer2 setup for 25kHz PWM on Pin 11
   TCCR2A = 0;
   TCCR2B = 0;
@@ -158,19 +164,14 @@ void setup() {
   effectivePercent    =   map(76, minDuty, maxDuty, 30, 90);  // Calculate Fan effect
   
   // Get Initial Temp.
+  sensors.begin();
   sensors.requestTemperatures();
   tempC = sensors.getTempCByIndex(0);  //Get starting Temp.
-
-  Serial.begin(9600);
-  while (!Serial) {
-    ;  // wait for serial port to connect.
-  }
 }
 
 //--------------------------------------//
 //                MAIN                  //
 //--------------------------------------//
-
 void loop() {
   //------------------Commands------------------//
   //--------------------------------------------//
