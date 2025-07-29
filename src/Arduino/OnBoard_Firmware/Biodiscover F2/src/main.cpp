@@ -165,6 +165,7 @@ void setup() {
   
   // Get Initial Temp.
   sensors.begin();
+  delay(50);
   sensors.requestTemperatures();
   tempC = sensors.getTempCByIndex(0);  //Get starting Temp.
 }

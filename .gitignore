@@ -3,5 +3,5 @@
 /src/Arduino/ArduinoOutput
 /src/LabVIEW/images
 *.exe
-/Documentation/Hyperspectral Imaging/Bachelor files 2023
+/Documentation/Hyperspectral Imaging/External files
 *.npy
