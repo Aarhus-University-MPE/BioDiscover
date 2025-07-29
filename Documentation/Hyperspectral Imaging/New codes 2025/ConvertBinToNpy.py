@@ -1,10 +1,16 @@
+# This file was created by Jeppe Fogh Rasmussen
+# This script converts a binary file (.bin) containing hyperspectral imaging data into a NumPy array (.npy).
+# The binary file is expected to have a specific shape and format.
+# The script checks the file size, reads the data, reshapes it into a 3D array, and saves it as a .npy file.
+
 import numpy as np
 import os
 
-# === USER SETTINGS ===
-path = "C:/Projects/Hyperspectral analysis/13 Hyperspektralt/Fra Bachelor/Billede pakker/"
-filename = '2022-10-5_12-57-43_1296x1000x900_imageCube'
+# === USER Input ===
+path = "C:/Projects/BioDiscover/Documentation/Hyperspectral Imaging/External files/Billeder 2023/Billede pakker/Originals/"
+filename = '2022-10-5_12-59-26_1296x1000x900_imageCube'
 bin_file = os.path.join(path, filename + '.bin')
+npy_path = "C:/Projects/BioDiscover/Documentation/Hyperspectral Imaging/External files/Billeder 2023/Billede pakker/"
 
 # === KNOWN SHAPE AND FORMAT ===
 width = 1296    # Across conveyor belt
@@ -28,7 +34,7 @@ datacube = data.reshape((channels, height, width))
 
 # === SAVE TO .npy UNDER A NEW NAME ===
 npy_filename = filename + '_converted.npy'
-npy_file = os.path.join(path, npy_filename)
+npy_file = os.path.join(npy_path, npy_filename)
 
 print(f"Saving to {npy_file} ...")
 np.save(npy_file, datacube)

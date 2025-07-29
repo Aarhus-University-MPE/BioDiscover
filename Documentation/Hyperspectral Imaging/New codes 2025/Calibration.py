@@ -1,30 +1,46 @@
 
-"""
-Calibration script for industrial hyperspectral cameras
-"""
+
+#Calibration script for industrial hyperspectral cameras
+
 # Importing packages
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+import os
 from fileinput import filename
 from gettext import Catalog
 from operator import truediv
-import numpy as np
-import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
-import pandas as pd
 
-# User input
+# ----------------------------------------------
+# USER INPUT AND BASIC SETUP
+# ----------------------------------------------
 date = "221005"  #date data was obtained
+time = "12-49-42" #time data was obtained
 folder = "C:/Users/mariu/Desktop/HC Data/" #folder where calibration file is | Be careful with cloud based saving
 file_number = "" #file number. Empty string ("") indicates file number 0
+Hyp_path = "C:/Users/mariu/Desktop/HC Data/2022-10-5_12-49-42_1296x1000x900_imageCube.bin" #hyperspectral image path
 
-channel = 630 #chosen channel for image creation
+# Create a subfolder for storing calibration outputs
+date_time = date + "_" + time
+output_folder = os.path.join(folder, date_time, f"Calibration_{date}")
+output_path = os.path.join(folder, date_time, f"Calibration_{date}/") 
+os.makedirs(output_folder, exist_ok=True)
+print(f"Calibration results will be saved to: {output_folder}")
+
+
+# Toggle visual sanity checks
+channel = 630               # Chosen channel for image creation
 SanityBoard = False         # When TRUE: Shows the calibration board with the calibration boxes overlaid
-SanityLED = True           # When TRUE: Shows white reference and spectral signature over each LED
+SanityLED = True            # When TRUE: Shows white reference and spectral signature over each LED
 SanitySpatial = False       # When TRUE: Shows pixel length in the x and y directions
 SanityCali = False          # When TRUE: Shows regression | Calibration constants for channel to wavelengths conversion
 
+# Calibration output files
 CoefficientsFileName = "Calibration_coeffs_" + date + ".csv"
 final_coefficients = None #enable an array for the calibration constants
 
+# Known LED peak wavelengths (based on hardware spec)
 peak_ref_dict = { #The right wavelength according to the board
     "LED 1": 0,
     "LED 2": 365,
@@ -55,36 +71,43 @@ peak_ref_dict = { #The right wavelength according to the board
     "LED 26": 0
     }
 
+# -----------------------------------------------------
+# LOAD IMAGE CUBE AND DEFINE AOIs (AREAS OF INTEREST)
+# -----------------------------------------------------
 for i in range(0, 1):
     
     data_format_choice = 0 # Leftover from former setup; there is now only 1 camera chip, not 2 | It works, don't change it
    
-    if data_format_choice == 0:  
+   # I am gathering that the two lines above and one below are from a previus setup with two sensors. For all that I have ssen they could be removed.
+   
+    if data_format_choice == 0:
+        # Set filenames and calibration regions
         FileName = "2022-10-5_12-49-42_1296x1000x900_imageCube" #file name
         WhiteFileName = "WhiteCalibration_VIS_NIR_" + date + ".csv" #output filename
         distance = 75 #Distance blue square X spacial
         distance2 = 41 #Distance green square Y spacial
         
-        #Define AOI red
+        # AOI for white reference panel (Red zones)
         AOI_white_x1 = 293  # x start value, x = along belt
         AOI_white_x2 = 312 # x width
         AOI_white_y1 = 0  # y start value, y = across belt
         AOI_white_y2 = 1292  # y height
                
-        #Define AOI Blue
+       # Blue squares for spatial X calibration
         X_spat_x1 = 130  # x start value, x = along belt
         X_spat_x2 = 284 # x end value
         X_spat_y1 = 14  # y value, y = across belt
         X_spat_y2 = X_spat_y1+24  # y value, y = across belt
         X_min = 25 #minimum x square width
         
-        #Define AOI Green
+        # Green stripes for spatial Y calibration
         Y_spat_x1 = 180 # x  value, x = along belt
         Y_spat_x2 = Y_spat_x1+14  # x  value, x = along belt
         Y_spat_y1 = 40 # y start value, y = across belt
         Y_spat_y2 = 1280 # y end value
         Y_min = 65 #minimum y square width
         
+        # LED positions and expected spectral regions
         position_dict = { #tuple of ([x, y], expected peak [channel_min, channel_max]) | Not used LED's are commented out
                     #"LED 1":     ([198, 1190],  [0, 350]),
                     #"LED 2":     ([378, 83],  [0, 350]),
@@ -117,8 +140,9 @@ for i in range(0, 1):
         
         LED_width = 11
         LED_height = 20
-
-        data = np.fromfile("C:/Users/mariu/Desktop/HC Data/2022-10-5_12-49-42_1296x1000x900_imageCube.bin",  dtype=np.uint8)   #importing filename to data
+        
+        # Load and reshape hyperspectral binary file
+        data = np.fromfile(Hyp_path,  dtype=np.uint8)   #importing filename to data
         x = 1000                 #number of lines
         y = 1296                #width across belt
         wave = 900              #aka number of bands
@@ -127,7 +151,9 @@ for i in range(0, 1):
         datacube = np.reshape(data,(wave, x, y))
         datacube = np.transpose(datacube, (1, 2, 0)) #Transpose data into [x, y, Wavelength]
    
-   # SanityBoard
+    # ----------------------------------------
+    # PLOT CALIBRATION BOARD OVER IMAGE (OPTIONAL)
+    # ----------------------------------------
     if SanityBoard:
         datacube = np.transpose(datacube, (1, 0, 2))  #transpose to [y, x, wave] for visuals
         fig, ax = plt.subplots()
@@ -160,7 +186,9 @@ for i in range(0, 1):
         plt.show()  #show ensures real-time plot
         datacube = np.transpose(datacube, (1, 0, 2))  #tranpose back to [x, y, wave]
 
-#Exporting white file.
+    # ----------------------------------------
+    # WHITE REFERENCE EXTRACTION AND SAVE
+    # ----------------------------------------
     White = datacube[AOI_white_x1:AOI_white_x2, AOI_white_y1:AOI_white_y2, :]
     White = np.mean(White, axis = 0) #The AOI is meaned across x number of lines
 
@@ -191,9 +219,9 @@ for i in range(0, 1):
           White[144][90] = White[144][91]
           White[145][89] = White[145][90]
           
-    """Save white calibration file as integers"""
-    np.savetxt(folder+ WhiteFileName, White, delimiter=",", fmt="%3.4f")
-    print(f"{WhiteFileName} has been saved to {folder}")
+    # Save white calibration file as integers
+    np.savetxt(output_path+ WhiteFileName, White, delimiter=",", fmt="%3.4f")
+    print(f"{WhiteFileName} has been saved to {output_folder}")
 
 # Plot White Spec and LEDs Spec
     if SanityLED:
@@ -208,7 +236,9 @@ for i in range(0, 1):
 # Spatial calibration
 #    datacube = np.divide(datacube, White) #convert to reflectance
 
+# ----------------------------------------
 # Spatial X calibration
+# ----------------------------------------
     """Find mean areas"""
     X_peaks = []
     for j in range(0,14):
@@ -233,7 +263,9 @@ for i in range(0, 1):
     X_length_pixels = np.mean(X_lengths_pixels)
     X_coeff = 15.0 / X_length_pixels # mm/pixels
 
-# Spatial X calibration
+# ----------------------------------------
+# Spatial Y calibration
+# ----------------------------------------
     """Find mean areas"""
     Y_peaks = []
     for _ in range (0,2):
@@ -266,7 +298,9 @@ for i in range(0, 1):
     else:
         final_coefficients = np.append(final_coefficients, spat_coeff, axis=0)
     
-# SanitySpatial
+# ----------------------------------------
+# PLOT SPATIAL CALIBRATION (OPTIONAL)
+# ----------------------------------------
     if SanitySpatial:              
         plt.figure()
         plt.plot([i for i in range(len(X_lengths_pixels))], X_lengths_pixels, 'kX')
@@ -287,8 +321,10 @@ for i in range(0, 1):
         plt.show()
         #plt.close()
 
-# Wavelength calibration
-    """Loop over LED positions, calculate spectra, and obtain peak"""
+# ----------------------------------------
+# WAVELENGTH CALIBRATION USING LED PEAKS
+# ----------------------------------------
+   # Loop over LED positions, calculate spectra, and obtain peak
     peak_index_dict = {}
     for key, value in position_dict.items():
          
@@ -313,7 +349,7 @@ for i in range(0, 1):
             plt.show()
             #plt.close()
     
-    """Ensure data_peak gets paired with correct ref_peak and do lin-reg"""
+    # Ensure data_peak gets paired with correct ref_peak and do lin-reg
     Peaks = []
     for key in position_dict:
         Peaks.append((peak_index_dict[key], peak_ref_dict[key])) #Only keep those of interest with LEDs in
@@ -327,7 +363,9 @@ for i in range(0, 1):
     
     final_coefficients = np.append(final_coefficients, np.reshape(np.array(wl_coeffs), (1, 2)), axis=0)
     
-# SanityCali
+# ----------------------------------------
+# PLOT WAVELENGTH CALIBRATION (OPTIONAL)
+# ----------------------------------------
     if SanityCali:
         plt.figure()
         plt.scatter(channel_peaks, wl_peaks, facecolors='none', edgecolors='k')
@@ -340,12 +378,14 @@ for i in range(0, 1):
         plt.show()
         # plt.close()
         
-# Save coefficients
+# ----------------------------------------
+# SAVE CALIBRATION COEFFICIENTS TO CSV
+# ----------------------------------------
 index = ["Spatial", "wl"]
 col = ["x/intercept", "y/slope"]
 
 df = pd.DataFrame(final_coefficients, index=index, columns=col)
-df.to_csv(folder+ CoefficientsFileName, float_format="%2.5g")
-print(f"{CoefficientsFileName} has been saved to {folder}")
+df.to_csv(output_path+ CoefficientsFileName, float_format="%2.5g")
+print(f"{CoefficientsFileName} has been saved to {output_folder}")
 
 # plt.close('all')
