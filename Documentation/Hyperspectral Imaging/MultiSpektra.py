@@ -1,6 +1,21 @@
+# This script is used to visualize the hyperspectral data.
+# It extracts the average spectrum from specified coordinates in the hyperspectral datacube.
+# It also calculates the ratio of integrated values in specified wavelength ranges.
+# The script is customizable for different datasets and regions of interest.
 
+'''
+How to use this script:
+1. Set the `path` variable to the directory where your hyperspectral data files are located
+2. Change the `filename` variable to the name of the data file you want to analyze
+3. Adjust the `chanal` variable to specify the channel you want to visualize
+4. Modify the Coordinate variables (e.g., `XE3`, `YE3`, etc.) to match the specific regions of interest in your data
+5. Uncomment the sections of code corresponding to the dishes you want to analyze by removing the `#` at the beginning
+6. Run the script to see the results printed in the console
+'''
+
+#---------------------------
 #User input
-
+#---------------------------
 path='C:/Users/mariu/Desktop/HC Data/' #Where the datacubes are placed ''= next to the script.
 
 '''Change between files as needed'''
@@ -70,14 +85,17 @@ YS8 = [72, 123,291]
 XP8 = [318,325,353,338,400,440,483,531,543,595,542,619,776] #Plant coordinates
 YP8 = [223,255,265,276,145,157, 82, 74,128,145,243,224,204]
 
-
+#---------------------------
 #importing python packages
-
+#---------------------------
 import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 
-def get_spectrum(x1,x2,y1,y2): #plotting the average spectrum of the pixels in the selection
+#---------------------------
+#plotting the average spectrum of the pixels in the selection
+#---------------------------
+def get_spectrum(x1,x2,y1,y2): 
     spectrum = datacube[:,y1:y2,x1:x2]
     spectrum = np.mean(spectrum,axis=1)
     spectrum = np.mean(spectrum,axis=1)
@@ -87,7 +105,9 @@ extension='.bin' #Deafult file extension - yeps they are binary
 indfile= path+filename+extension #Making the finename with path and extension
 data = np.fromfile(indfile,  dtype=np.uint8)   #importing filename to data
 
-#These values can be obtaind from the file size or name - to be done
+#---------------------------
+# Data cupe size (These values can be obtaind from the file size or name)
+#---------------------------
 Width = 1296 #Across convayer belt (y)
 Length = 1000 #Number of lines scaned (x)
 Chanals = 900 #Number of chanals (z, lambda)

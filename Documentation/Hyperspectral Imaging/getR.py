@@ -1,3 +1,18 @@
+# Analysis of hyperspectral data from a conveyor belt system
+# This script reads hyperspectral data from a binary file, reshapes it into a 3D datacube,
+# and calculates the average spectrum for specified regions. It also computes a ratio of integrated spectral values
+# in two defined wavelength ranges, which can be used to analyze the presence of ethanol or other substances in the data.
+
+''' How to Customize This Script
+1. Set the `path` variable to the directory where your hyperspectral data files are located.
+2. Change the `filename` variable to the name of the data file you want to analyze.
+3. Adjust the `chanal` variable to specify the channel you want to visualize.
+4. Modify the Coordinate variables (e.g., `XE3`, `YE3`, etc.) to match the specific regions of interest in your data.
+5. Change the virtual filter wavelengths (`wave_1`, `wave_2`, `wave_3`, `wave_4`) as needed for your analysis.
+6. Uncomment the sections of code corresponding to the dishes you want to analyze by removing the `#` at the beginning of those lines.
+7. Modify the `delta` variable to set the size of the area you want to analyze.
+8. Run the script to see the results printed in the console.
+'''
 
 #User input
 path='C:/Users/mariu/Desktop/HC Data/' #Where the datacubes are placed ''= next to the script.
@@ -79,13 +94,15 @@ Chanals = 900 #Number of chanals (z, lambda)
 
 datacube = np.reshape(data,(Chanals,Length,Width))    #reshaping from vector to cube
 
-def get_spectrum(x1,x2,y1,y2): #plotting the average spectrum of the pixels in the selection
+#plotting the average spectrum of the pixels in the selection
+def get_spectrum(x1,x2,y1,y2): 
     spectrum = datacube[:,y1:y2,x1:x2]
     spectrum = np.mean(spectrum,axis=1)
     spectrum = np.mean(spectrum,axis=1)
     return spectrum
 
-def beregnRatio(x,y,delta):                         #Function which integrates the hyperspectral signature in the filtered ranges and returns the quotient
+#Function which integrates the hyperspectral signature in the filtered ranges and returns the quotient
+def beregnRatio(x,y,delta):                         
     A_data = get_spectrum(x,x+delta,y,y+delta)
     res = []
     x_ny = []
@@ -98,7 +115,8 @@ def beregnRatio(x,y,delta):                         #Function which integrates t
     index = res.index(min(res))                     
     factor = (x_ny[index])                          #gets how much ethanol is in the area, not great with depth, therefor unused for project, but was there for testing
 
-    comp_data = A_data-B_data*factor                #area with ethanol removed by how much ethanol is in the area
+    #area with ethanol removed by how much ethanol is in the area
+    comp_data = A_data-B_data*factor                
 
     wv = wave_1
     y_intBA = 0
