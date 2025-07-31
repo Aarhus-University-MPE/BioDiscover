@@ -1,12 +1,15 @@
+# Calibration script for industrial hyperspectral cameras
+# This script processes hyperspectral imaging data, calibrates spatial and spectral dimensions, and saves the calibration coefficients.
+# It includes options for visual sanity checks and outputs calibration coefficients to a CSV file.
+# It is designed to work with a specific camera setup and data format.
 
-
-#Calibration script for industrial hyperspectral cameras
 
 # Importing packages
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import os
+from datetime import datetime
 from fileinput import filename
 from gettext import Catalog
 from operator import truediv
@@ -17,28 +20,32 @@ from matplotlib.patches import Rectangle
 # ----------------------------------------------
 date = "221005"  #date data was obtained
 time = "12-49-42" #time data was obtained
-folder = "C:/Users/mariu/Desktop/HC Data/" #folder where calibration file is | Be careful with cloud based saving
+folder = "C:/Projects/BioDiscover/Documentation/Hyperspectral Imaging/External files/Billeder 2023/Billede pakker/Originals" #folder where calibration file is | Be careful with cloud based saving
 file_number = "" #file number. Empty string ("") indicates file number 0
-Hyp_path = "C:/Users/mariu/Desktop/HC Data/2022-10-5_12-49-42_1296x1000x900_imageCube.bin" #hyperspectral image path
+Hyp_path = "C:/Projects/BioDiscover/Documentation/Hyperspectral Imaging/External files/Billeder 2023/Billede pakker/Originals/2022-10-5_12-49-42_1296x1000x900_imageCube.bin" #hyperspectral image path
+FileName = "2022-10-5_12-49-42_1296x1000x900_imageCube" #file name
 
 # Create a subfolder for storing calibration outputs
 date_time = date + "_" + time
-output_folder = os.path.join(folder, date_time, f"Calibration_{date}")
-output_path = os.path.join(folder, date_time, f"Calibration_{date}/") 
+now = datetime.now()
+current_date_time = now.strftime("%Y-%m-%d_%H-%M-%S")  # Format: YYYY-MM-DD_HH-MM-SS
+output_folder = os.path.join(folder, date_time, f"Calibration-Date_{current_date_time}")
+output_path = os.path.join(output_folder + "/") 
 os.makedirs(output_folder, exist_ok=True)
 print(f"Calibration results will be saved to: {output_folder}")
 
 
 # Toggle visual sanity checks
 channel = 630               # Chosen channel for image creation
-SanityBoard = False         # When TRUE: Shows the calibration board with the calibration boxes overlaid
-SanityLED = True            # When TRUE: Shows white reference and spectral signature over each LED
+SanityBoard = False          # When TRUE: Shows the calibration board with the calibration boxes overlaid
+SanityLED = False           # When TRUE: Shows white reference and spectral signature over each LED
 SanitySpatial = False       # When TRUE: Shows pixel length in the x and y directions
-SanityCali = False          # When TRUE: Shows regression | Calibration constants for channel to wavelengths conversion
+SanityCali = True          # When TRUE: Shows regression | Calibration constants for channel to wavelengths conversion
 
 # Calibration output files
-CoefficientsFileName = "Calibration_coeffs_" + date + ".csv"
+CoefficientsFileName = "Calibration_coeffs" + ".csv"
 final_coefficients = None #enable an array for the calibration constants
+WhiteFileName = "WhiteCalibration_VIS_NIR" + ".csv" #output filename
 
 # Known LED peak wavelengths (based on hardware spec)
 peak_ref_dict = { #The right wavelength according to the board
@@ -81,30 +88,28 @@ for i in range(0, 1):
    # I am gathering that the two lines above and one below are from a previus setup with two sensors. For all that I have ssen they could be removed.
    
     if data_format_choice == 0:
-        # Set filenames and calibration regions
-        FileName = "2022-10-5_12-49-42_1296x1000x900_imageCube" #file name
-        WhiteFileName = "WhiteCalibration_VIS_NIR_" + date + ".csv" #output filename
-        distance = 75 #Distance blue square X spacial
-        distance2 = 41 #Distance green square Y spacial
+        # Set calibration regions
+        distance = 75*2 #Distance blue square X spacial
+        distance2 = 40*2 #Distance green square Y spacial
         
         # AOI for white reference panel (Red zones)
         AOI_white_x1 = 293  # x start value, x = along belt
         AOI_white_x2 = 312 # x width
-        AOI_white_y1 = 0  # y start value, y = across belt
+        AOI_white_y1 = 4  # y start value, y = across belt
         AOI_white_y2 = 1292  # y height
                
        # Blue squares for spatial X calibration
         X_spat_x1 = 130  # x start value, x = along belt
-        X_spat_x2 = 284 # x end value
-        X_spat_y1 = 14  # y value, y = across belt
-        X_spat_y2 = X_spat_y1+24  # y value, y = across belt
+        X_spat_x2 = 287 # x end value
+        X_spat_y1 = 60  # y value, y = across belt
+        X_spat_y2 = X_spat_y1+73  # y value, y = across belt
         X_min = 25 #minimum x square width
         
         # Green stripes for spatial Y calibration
-        Y_spat_x1 = 180 # x  value, x = along belt
-        Y_spat_x2 = Y_spat_x1+14  # x  value, x = along belt
-        Y_spat_y1 = 40 # y start value, y = across belt
-        Y_spat_y2 = 1280 # y end value
+        Y_spat_x1 = X_spat_x1 # x  value, x = along belt
+        Y_spat_x2 = Y_spat_x1 + 40  # x  value, x = along belt
+        Y_spat_y1 = X_spat_y1 # y start value, y = across belt
+        Y_spat_y2 = 1258 # y end value
         Y_min = 65 #minimum y square width
         
         # LED positions and expected spectral regions
@@ -163,7 +168,7 @@ for i in range(0, 1):
                                 AOI_white_x2 - AOI_white_x1, AOI_white_y2 - AOI_white_y1,
                                 edgecolor='r',facecolor='none'))
 
-        for j in range(0,14):
+        for j in range(0,8):
             ax.add_patch(Rectangle((X_spat_x1, X_spat_y1+distance*j), # Illustrate the spatial AOI
                                 X_spat_x2 - X_spat_x1, X_spat_y2 - X_spat_y1,
                                 edgecolor='b',facecolor='none'))

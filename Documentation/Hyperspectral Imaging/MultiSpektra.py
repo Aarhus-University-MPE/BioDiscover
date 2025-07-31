@@ -16,7 +16,7 @@ How to use this script:
 #---------------------------
 #User input
 #---------------------------
-path='C:/Users/mariu/Desktop/HC Data/' #Where the datacubes are placed ''= next to the script.
+path='C:/Projects/BioDiscover/Documentation/Hyperspectral Imaging/External files/Billeder 2023/Billede pakker/Originals/' #Where the datacubes are placed ''= next to the script.
 
 '''Change between files as needed'''
 #filename = '2022-10-5_12-49-42_1296x1000x900_imageCube' #0
