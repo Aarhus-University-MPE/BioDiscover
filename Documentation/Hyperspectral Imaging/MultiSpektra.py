@@ -116,6 +116,10 @@ datacube = np.reshape(data,(Chanals,Length,Width))    #reshaping from vector to 
 '''Figure shoving an image of the datacube'''
 dish = plt.figure() #Initilaization of the figure
 plt.imshow(datacube[chanal,:,:],cmap='gray',aspect='auto') #Shows an image of the datacube
+
+#---------------------------
+#Wavelength calibration 
+#---------------------------
 wave=1.4234*chanal+513.1 #Wavelength calibration
 plt.title('Wavelength '+str(wave)) #Adding title to the image
 plt.close() 
