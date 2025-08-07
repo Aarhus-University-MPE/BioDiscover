@@ -201,6 +201,8 @@ for i in range(0, 1):
         if verbose:
             print(f"\n🔍 Loading hyperspectral file: {filepath.name}")
 
+        
+        '''
         if filepath.suffix.lower() == '.npy':
             datacube = np.load(filepath)
             
@@ -225,6 +227,43 @@ for i in range(0, 1):
                 pass  # Already (H, W, C)
             else:
                 raise ValueError(f"Unable to detect spectral axis in shape: {shape}")
+        '''
+        if filepath.suffix.lower() == '.npy':
+            datacube = np.load(filepath)
+
+        if not isinstance(datacube, np.ndarray):
+            raise ValueError("Loaded .npy file is not a NumPy array.")
+
+        if datacube.ndim != 3:
+            raise ValueError(f"Expected 3D array, got shape: {datacube.shape}")
+
+        if verbose:
+            print(f"Detected raw shape: {datacube.shape}")
+
+        shape = datacube.shape
+
+        # Map known dimension sizes to their semantic roles
+        dim_map = {}
+        for i, dim in enumerate(shape):
+            if dim == 900:
+                dim_map['C'] = i  # Spectral channels
+            elif dim == 1392:
+                dim_map['H'] = i  # Along belt
+            elif dim == 1044:
+                dim_map['W'] = i  # Across belt
+            else:
+                raise ValueError(f"Unexpected dimension size {dim} in .npy file.")
+
+        # Ensure all expected dimensions were found
+        if set(dim_map.keys()) != {'C', 'H', 'W'}:
+            raise ValueError(f"Could not detect all required dimensions from shape: {shape}")
+
+        # Reorder to (H, W, C)
+        transpose_order = [dim_map['H'], dim_map['W'], dim_map['C']]
+        datacube = np.transpose(datacube, transpose_order)
+
+        if verbose:
+            print(f"✅ Transposed to: {datacube.shape} (H, W, C)")
 
         elif filepath.suffix.lower() == '.bin':
             if bin_shape is None:
