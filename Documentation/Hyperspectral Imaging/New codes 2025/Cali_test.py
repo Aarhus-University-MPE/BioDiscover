@@ -32,6 +32,7 @@ folder = full_path.parent           # folder path (as Path)
 filename_with_ext = full_path.name  # 'image_1.npy'
 FileName = full_path.stem           # 'image_1' (without extension)
 extension = full_path.suffix        # '.npy'
+filepath = Path(full_path)
 
 # Attempt to extract date and time from the filename, if available
 # E.g., '2022-10-5_12-49-42_1296x1000x900_imageCube'
@@ -74,9 +75,10 @@ print(f"Calibration results will be saved to: {output_folder}")
 # Toggle visual sanity checks
 channel = 630              # Chosen channel for image creation
 SanityBoard = True         # When TRUE: Shows the calibration board with the calibration boxes overlaid
-SanityLED = True           # When TRUE: Shows white reference and spectral signature over each LED
-SanitySpatial = True       # When TRUE: Shows pixel length in the x and y directions
-SanityCali = True          # When TRUE: Shows regression | Calibration constants for channel to wavelengths conversion
+SanityLED = False           # When TRUE: Shows white reference and spectral signature over each LED
+SanitySpatial = False       # When TRUE: Shows pixel length in the x and y directions
+SanityCali = False          # When TRUE: Shows regression | Calibration constants for channel to wavelengths conversion
+verbose=True                # When TRUE: Prints additional information during processing
 
 # Calibration output files
 CoefficientsFileName = "Calibration_coeffs" + ".csv"
@@ -119,11 +121,81 @@ peak_ref_dict = { #The right wavelength according to the board
 # -----------------------------------------------------
 for i in range(0, 1):
     
-    data_format_choice = 0 # Leftover from former setup; there is now only 1 camera chip, not 2 | It works, don't change it
+   # I am gathering that the line above and one below are from a previus setup with two sensors. For all that I have ssen they could be removed.
    
-   # I am gathering that the two lines above and one below are from a previus setup with two sensors. For all that I have ssen they could be removed.
-   
-    if data_format_choice == 0:
+    #-------------------------------------------
+    # Objective values for npy file: image_1.npy
+    #-------------------------------------------
+    if extension == '.npy':
+         # Set calibration regions
+        distance = 66.25*2 #Distance blue square X spacial
+        distance2 = 12.75*2 #Distance green square Y spacial
+        
+        # AOI for white reference panel (Red zones)
+        AOI_white_x1 = 113  # x start value, x = along belt
+        AOI_white_x2 = 121 # x width
+        AOI_white_y1 = 50  # y start value, y = across belt
+        AOI_white_y2 = 1280  # y height
+               
+       # Blue squares for spatial X calibration
+        X_spat_x1 = 62  # x start value, x = along belt
+        X_spat_x2 = 112.5 # x end value
+        X_spat_y1 = 72  # y value, y = across belt
+        X_spat_y2 = X_spat_y1+66  # y value, y = across belt
+        X_min = 25 #minimum x square width
+        
+        # Green stripes for spatial Y calibration
+        Y_spat_x1 = X_spat_x1 # x  value, x = along belt
+        Y_spat_x2 = Y_spat_x1 + 12.5  # x  value, x = along belt
+        Y_spat_y1 = X_spat_y1 # y start value, y = across belt
+        Y_spat_y2 = 1258 # y end value
+        Y_min = 65 #minimum y square width
+        
+        # LED positions and expected spectral regions
+        position_dict = { #tuple of ([x, y], expected peak [channel_min, channel_max]) | Not used LED's are commented out
+                    #"LED 1":     ([198, 1190],  [0, 350]),
+                    #"LED 2":     ([378, 83],  [0, 350]),
+                    #"LED 3":     ([378, 188],   [0, 350]),
+                    "LED 4":     ([143, 422],   [0, 150]),
+                    "LED 5":     ([143, 515],   [0, 899]),  
+                    "LED 6":     ([143, 608],   [50, 899]), 
+                    "LED 7":     ([143, 707],   [0, 150]),  
+                    "LED 8":     ([143, 802],   [0, 899]),  
+                    "LED 9":     ([143, 896],   [0, 899]),  
+                    "LED 10":    ([143, 989],   [0, 899]),  
+                    "LED 11":    ([143, 1085],   [0, 899]), 
+                    #"LED 12":    ([198, 120],   [0, 350]), 
+                    #"LED 13":    ([198, 30],    [0, 350]), 
+                         
+                    #"LED 14":     ([231, 1190], [0, 350]),
+                    #"LED 15":     ([420, 83], [0, 899]),
+                    "LED 16":     ([158, 335],  [0, 100]),
+                    "LED 17":     ([158, 422],  [0, 100]),
+                    "LED 18":     ([158, 515],  [0, 200]),
+                    "LED 19":     ([158, 608],  [0, 899]), 
+                    #"LED 20":     ([420, 623],  [0, 350]),
+                    "LED 21":     ([158, 802],  [0, 899]), 
+                    "LED 22":     ([158, 896],  [0, 899]),
+                    #"LED 23":     ([231, 942],  [0, 350]),
+                    "LED 24":     ([158, 1085],  [650, 899]),
+                    # "LED 25":    ([231, 120],  [0, 350]),
+                    # "LED 26":    ([231, 30],   [0, 350]),
+                    }
+        
+        LED_width = 2.5
+        LED_height = 10
+        
+       # Load hyperspectral file (.bin or .npy)
+        x = 900                 # height (number of lines)
+        y = 1392                 # width across belt
+        wave = 1044               # number of spectral channels
+        expected_shape = (wave, x, y)
+
+    #-------------------------------------------
+    # Objective values for bin file: 2022-10-5_12-49-42_1296x1000x900_imageCube.bin
+    #-------------------------------------------
+    elif extension == '.bin':
+        
         # Set calibration regions
         distance = 75*2 #Distance blue square X spacial
         distance2 = 40*2 #Distance green square Y spacial
@@ -187,49 +259,20 @@ for i in range(0, 1):
         y = 1296                 # width across belt
         wave = 900               # number of spectral channels
         expected_shape = (wave, x, y)
-
-        # def load_hyperspectral_file(filepath, expected_shape=None, bin_shape=None, dtype=np.uint8, verbose=True):
         
-        filepath = Path(full_path)
+        # def load_hyperspectral_file(filepath, expected_shape=None, bin_shape=None, dtype=np.uint8, verbose=True):
         bin_shape = expected_shape  # For .bin files, specify shape as (C, H, W) if known
         dtype=np.uint8
-        verbose=True
         
-        if not filepath.exists():
-            raise FileNotFoundError(f"File not found: {filepath}")
-        
-        if verbose:
-            print(f"\n🔍 Loading hyperspectral file: {filepath.name}")
+    
+    if not filepath.exists():
+        raise FileNotFoundError(f"File not found: {filepath}")
+    
+    if verbose:
+        print(f"\n🔍 Loading hyperspectral file: {filepath.name}")
 
-        
-        '''
-        if filepath.suffix.lower() == '.npy':
-            datacube = np.load(filepath)
-            
-            if not isinstance(datacube, np.ndarray):
-                raise ValueError("Loaded .npy file is not a NumPy array.")
-
-            if datacube.ndim != 3:
-                raise ValueError(f"Expected 3D array, got shape: {datacube.shape}")
-
-            # Detect which axis is the spectral one (likely to be 900 or other known values)
-            axis_names = ['H', 'W', 'C']
-            known_channels = [900, 1392, 1044]
-
-            shape = datacube.shape
-            if verbose:
-                print(f"Detected shape: {shape}")
-
-            # Try to guess the axis of spectral dimension
-            if shape[0] in known_channels:
-                datacube = np.transpose(datacube, (1, 2, 0))  # (C, H, W) → (H, W, C)
-            elif shape[2] in known_channels:
-                pass  # Already (H, W, C)
-            else:
-                raise ValueError(f"Unable to detect spectral axis in shape: {shape}")
-        '''
-        if filepath.suffix.lower() == '.npy':
-            datacube = np.load(filepath)
+    if extension == '.npy':
+        datacube = np.load(filepath)
 
         if not isinstance(datacube, np.ndarray):
             raise ValueError("Loaded .npy file is not a NumPy array.")
@@ -242,92 +285,83 @@ for i in range(0, 1):
 
         shape = datacube.shape
 
-        # Map known dimension sizes to their semantic roles
+        # Map known dimension sizes to roles
         dim_map = {}
         for i, dim in enumerate(shape):
-            if dim == 900:
-                dim_map['C'] = i  # Spectral channels
+            if dim == 1044:
+                dim_map['C'] = i  # spectral channels
             elif dim == 1392:
-                dim_map['H'] = i  # Along belt
-            elif dim == 1044:
-                dim_map['W'] = i  # Across belt
+                dim_map['H'] = i  # along belt (x)
+            elif dim == 900:
+                dim_map['W'] = i  # across belt (y)
             else:
                 raise ValueError(f"Unexpected dimension size {dim} in .npy file.")
 
-        # Ensure all expected dimensions were found
         if set(dim_map.keys()) != {'C', 'H', 'W'}:
             raise ValueError(f"Could not detect all required dimensions from shape: {shape}")
 
-        # Reorder to (H, W, C)
+        # Step 1: Transpose to (H, W, C)
         transpose_order = [dim_map['H'], dim_map['W'], dim_map['C']]
         datacube = np.transpose(datacube, transpose_order)
 
+        # Step 2: Rotate 90° so H and W are swapped
+        datacube = np.rot90(datacube, k=1, axes=(0, 1))
+        
+        # Step 3: Flip vertically so (0,0) is bottom-left
+        datacube = np.flipud(datacube)
+
+        if verbose:        
+            print(f"✅ Final shape after rotation: {datacube.shape} (H, W, C)")
+
+    elif extension == '.bin':
+        if bin_shape is None:
+            raise ValueError("For .bin files, you must provide `bin_shape=(C, H, W)`.")
+
+        expected_size = np.prod(bin_shape)
+        actual_size = os.path.getsize(filepath)
+
+        if expected_size != actual_size:
+            raise ValueError(f"File size mismatch: expected {expected_size} bytes, got {actual_size} bytes.")
+
+        data = np.fromfile(filepath, dtype=dtype)
+        datacube = data.reshape(bin_shape)
+        datacube = np.transpose(datacube, (1, 2, 0))  # (C, H, W) → (H, W, C)
+
         if verbose:
-            print(f"✅ Transposed to: {datacube.shape} (H, W, C)")
+            print(f"Loaded binary file with shape: {datacube.shape}")
 
-        elif filepath.suffix.lower() == '.bin':
-            if bin_shape is None:
-                raise ValueError("For .bin files, you must provide `bin_shape=(C, H, W)`.")
+    else:
+        raise ValueError(f"Unsupported file type: {filepath.suffix}")
 
-            expected_size = np.prod(bin_shape)
-            actual_size = os.path.getsize(filepath)
-
-            if expected_size != actual_size:
-                raise ValueError(f"File size mismatch: expected {expected_size} bytes, got {actual_size} bytes.")
-
-            data = np.fromfile(filepath, dtype=dtype)
-            datacube = data.reshape(bin_shape)
-            datacube = np.transpose(datacube, (1, 2, 0))  # (C, H, W) → (H, W, C)
-
+    # Final shape check
+    if expected_shape:
+        if datacube.shape != expected_shape:
+            print(f"⚠️ Warning: Image shape {datacube.shape} does not match expected {expected_shape}")
+        else:
             if verbose:
-                print(f"Loaded binary file with shape: {datacube.shape}")
+                print("✅ Shape matches expected.")
 
-        else:
-            raise ValueError(f"Unsupported file type: {filepath.suffix}")
-
-        # Final shape check
-        if expected_shape:
-            if datacube.shape != expected_shape:
-                print(f"⚠️ Warning: Image shape {datacube.shape} does not match expected {expected_shape}")
-            else:
-                if verbose:
-                    print("✅ Shape matches expected.")
-
-        # return datacube
-
-        '''
-        # Check if the file is .npy or .bin
-        if full_path_str.endswith('.npy'):
-            print("Loading .npy file...")
-            datacube = np.load(full_path)
-            if datacube.shape != (x, y, wave):
-                # If stored in shape (wave, x, y), transpose it
-                if datacube.shape == expected_shape:
-                    datacube = np.transpose(datacube, (1, 2, 0))
-                else:
-                    raise ValueError(f"Unexpected shape: {datacube.shape}")
-        else:
-            print("Loading .bin file...")
-            data = np.fromfile(full_path, dtype=np.uint8)
-            expected_size = wave * x * y
-            if data.size != expected_size:
-                raise ValueError(f"File size mismatch. Expected {expected_size}, got {data.size}")
-            datacube = data.reshape((wave, x, y))
-            datacube = np.transpose(datacube, (1, 2, 0))  # shape to [x, y, wave]
-            '''
-
+    # return datacube
    
     # ----------------------------------------
     # PLOT CALIBRATION BOARD OVER IMAGE (OPTIONAL)
     # ----------------------------------------
     if SanityBoard:
         datacube = np.transpose(datacube, (1, 0, 2))  #transpose to [y, x, wave] for visuals
-        fig, ax = plt.subplots()
-        ax.imshow(datacube[:, :, channel], cmap='Greys_r', origin="lower")
-            # Adding area of interests
+        
+        if extension == '.npy':
+            # Make figure larger and control aspect
+            fig, ax = plt.subplots(figsize=(14, 6))  # (width_inches, height_inches)
+            ax.imshow(datacube[:, :, channel], cmap='Greys_r', origin="lower", aspect=0.25)
+            
+        elif extension == '.bin':
+            fig, ax = plt.subplots(figsize=())  # (width_inches, height_inches)
+            ax.imshow(datacube[:, :, channel], cmap='Greys_r', origin="lower", aspect='equal')
+        
+        # Adding area of interests
         ax.add_patch(Rectangle((AOI_white_x1, AOI_white_y1), # Illustrate the white AOI
-                                AOI_white_x2 - AOI_white_x1, AOI_white_y2 - AOI_white_y1,
-                                edgecolor='r',facecolor='none'))
+            AOI_white_x2 - AOI_white_x1, AOI_white_y2 - AOI_white_y1,
+            edgecolor='r',facecolor='none'))
 
         for j in range(0,8):
             ax.add_patch(Rectangle((X_spat_x1, X_spat_y1+distance*j), # Illustrate the spatial AOI
@@ -344,11 +378,10 @@ for i in range(0, 1):
                 value[0][0] + LED_width -value[0][0] , value[0][1] + LED_height - value[0][1],
                 linewidth=1.0,edgecolor='r',facecolor='none'))
 
-        ax.invert_xaxis()
-        if data_format_choice == 0:
-         ax.invert_yaxis()
-        ax.set_xlabel('Along conveyer belt (Door ->)')
-        ax.set_ylabel('Across conveyer belt (Wall ->)')
+        # Add labels for the LED positions
+        ax.set_xlabel('Along conveyer belt')
+        ax.set_ylabel('Across conveyer belt')
+        
         plt.show()  #show ensures real-time plot
         datacube = np.transpose(datacube, (1, 0, 2))  #tranpose back to [x, y, wave]
 
@@ -358,32 +391,31 @@ for i in range(0, 1):
     White = datacube[AOI_white_x1:AOI_white_x2, AOI_white_y1:AOI_white_y2, :]
     White = np.mean(White, axis = 0) #The AOI is meaned across x number of lines
 
-    if data_format_choice != 0:
-          """Remove dead pixels manually"""
-          """ When you have a black you have bright next to """
-          White[60][13] = White[60][15]
-          White[61][12] = White[61][11]
-          White[61][13] = White[61][15] #Black
-          White[61][14] = White[61][16]
-          White[62][13] = White[62][15]
+    """Remove dead pixels manually"""
+    """ When you have a black you have bright next to """
+    White[60][13] = White[60][15]
+    White[61][12] = White[61][11]
+    White[61][13] = White[61][15] #Black
+    White[61][14] = White[61][16]
+    White[62][13] = White[62][15]
 
-          White[94][99] = White[95][99]
-          White[94][100] = White[95][100]
+    White[94][99] = White[95][99]
+    White[94][100] = White[95][100]
 
-          White[123][92] = White[123][90]
-          White[124][91] = White[124][89]
-          White[124][92] = White[124][90] #Black
-          White[124][93] = White[124][94]
-          White[125][92] = White[125][90]
+    White[123][92] = White[123][90]
+    White[124][91] = White[124][89]
+    White[124][92] = White[124][90] #Black
+    White[124][93] = White[124][94]
+    White[125][92] = White[125][90]
 
-          White[142][89] = White[142][90]
-          White[143][89] = White[139][89] #Black
-          White[143][88] = White[143][87]
-          White[143][90] = White[143][91]
-          White[144][89] = White[140][89] #Black
-          White[144][88] = White[144][87]
-          White[144][90] = White[144][91]
-          White[145][89] = White[145][90]
+    White[142][89] = White[142][90]
+    White[143][89] = White[139][89] #Black
+    White[143][88] = White[143][87]
+    White[143][90] = White[143][91]
+    White[144][89] = White[140][89] #Black
+    White[144][88] = White[144][87]
+    White[144][90] = White[144][91]
+    White[145][89] = White[145][90]
           
     # Save white calibration file as integers
     np.savetxt(output_path+ WhiteFileName, White, delimiter=",", fmt="%3.4f")
