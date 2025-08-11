@@ -75,9 +75,9 @@ print(f"Calibration results will be saved to: {output_folder}")
 # Toggle visual sanity checks
 channel = 630              # Chosen channel for image creation
 SanityBoard = True         # When TRUE: Shows the calibration board with the calibration boxes overlaid
-SanityLED = False           # When TRUE: Shows white reference and spectral signature over each LED
-SanitySpatial = False       # When TRUE: Shows pixel length in the x and y directions
-SanityCali = False          # When TRUE: Shows regression | Calibration constants for channel to wavelengths conversion
+SanityLED = True           # When TRUE: Shows white reference and spectral signature over each LED
+SanitySpatial = True       # When TRUE: Shows pixel length in the x and y directions
+SanityCali = True          # When TRUE: Shows regression | Calibration constants for channel to wavelengths conversion
 verbose=True                # When TRUE: Prints additional information during processing
 
 # Calibration output files
@@ -128,8 +128,8 @@ for i in range(0, 1):
     #-------------------------------------------
     if extension == '.npy':
          # Set calibration regions
-        distance = 66.25*2 #Distance blue square X spacial
-        distance2 = 12.75*2 #Distance green square Y spacial
+        distance = 66*2 #Distance blue square X spacial
+        distance2 = 13*2 #Distance green square Y spacial
         
         # AOI for white reference panel (Red zones)
         AOI_white_x1 = 113  # x start value, x = along belt
@@ -139,14 +139,14 @@ for i in range(0, 1):
                
        # Blue squares for spatial X calibration
         X_spat_x1 = 62  # x start value, x = along belt
-        X_spat_x2 = 112.5 # x end value
+        X_spat_x2 = 112 # x end value
         X_spat_y1 = 72  # y value, y = across belt
         X_spat_y2 = X_spat_y1+66  # y value, y = across belt
         X_min = 25 #minimum x square width
         
         # Green stripes for spatial Y calibration
         Y_spat_x1 = X_spat_x1 # x  value, x = along belt
-        Y_spat_x2 = Y_spat_x1 + 12.5  # x  value, x = along belt
+        Y_spat_x2 = Y_spat_x1 + 12  # x  value, x = along belt
         Y_spat_y1 = X_spat_y1 # y start value, y = across belt
         Y_spat_y2 = 1258 # y end value
         Y_min = 65 #minimum y square width
@@ -169,21 +169,21 @@ for i in range(0, 1):
                          
                     #"LED 14":     ([231, 1190], [0, 350]),
                     #"LED 15":     ([420, 83], [0, 899]),
-                    "LED 16":     ([158, 335],  [0, 100]),
+                    "LED 16":     ([158, 324],  [0, 100]),
                     "LED 17":     ([158, 422],  [0, 100]),
                     "LED 18":     ([158, 515],  [0, 200]),
-                    "LED 19":     ([158, 608],  [0, 899]), 
+                    "LED 19":     ([158, 609],  [0, 899]), 
                     #"LED 20":     ([420, 623],  [0, 350]),
                     "LED 21":     ([158, 802],  [0, 899]), 
-                    "LED 22":     ([158, 896],  [0, 899]),
+                    "LED 22":     ([158, 897],  [0, 899]),
                     #"LED 23":     ([231, 942],  [0, 350]),
-                    "LED 24":     ([158, 1085],  [650, 899]),
+                    "LED 24":     ([156, 1085],  [650, 899]),
                     # "LED 25":    ([231, 120],  [0, 350]),
                     # "LED 26":    ([231, 30],   [0, 350]),
                     }
         
-        LED_width = 2.5
-        LED_height = 10
+        LED_width = 2
+        LED_height = 8
         
        # Load hyperspectral file (.bin or .npy)
         x = 900                 # height (number of lines)
