@@ -132,10 +132,10 @@ for i in range(0, 1):
         distance2 = 13*2 #Distance green square Y spacial
         
         # AOI for white reference panel (Red zones)
-        AOI_white_x1 = 113  # x start value, x = along belt
-        AOI_white_x2 = 121 # x width
-        AOI_white_y1 = 50  # y start value, y = across belt
-        AOI_white_y2 = 1280  # y height
+        AOI_white_x1 = 114  # x start value, x = along belt
+        AOI_white_x2 = 120 # x width
+        AOI_white_y1 = 138  # y start value, y = across belt
+        AOI_white_y2 = 1195  # y height
                
        # Blue squares for spatial X calibration
         X_spat_x1 = 62  # x start value, x = along belt
@@ -352,7 +352,7 @@ for i in range(0, 1):
         if extension == '.npy':
             # Make figure larger and control aspect
             fig, ax = plt.subplots(figsize=(14, 6))  # (width_inches, height_inches)
-            ax.imshow(datacube[:, :, channel], cmap='Greys_r', origin="lower", aspect=0.25)
+            ax.imshow(datacube[:, :, channel], cmap='Greys_r', origin="lower", aspect='equal')
             
         elif extension == '.bin':
             fig, ax = plt.subplots(figsize=())  # (width_inches, height_inches)
@@ -378,7 +378,7 @@ for i in range(0, 1):
                 value[0][0] + LED_width -value[0][0] , value[0][1] + LED_height - value[0][1],
                 linewidth=1.0,edgecolor='r',facecolor='none'))
 
-        # Add labels for the LED positions
+        # Add labels
         ax.set_xlabel('Along conveyer belt')
         ax.set_ylabel('Across conveyer belt')
         
