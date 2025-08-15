@@ -22,10 +22,11 @@ from pathlib import Path
 # ----------------------------------------------
 
 # === User input: just paste the full file path here ===
-full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2024\image_1.npy"
+full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2023\Billede pakker\Originals\2022-10-5_12-49-42_1296x1000x900_imageCube.bin"
+# full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2024\image_1.npy"
 
 # Convert to Path object (handles slashes & filenames safely)
-full_path = Path(full_path_str)
+full_path = Path(full_path_str) 
 
 # Extract components
 folder = full_path.parent           # folder path (as Path)
@@ -75,8 +76,8 @@ print(f"Calibration results will be saved to: {output_folder}")
 # Toggle visual sanity checks
 channel = 630              # Chosen channel for image creation
 SanityBoard = True         # When TRUE: Shows the calibration board with the calibration boxes overlaid
-SanityLED = True           # When TRUE: Shows white reference and spectral signature over each LED
-SanitySpatial = True       # When TRUE: Shows pixel length in the x and y directions
+SanitySpatial = True      # When TRUE: Shows pixel length in the x and y directions
+SanityLED = True          # When TRUE: Shows white reference and spectral signature over each LED
 SanityCali = True          # When TRUE: Shows regression | Calibration constants for channel to wavelengths conversion
 verbose=True                # When TRUE: Prints additional information during processing
 
@@ -284,32 +285,9 @@ for i in range(0, 1):
             print(f"Detected raw shape: {datacube.shape}")
 
         shape = datacube.shape
-
-        # Map known dimension sizes to roles
-        dim_map = {}
-        for i, dim in enumerate(shape):
-            if dim == 1044:
-                dim_map['C'] = i  # spectral channels
-            elif dim == 1392:
-                dim_map['H'] = i  # along belt (x)
-            elif dim == 900:
-                dim_map['W'] = i  # across belt (y)
-            else:
-                raise ValueError(f"Unexpected dimension size {dim} in .npy file.")
-
-        if set(dim_map.keys()) != {'C', 'H', 'W'}:
-            raise ValueError(f"Could not detect all required dimensions from shape: {shape}")
-
-        # Step 1: Transpose to (H, W, C)
-        transpose_order = [dim_map['H'], dim_map['W'], dim_map['C']]
-        datacube = np.transpose(datacube, transpose_order)
-
-        # Step 2: Rotate 90° so H and W are swapped
-        datacube = np.rot90(datacube, k=1, axes=(0, 1))
         
-        # Step 3: Flip vertically so (0,0) is bottom-left
-        datacube = np.flipud(datacube)
-
+        datacube = np.transpose(datacube, (0, 1, 2))  # (C, H, W) → (H, W, C)
+        
         if verbose:        
             print(f"✅ Final shape after rotation: {datacube.shape} (H, W, C)")
 
@@ -352,10 +330,10 @@ for i in range(0, 1):
         if extension == '.npy':
             # Make figure larger and control aspect
             fig, ax = plt.subplots(figsize=(14, 6))  # (width_inches, height_inches)
-            ax.imshow(datacube[:, :, channel], cmap='Greys_r', origin="lower", aspect='equal')
-            
+            ax.imshow(datacube[:, :, channel], cmap='Greys_r', origin="lower", aspect=0.25)
+    
         elif extension == '.bin':
-            fig, ax = plt.subplots(figsize=())  # (width_inches, height_inches)
+            fig, ax = plt.subplots(figsize=(14, 6))  # (width_inches, height_inches)
             ax.imshow(datacube[:, :, channel], cmap='Greys_r', origin="lower", aspect='equal')
         
         # Adding area of interests
@@ -374,7 +352,7 @@ for i in range(0, 1):
         
         for value in position_dict.values():
             ax.add_patch(Rectangle(
-                (value[0][0], value[0][1]), # Illustrate the white AOI
+                (value[0][0], value[0][1]), # Illustrate the LED AOI
                 value[0][0] + LED_width -value[0][0] , value[0][1] + LED_height - value[0][1],
                 linewidth=1.0,edgecolor='r',facecolor='none'))
 
@@ -431,17 +409,15 @@ for i in range(0, 1):
         plt.show()
         #plt.close()             
 
-# Spatial calibration
-#    datacube = np.divide(datacube, White) #convert to reflectance
-
 # ----------------------------------------
 # Spatial X calibration
 # ----------------------------------------
     """Find mean areas"""
     X_peaks = []
-    for j in range(0,14):
+    for j in range(0,8):
         X_area = datacube[X_spat_x1:X_spat_x2, X_spat_y1+distance*j:X_spat_y2+distance*j, :] #AOI [149,15,110]
-        X_mean_area = np.mean(X_area, axis=1) #mean across y, [149,110]
+        
+        X_mean_area = np.mean(X_area, axis=1) #mean across y,
         X_mean_area = np.mean(X_mean_area, axis=1) #mean over the 110 channels [149,]
         
         """Find black/white boundaries"""
@@ -459,7 +435,13 @@ for i in range(0, 1):
     
     """Calculate final coefficients and save them in final array"""
     X_length_pixels = np.mean(X_lengths_pixels)
+    if not (X_length_pixels > 0):
+        print("⚠️ Warning: X length in pixels is zero, check the calibration board.")
+        print (f"Using 'Distance green square Y spacial': {distance2/2} for X calibration.")
+        X_length_pixels = distance2/2
+        
     X_coeff = 15.0 / X_length_pixels # mm/pixels
+    print (f"X_coeff: {X_coeff} mm/pixels")
 
 # ----------------------------------------
 # Spatial Y calibration
@@ -468,7 +450,8 @@ for i in range(0, 1):
     Y_peaks = []
     for _ in range (0,2):
         Y_area = datacube[Y_spat_x1+distance2*_:Y_spat_x2+distance2*_, Y_spat_y1:Y_spat_y2, :] #AOI
-        Y_mean_area = np.mean(Y_area, axis=0) #mean across x
+        
+        Y_mean_area = np.mean(Y_area, axis=0) #mean across x   
         Y_mean_area = np.mean(Y_mean_area, axis=1) #mean over channels
         
         """Find black/white boundaries"""    
@@ -483,10 +466,16 @@ for i in range(0, 1):
     Y_lengths_pixels = np.diff(Y_peaks)
     selected_indices = np.where(Y_min < Y_lengths_pixels)[0]
     Y_lengths_pixels = Y_lengths_pixels[selected_indices]
-      
+    
     """Calculate final coefficients and save them in final array"""
     Y_length_pixels = np.mean(Y_lengths_pixels)
+    if not (Y_length_pixels > 0):
+        print("⚠️ Warning: Y length in pixels is zero, check the calibration board.")
+        print (f"Using 'Distance green square X spacial': {distance/2} for Y calibration.")
+        Y_length_pixels = distance/2
+    
     Y_coeff = 15.0 / Y_length_pixels # mm/pixels
+    print (f"Y_coeff: {Y_coeff} mm/pixels") 
     
 # Assign spatial coefficients to final_coefficients
     spat_coeff = np.reshape(np.array([X_coeff, Y_coeff]), (1, 2))
