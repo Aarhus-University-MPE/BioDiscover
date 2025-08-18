@@ -22,8 +22,8 @@ from pathlib import Path
 # ----------------------------------------------
 
 # === User input: just paste the full file path here ===
-full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2023\Billede pakker\Originals\2022-10-5_12-49-42_1296x1000x900_imageCube.bin"
-# full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2024\image_1.npy"
+# full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2023\Billede pakker\Originals\2022-10-5_12-49-42_1296x1000x900_imageCube.bin"
+full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2024\image_1.npy"
 
 # Convert to Path object (handles slashes & filenames safely)
 full_path = Path(full_path_str) 
@@ -157,34 +157,34 @@ for i in range(0, 1):
                     #"LED 1":     ([198, 1190],  [0, 350]),
                     #"LED 2":     ([378, 83],  [0, 350]),
                     #"LED 3":     ([378, 188],   [0, 350]),
-                    "LED 4":     ([143, 422],   [0, 150]),
-                    "LED 5":     ([143, 515],   [0, 899]),  
-                    "LED 6":     ([143, 608],   [50, 899]), 
-                    "LED 7":     ([143, 707],   [0, 150]),  
+                    "LED 4":     ([143, 424],   [0, 200]),
+                    "LED 5":     ([143, 517],   [0, 899]),  
+                    "LED 6":     ([143, 610],   [50, 899]), 
+                    "LED 7":     ([143, 709],   [0, 300]),  
                     "LED 8":     ([143, 802],   [0, 899]),  
-                    "LED 9":     ([143, 896],   [0, 899]),  
-                    "LED 10":    ([143, 989],   [0, 899]),  
-                    "LED 11":    ([143, 1085],   [0, 899]), 
+                    "LED 9":     ([143, 898],   [0, 899]),  
+                    "LED 10":    ([144, 991],   [0, 899]),  
+                    "LED 11":    ([143, 1087],   [0, 899]), 
                     #"LED 12":    ([198, 120],   [0, 350]), 
                     #"LED 13":    ([198, 30],    [0, 350]), 
                          
                     #"LED 14":     ([231, 1190], [0, 350]),
                     #"LED 15":     ([420, 83], [0, 899]),
-                    "LED 16":     ([158, 324],  [0, 100]),
-                    "LED 17":     ([158, 422],  [0, 100]),
-                    "LED 18":     ([158, 515],  [0, 200]),
-                    "LED 19":     ([158, 609],  [0, 899]), 
+                    "LED 16":     ([158, 326],  [0, 200]),
+                    "LED 17":     ([158, 420],  [0, 200]),
+                    "LED 18":     ([158, 516],  [0, 250]),
+                    "LED 19":     ([158, 612],  [0, 899]), 
                     #"LED 20":     ([420, 623],  [0, 350]),
-                    "LED 21":     ([158, 802],  [0, 899]), 
-                    "LED 22":     ([158, 897],  [0, 899]),
+                    "LED 21":     ([158, 804],  [0, 899]), 
+                    "LED 22":     ([158, 899],  [0, 899]),
                     #"LED 23":     ([231, 942],  [0, 350]),
-                    "LED 24":     ([156, 1085],  [650, 899]),
+                    "LED 24":     ([156, 1087],  [650, 899]),
                     # "LED 25":    ([231, 120],  [0, 350]),
                     # "LED 26":    ([231, 30],   [0, 350]),
                     }
         
         LED_width = 2
-        LED_height = 8
+        LED_height = 6
         
        # Load hyperspectral file (.bin or .npy)
         x = 900                 # height (number of lines)
