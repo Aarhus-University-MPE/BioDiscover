@@ -15,7 +15,7 @@
 '''
 
 #User input
-path='C:/Projects/BioDiscover/Documentation/Hyperspectral Imaging/External files/Billeder 2023/Billede pakker/' #Where the datacubes are placed ''= next to the script.
+path='C:/Projects/BioDiscover/Documentation/Hyperspectral Imaging/External files/Billeder 2023/Billede pakker/Originals/' #Where the datacubes are placed ''= next to the script.
 
 '''Change between files as needed'''
 #filename = '2022-10-5_12-49-42_1296x1000x900_imageCube' #0
@@ -81,11 +81,13 @@ wave_4 = wave_3 + 10
 #importing python packages
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 from matplotlib.patches import Rectangle
+from pathlib import Path
 
-extension='.bin' #Deafult file extension - yeps they are binary
-indfile= path+filename+extension #Making the finename with path and extension
-data = np.fromfile(indfile,  dtype=np.uint8)   #importing filename to data
+extension ='.bin' #Deafult file extension - yeps they are binary
+filename = os.path.join(path + filename + extension) #Making the finename with path and extension
+data = np.fromfile(filename,  dtype=np.uint8)   #importing filename to data "dtype=np.uint8"
 
 #These values can be obtaind from the file size or name - to be done
 Width = 1296 #Across convayer belt (y)

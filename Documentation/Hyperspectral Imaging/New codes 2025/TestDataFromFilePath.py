@@ -34,4 +34,3 @@ print("📄 Filename: ", FileName)
 print("📂 Extension: ", extension)
 print("📆 Date: ", date)
 print("⏰ Time: ", time)
-

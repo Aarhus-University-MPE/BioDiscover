@@ -58,10 +58,14 @@ print("⏰ Time: ", time)
 
 
 # Create a subfolder for storing calibration outputs
-date_time = date + "_" + time
+if date == "unknown" or time == "unknown":
+    Calibration_folder = FileName
+else:
+    Calibration_folder = date + "_" + time
+
 now = datetime.now()
 current_date_time = now.strftime("%Y-%m-%d_%H-%M-%S")  # Format: YYYY-MM-DD_HH-MM-SS
-output_folder = os.path.join(folder, date_time, f"Calibration-Date_{current_date_time}")
+output_folder = os.path.join(folder, Calibration_folder, f"Calibration-Date_{current_date_time}")
 output_path = os.path.join(output_folder + "/") 
 os.makedirs(output_folder, exist_ok=True)
 print(f"Calibration results will be saved to: {output_folder}")
