@@ -18,6 +18,7 @@ How to use this script:
 #---------------------------
 path='C:/Projects/BioDiscover/Documentation/Hyperspectral Imaging/External files/Billeder 2023/Billede pakker/Originals/' #Where the datacubes are placed ''= next to the script.
 
+
 '''Change between files as needed'''
 #filename = '2022-10-5_12-49-42_1296x1000x900_imageCube' #0
 #filename = '2022-10-5_12-51-3_1296x1000x900_imageCube' #1
@@ -90,7 +91,9 @@ YP8 = [223,255,265,276,145,157, 82, 74,128,145,243,224,204]
 #---------------------------
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 from matplotlib.patches import Rectangle
+from pathlib import Path
 
 #---------------------------
 #plotting the average spectrum of the pixels in the selection
@@ -101,9 +104,10 @@ def get_spectrum(x1,x2,y1,y2):
     spectrum = np.mean(spectrum,axis=1)
     return spectrum
 
-extension='.bin' #Deafult file extension - yeps they are binary
-indfile= path+filename+extension #Making the finename with path and extension
-data = np.fromfile(indfile,  dtype=np.uint8)   #importing filename to data
+extension ='.bin' #Deafult file extension - yeps they are binary
+file = os.path.join(path + filename + extension) #Making the finename with path and extension
+print (f"Loading data from: {file}")
+data = np.fromfile(file,  dtype=np.uint8)   #importing filename to data
 
 #---------------------------
 # Data cupe size (These values can be obtaind from the file size or name)

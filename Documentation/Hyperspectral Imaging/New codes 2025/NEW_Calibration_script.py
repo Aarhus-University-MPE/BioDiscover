@@ -10,6 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import os
+import re
 from datetime import datetime
 from fileinput import filename
 from gettext import Catalog
@@ -23,7 +24,7 @@ from pathlib import Path
 
 # === User input: just paste the full file path here ===
 # full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2023\Billede pakker\Originals\2022-10-5_12-49-42_1296x1000x900_imageCube.bin"
-full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2024\image_1.npy"
+full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2024\image_2.npy"
 
 # Convert to Path object (handles slashes & filenames safely)
 full_path = Path(full_path_str) 
@@ -38,7 +39,6 @@ filepath = Path(full_path)
 # Attempt to extract date and time from the filename, if available
 # E.g., '2022-10-5_12-49-42_1296x1000x900_imageCube'
 # We'll try to extract parts from the string if it matches a known format
-import re
 
 match = re.match(r"(\d{4}-\d{1,2}-\d{1,2})_(\d{2}-\d{2}-\d{2})", FileName)
 if match:
@@ -76,9 +76,9 @@ print(f"Calibration results will be saved to: {output_folder}")
 # Toggle visual sanity checks
 channel = 630              # Chosen channel for image creation
 SanityBoard = True         # When TRUE: Shows the calibration board with the calibration boxes overlaid
-SanitySpatial = True      # When TRUE: Shows pixel length in the x and y directions
-SanityLED = True          # When TRUE: Shows white reference and spectral signature over each LED
-SanityCali = True          # When TRUE: Shows regression | Calibration constants for channel to wavelengths conversion
+SanitySpatial = False      # When TRUE: Shows pixel length in the x and y directions
+SanityLED = False          # When TRUE: Shows white reference and spectral signature over each LED
+SanityCali = False          # When TRUE: Shows regression | Calibration constants for channel to wavelengths conversion
 verbose=True                # When TRUE: Prints additional information during processing
 
 # Calibration output files
@@ -190,7 +190,7 @@ for i in range(0, 1):
         x = 900                 # height (number of lines)
         y = 1392                 # width across belt
         wave = 1044               # number of spectral channels
-        expected_shape = (wave, x, y)
+        expected_shape = (x, y, wave)
 
     #-------------------------------------------
     # Objective values for bin file: 2022-10-5_12-49-42_1296x1000x900_imageCube.bin
@@ -286,7 +286,7 @@ for i in range(0, 1):
 
         shape = datacube.shape
         
-        datacube = np.transpose(datacube, (0, 1, 2))  # (C, H, W) → (H, W, C)
+        # datacube = np.transpose(datacube, (0, 1, 2))  # (H, W, C) → (H, W, C)
         
         if verbose:        
             print(f"✅ Final shape after rotation: {datacube.shape} (H, W, C)")
@@ -325,7 +325,7 @@ for i in range(0, 1):
     # PLOT CALIBRATION BOARD OVER IMAGE (OPTIONAL)
     # ----------------------------------------
     if SanityBoard:
-        datacube = np.transpose(datacube, (1, 0, 2))  #transpose to [y, x, wave] for visuals
+        datacube = np.transpose(datacube, (1, 0, 2))  #transpose to (H, W, C) -> (W, H, C) for visuals
         
         if extension == '.npy':
             # Make figure larger and control aspect
