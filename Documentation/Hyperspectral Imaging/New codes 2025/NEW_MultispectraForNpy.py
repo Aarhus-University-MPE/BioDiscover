@@ -109,16 +109,16 @@ XU0 = [] #objects that are not clear to identify or unidentified by design
 YU0 = []
 
 '''Coordinates for dish 1'''
-XA1 = [] #Arthropod coordinates
-YA1 = []
+XA1 = [346, 359, 328, 338, 330, 345, 349] #Arthropod coordinates
+YA1 = [608, 658, 676, 681, 722, 737, 790]
 XB1 = [] #Belt coordinates
 YB1 = []
 XD1 = [] #Dirt coordinates
 YD1 = []
 XE1 = [] #Ethanol coordinates
 YE1 = []
-XP1 = [] #Plant coordinates
-YP1 = []
+XP1 = [492] #Plant coordinates
+YP1 = [782]
 XS1 = [] #Stone and rock coordinates
 YS1 = []
 XU1 = [] #objects that are not clear to identify or unidentified by design
@@ -256,12 +256,18 @@ YU9 = []
 ####################################################################################
 # Plotting the average spectrum of the pixels in the selection
 ####################################################################################
-def get_spectrum(x1,x2,y1,y2): 
-    spectrum = datacube[:,y1:y2,x1:x2]
-    spectrum = np.mean(spectrum,axis=1)
-    spectrum = np.mean(spectrum,axis=1)
+''' def get_spectrum(x1,x2,y1,y2): 
+    spectrum = datacube[y1:y2,x1:x2,:]
+    spectrum = np.mean(spectrum,axis=2)
+    spectrum = np.mean(spectrum,axis=2)
     return spectrum
-
+    '''
+    
+def get_spectrum(x1, x2, y1, y2):
+    # Slice: [height, width, channels]
+    spectrum = datacube[y1:y2, x1:x2, :]      # shape: (Δy, Δx, C)
+    spectrum = np.mean(spectrum, axis=(0, 1)) # average over spatial (y, x)
+    return spectrum  # shape: (C,)
 
 datacube = np.load(filepath)
 
@@ -306,7 +312,12 @@ plt.title(f'Dish {FileName} | Channel {chanal}') #Add name to plot
 ax.set_xlabel('Along conveyer belt')
 ax.set_ylabel('Across conveyer belt')
 
+for i in range(len(XA1)):
+    plt.gca().add_patch(plt.Rectangle((XA1[i], YA1[i]), (XA1[i]+3-XA1[i]), (YA1[i]+20-YA1[i]), linewidth=1.0,edgecolor='r',facecolor='none'))
+
 plt.show() #Shows the image
+
+datacube = np.transpose(datacube, (1, 0, 2))  #transpose to (W, H, C) -> (H, W, C) for visuals
 
 ##########################################
 #Wavelength calibration 
@@ -314,7 +325,8 @@ plt.show() #Shows the image
 A = 1.16065 #Calibration factor
 B = 315.03 #Calibration offset
 axis_l = np.arange(1044)*A+B      #creating band-wavelength table
-delta=5
+delta=3
+charlie = 20
 
 ####################################################################################
 # Dish selection (Case structure)
@@ -339,15 +351,15 @@ print(f"Selected Dish: {FileNumber}")
             A_data=get_spectrum(XEj[i],XEj[i]+delta,YEj[i],YEj[i]+delta) #extracting the spectrum
             A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
             A_plot = plt.plot(axis_l,A_data, color = 'b')
-        for i in range(len(XPj)):
+        for i in range(len(XPj)): # Plant coordinates
             A_data=get_spectrum(XPj[i],XPj[i]+delta,YPj[i],YPj[i]+delta) #extracting the spectrum
             A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
             A_plot = plt.plot(axis_l,A_data, color = 'c') 
-        for i in range(len(XSj)):
+        for i in range(len(XSj)): # Stone and rock coordinates
             A_data=get_spectrum(XSj[i],XSj[i]+delta,YSj[i],YSj[i]+delta) #extracting the spectrum
             A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
             A_plot = plt.plot(axis_l,A_data, color = 'y') 
-        for i in range(len(XUj)):
+        for i in range(len(XUj)): # objects that are not clear to identify or unidentified by design
             A_data=get_spectrum(XUj[i],XUj[i]+delta,YUj[i],YUj[i]+delta) #extracting the spectrum
             A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
             A_plot = plt.plot(axis_l,A_data, color = 'm') 
@@ -372,48 +384,55 @@ match FileNumber:
             A_data=get_spectrum(XE0[i],XE0[i]+delta,YE0[i],YE0[i]+delta) #extracting the spectrum
             A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
             A_plot = plt.plot(axis_l,A_data, color = 'b')
-        for i in range(len(XP0)):
+        for i in range(len(XP0)): # Plant coordinates
             A_data=get_spectrum(XP0[i],XP0[i]+delta,YP0[i],YP0[i]+delta) #extracting the spectrum
             A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
             A_plot = plt.plot(axis_l,A_data, color = 'c') 
-        for i in range(len(XS0)):
+        for i in range(len(XS0)): # Stone and rock coordinates
             A_data=get_spectrum(XS0[i],XS0[i]+delta,YS0[i],YS0[i]+delta) #extracting the spectrum
             A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
             A_plot = plt.plot(axis_l,A_data, color = 'y') 
-        for i in range(len(XU0)):
+        for i in range(len(XU0)): # objects that are not clear to identify or unidentified by design
             A_data=get_spectrum(XU0[i],XU0[i]+delta,YU0[i],YU0[i]+delta) #extracting the spectrum
             A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
             A_plot = plt.plot(axis_l,A_data, color = 'm') 
 
     case 1:
-        for i in range(len(XA1)): # Arthropod coordinates
-            A_data=get_spectrum(XA1[i],XA1[i]+delta,YA1[i],YA1[i]+delta) #extracting the spectrum
-            A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
-            A_plot = plt.plot(axis_l,A_data, color = 'r') 
-        for i in range(len(XB1)): # Belt coordinates
-            A_data=get_spectrum(XB1[i],XB1[i]+delta,YB1[i],YB1[i]+delta) #extracting the spectrum
-            A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
-            A_plot = plt.plot(axis_l,A_data, color = 'k') 
-        for i in range(len(XD1)): # Dirt coordinates
-            A_data=get_spectrum(XD1[i],XD1[i]+delta,YD1[i],YD1[i]+delta) #extracting the spectrum
-            A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
-            A_plot = plt.plot(axis_l,A_data, color = 'g') 
-        for i in range(len(XE1)): # Ethanol coordinates
-            A_data=get_spectrum(XE1[i],XE1[i]+delta,YE1[i],YE1[i]+delta) #extracting the spectrum
-            A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
-            A_plot = plt.plot(axis_l,A_data, color = 'b')
-        for i in range(len(XP1)):
-            A_data=get_spectrum(XP1[i],XP1[i]+delta,YP1[i],YP1[i]+delta) #extracting the spectrum
-            A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
-            A_plot = plt.plot(axis_l,A_data, color = 'c') 
-        for i in range(len(XS1)):
-            A_data=get_spectrum(XS1[i],XS1[i]+delta,YS1[i],YS1[i]+delta) #extracting the spectrum
-            A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
-            A_plot = plt.plot(axis_l,A_data, color = 'y') 
-        for i in range(len(XU1)):
-            A_data=get_spectrum(XU1[i],XU1[i]+delta,YU1[i],YU1[i]+delta) #extracting the spectrum
-            A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
-            A_plot = plt.plot(axis_l,A_data, color = 'm') 
+        if len(XA1) > 0: # Arthropod coordinates
+            for i in range(len(XA1)): # Arthropod coordinates
+                A_data=get_spectrum(XA1[i],XA1[i]+delta,YA1[i],YA1[i]+charlie) #extracting the spectrum
+                A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
+                A_plot = plt.plot(axis_l,A_data, color = 'r')
+        if len(XB1) > 0: # Belt coordinates
+            for i in range(len(XB1)): # Belt coordinates
+                A_data=get_spectrum(XB1[i],XB1[i]+delta,YB1[i],YB1[i]+charlie) #extracting the spectrum
+                A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
+                A_plot = plt.plot(axis_l,A_data, color = 'k')
+        if len(XD1) > 0: # Dirt coordinates
+            for i in range(len(XD1)): # Dirt coordinates
+                A_data=get_spectrum(XD1[i],XD1[i]+delta,YD1[i],YD1[i]+charlie) #extracting the spectrum
+                A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
+                A_plot = plt.plot(axis_l,A_data, color = 'g')
+        if len(XE1) > 0: # Ethanol coordinates
+            for i in range(len(XE1)): # Ethanol coordinates
+                A_data=get_spectrum(XE1[i],XE1[i]+delta,YE1[i],YE1[i]+charlie) #extracting the spectrum
+                A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
+                A_plot = plt.plot(axis_l,A_data, color = 'b')
+        if len(XP1) > 0: # Plant coordinates
+            for i in range(len(XP1)): # Plant coordinates
+                A_data=get_spectrum(XP1[i],XP1[i]+delta,YP1[i],YP1[i]+charlie) #extracting the spectrum
+                A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
+                A_plot = plt.plot(axis_l,A_data, color = 'c')
+        if len(XS1) > 0: # Stone and rock coordinates
+            for i in range(len(XS1)): # Stone and rock coordinates
+                A_data=get_spectrum(XS1[i],XS1[i]+delta,YS1[i],YS1[i]+charlie) #extracting the spectrum
+                A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
+                A_plot = plt.plot(axis_l,A_data, color = 'y')
+        if len(XU1) > 0: # objects that are not clear to identify or unidentified by design
+            for i in range(len(XU1)): # objects that are not clear to identify or unidentified by design
+                A_data=get_spectrum(XU1[i],XU1[i]+delta,YU1[i],YU1[i]+charlie) #extracting the spectrum
+                A_data = (A_data - min(A_data))/(max(A_data) - min(A_data)) #fits spectrum between 0 and 1
+                A_plot = plt.plot(axis_l,A_data, color = 'm')
 
     case 2:
         for i in range(len(XA2)): # Arthropod coordinates

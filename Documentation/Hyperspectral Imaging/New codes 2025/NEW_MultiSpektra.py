@@ -19,7 +19,7 @@ How to use this script:
 path='C:/Projects/BioDiscover/Documentation/Hyperspectral Imaging/External files/Billeder 2023/Billede pakker/Originals/' #Where the datacubes are placed ''= next to the script.
 
 # Sample selection
-Selected_Sample = 6   # choose 0–8 [0,2 are not used]
+Selected_Sample = 7   # choose 0–8 [0,2 are not used]
 chanal = 290        # channel to visualize
 
 # ---------------------------

@@ -24,7 +24,7 @@ from pathlib import Path
 
 # === User input: just paste the full file path here ===
 # full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2023\Billede pakker\Originals\2022-10-5_12-49-42_1296x1000x900_imageCube.bin"
-full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2024\image_2.npy"
+full_path_str = r"C:\Projects\BioDiscover\Documentation\Hyperspectral Imaging\External files\Billeder 2024\image_1.npy"
 
 # Convert to Path object (handles slashes & filenames safely)
 full_path = Path(full_path_str) 

@@ -58,4 +58,4 @@ for i in range(len(X)):
     plt.gca().add_patch(plt.Rectangle((X[i], Y[i]), (X[i]+10-X[i]), (Y[i]+10-Y[i]), linewidth=1.0,edgecolor='r',facecolor='none'))
 #'''
 
-# plt.show() 
+plt.show() 
