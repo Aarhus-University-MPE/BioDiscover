@@ -160,6 +160,35 @@
 		<Item Name="resources" Type="Folder">
 			<Item Name="Icon.ico" Type="Document" URL="../SRS/assets/Icon.ico"/>
 		</Item>
+		<Item Name="SRS_2.0" Type="Folder">
+			<Item Name="Type Definitions" Type="Folder">
+				<Item Name="Data_JKI.ctl" Type="VI" URL="../SRS/controls/Data_JKI.ctl"/>
+			</Item>
+			<Item Name="Controls" Type="Folder"/>
+			<Item Name="src" Type="Folder">
+				<Item Name="Camera" Type="Folder">
+					<Item Name="Image aqusition" Type="Folder">
+						<Item Name="Image_Acquisition_Stop_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Acquisition_Stop_2.0.vi"/>
+						<Item Name="Image_Snap_Single_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Snap_Single_2.0.vi"/>
+					</Item>
+					<Item Name="Camera_Capture_Init_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Capture_Init_2.0.vi"/>
+					<Item Name="Camera_Config_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Config_2.0.vi"/>
+					<Item Name="Camera_Config_Global_Attributes_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Config_Global_Attributes_2.0.vi"/>
+					<Item Name="Camera_Config_Specific_Attributes_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Config_Specific_Attributes_2.0.vi"/>
+					<Item Name="Capture_Save_Initialize_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Capture_Save_Initialize_2.0.vi"/>
+					<Item Name="Camera_Crop_Decluster_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Crop_Decluster_2.0.vi"/>
+					<Item Name="Camera_Crop_X_Axis_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Crop_X_Axis_2.0.vi"/>
+					<Item Name="Camera_Crop_Y_Axis_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Crop_Y_Axis_2.0.vi"/>
+				</Item>
+				<Item Name="Calibration" Type="Folder">
+					<Item Name="Calibration_Capture_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Capture_2.0.vi"/>
+					<Item Name="Calibration_Folder_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Folder_2.0.vi"/>
+					<Item Name="Calibration_Load_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Load_2.0.vi"/>
+					<Item Name="Calibration_Setup_file_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Setup_file_2.0.vi"/>
+					<Item Name="Calibration_Save_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Save_2.0.vi"/>
+				</Item>
+			</Item>
+		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../SRS/Main.vi"/>
 		<Item Name="IHS.vi" Type="VI" URL="../IHS/IHS.vi"/>
 		<Item Name="Dependencies" Type="Dependencies">
@@ -338,6 +367,14 @@
 				<Item Name="Sort 2D Array - Pop Stack.vi" Type="VI" URL="/&lt;vilib&gt;/Array/Sort 2D Array - Pop Stack.vi"/>
 				<Item Name="Sort 2D Array - Push Stack.vi" Type="VI" URL="/&lt;vilib&gt;/Array/Sort 2D Array - Push Stack.vi"/>
 				<Item Name="Assert Block Data Type.vim" Type="VI" URL="/&lt;vilib&gt;/Utility/TypeAssert/Assert Block Data Type.vim"/>
+				<Item Name="Periodic Trigger__ogtk__JKI-SM__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Periodic Trigger__ogtk__JKI-SM__jki_lib_state_machine.vi"/>
+				<Item Name="Select State(s)_err__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Select State(s)_err__jki_lib_state_machine.vi"/>
+				<Item Name="Select State(s)_bool__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Select State(s)_bool__jki_lib_state_machine.vi"/>
+				<Item Name="Select State(s)__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Select State(s)__jki_lib_state_machine.vi"/>
+				<Item Name="Parse State Queue_2024__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Parse State Queue_2024__jki_lib_state_machine.vi"/>
+				<Item Name="Append Error Details__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Append Error Details__jki_lib_state_machine.vi"/>
+				<Item Name="Conditional State String__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Conditional State String__jki_lib_state_machine.vi"/>
+				<Item Name="Periodic State String__jki_lib_state_machine.vi" Type="VI" URL="/&lt;vilib&gt;/addons/_JKI Toolkits/State Machine/_JKI_lib_State_Machine.llb/Periodic State String__jki_lib_state_machine.vi"/>
 			</Item>
 			<Item Name="niimaqdx.dll" Type="Document" URL="niimaqdx.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
@@ -381,6 +418,8 @@
 			<Item Name="ChannelProbeWindowStagger.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbeWindowStagger.vi"/>
 			<Item Name="Tag-bool.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool.lvlib"/>
 			<Item Name="Tag-t&apos;Data.ctl&apos;.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;.lvlib"/>
+			<Item Name="Data.ctl" Type="VI" URL="../SRS/2.0_JKI/controls/Data.ctl"/>
+			<Item Name="Save_File_Sample_Setup.vi" Type="VI" URL="../SRS/2.0_JKI/Save_File_Sample_Setup.vi"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="SRS" Type="EXE">
