@@ -187,6 +187,9 @@
 					<Item Name="Calibration_Setup_file_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Setup_file_2.0.vi"/>
 					<Item Name="Calibration_Save_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Save_2.0.vi"/>
 				</Item>
+				<Item Name="Pump and actuator" Type="Folder">
+					<Item Name="Validate_Valve_pos_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Validate_Valve_pos_2.0.vi"/>
+				</Item>
 			</Item>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../SRS/Main.vi"/>
