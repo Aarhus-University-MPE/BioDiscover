@@ -179,6 +179,8 @@
 					<Item Name="Camera_Crop_Decluster_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Crop_Decluster_2.0.vi"/>
 					<Item Name="Camera_Crop_X_Axis_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Crop_X_Axis_2.0.vi"/>
 					<Item Name="Camera_Crop_Y_Axis_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Crop_Y_Axis_2.0.vi"/>
+					<Item Name="CAM_ID_Request_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/CAM_ID_Request_2.0.vi"/>
+					<Item Name="Camera_ID_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_ID_2.0.vi"/>
 				</Item>
 				<Item Name="Calibration" Type="Folder">
 					<Item Name="Calibration_Capture_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Capture_2.0.vi"/>
@@ -189,8 +191,11 @@
 				</Item>
 				<Item Name="Pump and actuator" Type="Folder">
 					<Item Name="Validate_Valve_pos_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Validate_Valve_pos_2.0.vi"/>
+					<Item Name="ID_Connection_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/ID_Connection_2.0.vi"/>
+					<Item Name="Initialize_Serial_Device_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Initialize_Serial_Device_2.0.vi"/>
 				</Item>
 			</Item>
+			<Item Name="Phase 3" Type="Folder"/>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../SRS/Main.vi"/>
 		<Item Name="IHS.vi" Type="VI" URL="../IHS/IHS.vi"/>
