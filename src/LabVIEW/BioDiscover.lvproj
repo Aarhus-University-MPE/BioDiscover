@@ -170,6 +170,8 @@
 					<Item Name="Image aqusition" Type="Folder">
 						<Item Name="Image_Acquisition_Stop_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Acquisition_Stop_2.0.vi"/>
 						<Item Name="Image_Snap_Single_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Snap_Single_2.0.vi"/>
+						<Item Name="Image_Snap_Dual_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Snap_Dual_2.0.vi"/>
+						<Item Name="Image_Snap_Enqueue_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Snap_Enqueue_2.0.vi"/>
 					</Item>
 					<Item Name="Camera_Capture_Init_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Capture_Init_2.0.vi"/>
 					<Item Name="Camera_Config_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Config_2.0.vi"/>
@@ -181,6 +183,7 @@
 					<Item Name="Camera_Crop_Y_Axis_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Crop_Y_Axis_2.0.vi"/>
 					<Item Name="CAM_ID_Request_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/CAM_ID_Request_2.0.vi"/>
 					<Item Name="Camera_ID_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_ID_2.0.vi"/>
+					<Item Name="Camera_Crop_Setup_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Camera_Crop_Setup_2.0.vi"/>
 				</Item>
 				<Item Name="Calibration" Type="Folder">
 					<Item Name="Calibration_Capture_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Capture_2.0.vi"/>
@@ -188,14 +191,42 @@
 					<Item Name="Calibration_Load_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Load_2.0.vi"/>
 					<Item Name="Calibration_Setup_file_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Setup_file_2.0.vi"/>
 					<Item Name="Calibration_Save_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Save_2.0.vi"/>
+					<Item Name="Calibration_Update_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Calibration_Update_2.0.vi"/>
 				</Item>
 				<Item Name="Pump and actuator" Type="Folder">
 					<Item Name="Validate_Valve_pos_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Validate_Valve_pos_2.0.vi"/>
 					<Item Name="ID_Connection_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/ID_Connection_2.0.vi"/>
 					<Item Name="Initialize_Serial_Device_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Initialize_Serial_Device_2.0.vi"/>
 				</Item>
+				<Item Name="Images" Type="Folder">
+					<Item Name="Images" Type="Folder">
+						<Item Name="Image_Save_Handler_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Save_Handler_2.0.vi"/>
+						<Item Name="Image_Folder_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Folder_2.0.vi"/>
+						<Item Name="Image_Save_Dequeue_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Save_Dequeue_2.0.vi"/>
+					</Item>
+					<Item Name="Detect and Crop" Type="Folder">
+						<Item Name="Detect rotation and calculate pixel to mm ratio_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Detect rotation and calculate pixel to mm ratio_2.0.vi"/>
+						<Item Name="Image_Processing_Queue_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Processing_Queue_2.0.vi"/>
+						<Item Name="Image_Handler_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Handler_2.0.vi"/>
+						<Item Name="Image_Crop_Fixed_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Crop_Fixed_2.0.vi"/>
+						<Item Name="Image_Detect_Object_HQ_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Detect_Object_HQ_2.0.vi"/>
+						<Item Name="Image_Processing_Queue_Info_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Image_Processing_Queue_Info_2.0.vi"/>
+					</Item>
+				</Item>
+				<Item Name="Phase 3" Type="Folder">
+					<Item Name="Ini_GetBarcodeString_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Ini_GetBarcodeString_2.0.vi"/>
+					<Item Name="Container_selection_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Container_selection_2.0.vi"/>
+				</Item>
+				<Item Name="System" Type="Folder">
+					<Item Name="Settings_Load_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Settings_Load_2.0.vi"/>
+				</Item>
+				<Item Name="Data files" Type="Folder">
+					<Item Name="CSV_Image_Data_Append_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/CSV_Image_Data_Append_2.0.vi"/>
+					<Item Name="CSV_Setup_Data_Append_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/CSV_Setup_Data_Append_2.0.vi"/>
+					<Item Name="CSV_Setup_Data_Handler_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/CSV_Setup_Data_Handler_2.0.vi"/>
+					<Item Name="Save_Folder_Path_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Save_Folder_Path_2.0.vi"/>
+				</Item>
 			</Item>
-			<Item Name="Phase 3" Type="Folder"/>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../SRS/Main.vi"/>
 		<Item Name="IHS.vi" Type="VI" URL="../IHS/IHS.vi"/>
@@ -235,7 +266,6 @@
 				<Item Name="General Error Handler Core CORE.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler Core CORE.vi"/>
 				<Item Name="DialogType.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/DialogType.ctl"/>
 				<Item Name="General Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/General Error Handler.vi"/>
-				<Item Name="Simple Error Handler.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/Simple Error Handler.vi"/>
 				<Item Name="compatCalcOffset.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatCalcOffset.vi"/>
 				<Item Name="compatOpenFileOperation.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatOpenFileOperation.vi"/>
 				<Item Name="compatFileDialog.vi" Type="VI" URL="/&lt;vilib&gt;/_oldvers/_oldvers.llb/compatFileDialog.vi"/>
@@ -402,7 +432,6 @@
 			<Item Name="imaq.dll" Type="Document" URL="imaq.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="Settings_Save.vi" Type="VI" URL="../SRS/Settings_Save.vi"/>
 			<Item Name="Camera_Config_Manual.vi" Type="VI" URL="../SRS/Camera_Config_Manual.vi"/>
 			<Item Name="Robot_listen.vi" Type="VI" URL="../IHS/Robot_listen.vi"/>
 			<Item Name="robot_comSUBVI.vi" Type="VI" URL="../IHS/robot_comSUBVI.vi"/>
@@ -425,9 +454,9 @@
 			<Item Name="ChannelProbePositionAndTitle.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbePositionAndTitle.vi"/>
 			<Item Name="ChannelProbeWindowStagger.vi" Type="VI" URL="/&lt;resource&gt;/ChannelSupport/_ChannelSupport/ChannelProbeWindowStagger.vi"/>
 			<Item Name="Tag-bool.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-bool.lvlib"/>
-			<Item Name="Tag-t&apos;Data.ctl&apos;.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data.ctl&apos;.lvlib"/>
 			<Item Name="Data.ctl" Type="VI" URL="../SRS/2.0_JKI/controls/Data.ctl"/>
 			<Item Name="Save_File_Sample_Setup.vi" Type="VI" URL="../SRS/2.0_JKI/Save_File_Sample_Setup.vi"/>
+			<Item Name="Tag-t&apos;Data_JKI.ctl&apos;.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;Data_JKI.ctl&apos;.lvlib"/>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="SRS" Type="EXE">
