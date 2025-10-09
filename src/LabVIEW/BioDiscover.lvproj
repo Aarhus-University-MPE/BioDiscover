@@ -216,6 +216,7 @@
 				<Item Name="Phase 3" Type="Folder">
 					<Item Name="Ini_GetBarcodeString_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Ini_GetBarcodeString_2.0.vi"/>
 					<Item Name="Container_selection_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Container_selection_2.0.vi"/>
+					<Item Name="Get_Status_BarcodeString_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Get_Status_BarcodeString_2.0.vi"/>
 				</Item>
 				<Item Name="System" Type="Folder">
 					<Item Name="Settings_Load_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Settings_Load_2.0.vi"/>
