@@ -221,6 +221,7 @@ void loop() {
         Serial.print("Temperature: ");
         Serial.print(tempC);
         Serial.println("C.");
+        break;
       default:
         break;
     }
@@ -229,7 +230,7 @@ void loop() {
   //-----------------Fan control----------------//
   //--------------------------------------------//
   sensors.requestTemperatures();
-  float tempC = sensors.getTempCByIndex(0);
+  tempC = sensors.getTempCByIndex(0); // update the global variable
 
   int pwmValue = calculateFanPWM(tempC);
   OCR2A = pwmValue;
