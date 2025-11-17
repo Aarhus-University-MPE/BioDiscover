@@ -63,6 +63,8 @@
 				<Item Name="ID_Connection.vi" Type="VI" URL="../SRS/ID_Connection.vi"/>
 				<Item Name="Empty_Complete.vi" Type="VI" URL="../SRS/Empty_Complete.vi"/>
 				<Item Name="System_Serial_Request.vi" Type="VI" URL="../SRS/System_Serial_Request.vi"/>
+				<Item Name="Pump_statusrequest.vi" Type="VI" URL="../SRS/Pump_statusrequest.vi"/>
+				<Item Name="Pump_empty.vi" Type="VI" URL="../SRS/Pump_empty.vi"/>
 			</Item>
 			<Item Name="Images" Type="Folder">
 				<Item Name="Save" Type="Folder">
