@@ -199,7 +199,8 @@
 					<Item Name="Validate_Valve_pos_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Validate_Valve_pos_2.0.vi"/>
 					<Item Name="ID_Connection_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/ID_Connection_2.0.vi"/>
 					<Item Name="Initialize_Serial_Device_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Initialize_Serial_Device_2.0.vi"/>
-					<Item Name="Pump_Cycle_Command.vi" Type="VI" URL="../SRS/Pump_Cycle_Command.vi"/>
+					<Item Name="Pump_Dispense_Command.vi" Type="VI" URL="../SRS/Pump_Dispense_Command.vi"/>
+					<Item Name="Pump_Prime_Command.vi" Type="VI" URL="../SRS/Pump_Prime_Command.vi"/>
 				</Item>
 				<Item Name="Images" Type="Folder">
 					<Item Name="Images" Type="Folder">

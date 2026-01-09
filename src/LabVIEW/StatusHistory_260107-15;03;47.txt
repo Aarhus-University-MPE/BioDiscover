@@ -1,0 +1,13 @@
+Starting system260107-15;03;47
+15;03;47 Initialize data
+15;03;47 Initialize UI
+15;03;47 Initializing Serial Com.
+15;04;03 Valve Initiated
+15;04;03 Setting pump values
+15;04;19 Large pump started
+15;04;19 F3 Connection failed
+15;04;22 Serial connections initiated
+15;04;22 Initializing Cams
+15;04;23 Cameras Initiated sucessfully
+15;04;25 Welcome
+15;05;03 Saving history

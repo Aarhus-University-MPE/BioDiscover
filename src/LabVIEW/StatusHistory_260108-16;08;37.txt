@@ -1,0 +1,16 @@
+Starting system260108-16;08;37
+16;08;37 Initialize data
+16;08;37 Initialize UI
+16;08;37 Initializing Serial Com.
+16;08;53 Valve Initiated
+16;08;53 Setting pump values
+16;08;58 Large pump started
+16;09;20 Pump Prime Large
+16;09;20 CMD: /1S20O1A2000R
+16;09;33 Conditions for Pump Dispense were not met
+16;09;33 F3 Connection failed
+16;09;35 Serial connections initiated
+16;09;35 Initializing Cams
+16;09;36 Cameras Initiated sucessfully
+16;10;00 Welcome
+16;10;02 Saving history
