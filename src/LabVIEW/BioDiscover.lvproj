@@ -128,6 +128,7 @@
 				<Item Name="ArearToIndex.vi" Type="VI" URL="../SRS/ArearToIndex.vi"/>
 				<Item Name="Container selection.vi" Type="VI" URL="../SRS/Container selection.vi"/>
 				<Item Name="Ini_GetBarcodeString.vi" Type="VI" URL="../SRS/Ini_GetBarcodeString.vi"/>
+				<Item Name="F3_Response.vi" Type="VI" URL="../SRS/F3_Response.vi"/>
 			</Item>
 			<Item Name="Timestamp.vi" Type="VI" URL="../SRS/Timestamp.vi"/>
 			<Item Name="Timestamp_Converter.vi" Type="VI" URL="../SRS/Timestamp_Converter.vi"/>
