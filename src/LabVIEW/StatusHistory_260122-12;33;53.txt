@@ -1,0 +1,136 @@
+Starting system260122-12;33;53
+12;33;53 Initialize data
+12;33;53 Initialize UI
+12;33;53 Initializing Serial Com.
+12;34;25 Valve Initiated
+12;34;25 Setting pump values
+12;34;31 Large pump started
+12;34;52 Pump Response;Ready
+12;34;52 Pump Prime Large
+12;34;52 CMD: /1S20O1A2000R
+12;35;05 Pump Response;Ready
+12;35;05 Pump Dispense Large
+12;35;05 CMD: /1S20I2A0R
+12;35;05 F3 Initiated
+12;36;20 F3 Responce; Opstart
+12;36;22 Serial connections initiated
+12;36;22 Initializing Cams
+12;36;24 Cameras Initiated sucessfully
+12;36;25 Pump Response;Ready
+12;36;27 Pump Response;Ready
+12;36;27 Pump Prime Large
+12;36;27 CMD: /1S20O1A2000R
+12;36;27 Welcome
+12;37;40 Capture Active
+12;37;51 Individual Processed
+12;37;51 Stopping Image capture
+12;37;55 Requesting F3 Status
+12;37;57 F3 Responce; Ini
+12;37;57 Sending barcode
+12;38;08 Requesting F3 status
+12;38;12 F3 Responce; Flush
+12;38;12 Flushing
+12;38;14 Valve Open
+12;38;27 Valve Closed
+12;38;28 Filling Cuvett
+12;38;29 Pump Response;Ready
+12;38;29 Pump Dispense Large
+12;38;29 CMD: /1S20I2A0R
+12;38;29 Sending F3 Home
+12;38;40 F3 Responce; Hjem
+12;38;42 Pump Response;Ready
+12;38;42 Pump Prime Large
+12;38;42 CMD: /1S20O1A2000R
+12;38;42 Starting Image capture
+12;38;44 Capture Stopped
+12;38;44 Capture Active
+12;38;52 Individual Processed
+12;38;52 Stopping Image capture
+12;38;57 Requesting F3 Status
+12;38;59 F3 Responce; Hjem
+12;38;59 Sending barcode
+12;39;09 Requesting F3 status
+12;39;14 F3 Responce; Flush
+12;39;14 Flushing
+12;39;16 Valve Open
+12;39;28 Valve Closed
+12;39;30 Filling Cuvett
+12;39;31 Pump Response;Ready
+12;39;31 Pump Dispense Large
+12;39;31 CMD: /1S20I2A0R
+12;39;31 Sending F3 Home
+12;39;42 F3 Responce; Hjem
+12;39;44 Pump Response;Ready
+12;39;44 Pump Prime Large
+12;39;44 CMD: /1S20O1A2000R
+12;39;44 Starting Image capture
+12;39;46 Capture Stopped
+12;39;46 Capture Active
+12;40;01 Individual Processed
+12;40;01 Stopping Image capture
+12;40;05 Requesting F3 Status
+12;40;07 F3 Responce; Hjem
+12;40;07 Sending barcode
+12;40;17 Requesting F3 status
+12;40;22 F3 Responce; Flush
+12;40;22 Flushing
+12;40;24 Valve Open
+12;40;36 Valve Closed
+12;40;38 Filling Cuvett
+12;40;39 Pump Response;Ready
+12;40;39 Pump Dispense Large
+12;40;39 CMD: /1S20I2A0R
+12;40;39 Sending F3 Home
+12;40;50 F3 Responce; Hjem
+12;40;52 Pump Response;Ready
+12;40;52 Pump Prime Large
+12;40;52 CMD: /1S20O1A2000R
+12;40;52 Starting Image capture
+12;40;54 Capture Stopped
+12;40;54 Capture Active
+12;41;03 Individual Processed
+12;41;03 Stopping Image capture
+12;41;07 Requesting F3 Status
+12;41;09 F3 Responce; Hjem
+12;41;09 Sending barcode
+12;41;20 Requesting F3 status
+12;41;24 F3 Responce; Flush
+12;41;24 Flushing
+12;41;26 Valve Open
+12;41;39 Valve Closed
+12;42;00 Filling Cuvett
+12;42;00 Pump Response;Ready
+12;42;00 Pump Dispense Large
+12;42;00 CMD: /1S20I2A0R
+12;42;00 Sending F3 Home
+12;42;12 F3 Responce; Hjem
+12;42;13 Pump Response;Ready
+12;42;13 Pump Prime Large
+12;42;13 CMD: /1S20O1A2000R
+12;42;13 Starting Image capture
+12;42;16 Capture Stopped
+12;42;16 Capture Active
+12;42;35 Individual Processed
+12;42;35 Stopping Image capture
+12;42;39 Requesting F3 Status
+12;42;42 F3 Responce; Hjem
+12;42;42 Sending barcode
+12;42;52 Requesting F3 status
+12;42;56 F3 Responce; Flush
+12;42;56 Flushing
+12;42;59 Valve Open
+12;43;11 Valve Closed
+12;43;17 Filling Cuvett
+12;43;18 Pump Response;Ready
+12;43;18 Pump Dispense Large
+12;43;18 CMD: /1S20I2A0R
+12;43;18 Sending F3 Home
+12;43;29 F3 Responce; Hjem
+12;43;31 Pump Response;Ready
+12;43;31 Pump Prime Large
+12;43;31 CMD: /1S20O1A2000R
+12;43;31 Starting Image capture
+12;43;33 Capture Stopped
+12;43;33 Capture Active
+12;43;45 Capture Stopped
+12;47;25 Saving history
