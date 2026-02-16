@@ -30,6 +30,7 @@
 		<Item Name="Controls" Type="Folder">
 			<Item Name="Terminate_Pump.ctl" Type="VI" URL="../SRS/controls/Terminate_Pump.ctl"/>
 			<Item Name="Stop_Program.ctl" Type="VI" URL="../SRS/controls/Stop_Program.ctl"/>
+			<Item Name="JKI State selector copy.vi" Type="VI" URL="../SRS/controls/JKI State selector copy.vi"/>
 		</Item>
 		<Item Name="src" Type="Folder">
 			<Item Name="Camera" Type="Folder">
@@ -233,10 +234,16 @@
 					<Item Name="Save_Folder_Path_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Save_Folder_Path_2.0.vi"/>
 				</Item>
 			</Item>
+			<Item Name="IHS" Type="Folder">
+				<Item Name="Settings_IHS_load.vi" Type="VI" URL="../IHS/Settings_IHS_load.vi"/>
+				<Item Name="IHS_JKI.ctl" Type="VI" URL="../SRS/controls/IHS_JKI.ctl"/>
+				<Item Name="Settings_Vindow.vi" Type="VI" URL="../IHS/Settings_Vindow.vi"/>
+				<Item Name="Force_command_IHS.vi" Type="VI" URL="../IHS/Force_command_IHS.vi"/>
+			</Item>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../SRS/Main.vi"/>
 		<Item Name="IHS.vi" Type="VI" URL="../IHS/IHS.vi"/>
-		<Item Name="IHS_JKI.ctl" Type="VI" URL="../SRS/controls/IHS_JKI.ctl"/>
+		<Item Name="Tag-t&apos;IHS_JKI.ctl&apos;.lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-t&apos;IHS_JKI.ctl&apos;.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="IMAQdx.ctl" Type="VI" URL="/&lt;vilib&gt;/userDefined/High Color/IMAQdx.ctl"/>
@@ -441,7 +448,6 @@
 			<Item Name="Object data correction and extraction.vi" Type="VI" URL="../IHS/Object data correction and extraction.vi"/>
 			<Item Name="Task from tool.vi" Type="VI" URL="../IHS/Task from tool.vi"/>
 			<Item Name="Ignore nearby.vi" Type="VI" URL="../IHS/Ignore nearby.vi"/>
-			<Item Name="Sort_Insect-data-array_Length.vi" Type="VI" URL="../IHS/Sort_Insect-data-array_Length.vi"/>
 			<Item Name="DBL_2_STRING_ARRAY.vi" Type="VI" URL="../IHS/DBL_2_STRING_ARRAY.vi"/>
 			<Item Name="Data headlines.vi" Type="VI" URL="../IHS/Data headlines.vi"/>
 			<Item Name="Black_image_detection.vi" Type="VI" URL="../IHS/Black_image_detection.vi"/>
