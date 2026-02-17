@@ -239,6 +239,7 @@
 				<Item Name="IHS_JKI.ctl" Type="VI" URL="../SRS/controls/IHS_JKI.ctl"/>
 				<Item Name="Settings_Vindow.vi" Type="VI" URL="../IHS/Settings_Vindow.vi"/>
 				<Item Name="Force_command_IHS.vi" Type="VI" URL="../IHS/Force_command_IHS.vi"/>
+				<Item Name="DBL_2_STRING_ARRAY.vi" Type="VI" URL="../IHS/DBL_2_STRING_ARRAY.vi"/>
 			</Item>
 		</Item>
 		<Item Name="Main.vi" Type="VI" URL="../SRS/Main.vi"/>
@@ -448,7 +449,6 @@
 			<Item Name="Object data correction and extraction.vi" Type="VI" URL="../IHS/Object data correction and extraction.vi"/>
 			<Item Name="Task from tool.vi" Type="VI" URL="../IHS/Task from tool.vi"/>
 			<Item Name="Ignore nearby.vi" Type="VI" URL="../IHS/Ignore nearby.vi"/>
-			<Item Name="DBL_2_STRING_ARRAY.vi" Type="VI" URL="../IHS/DBL_2_STRING_ARRAY.vi"/>
 			<Item Name="Data headlines.vi" Type="VI" URL="../IHS/Data headlines.vi"/>
 			<Item Name="Black_image_detection.vi" Type="VI" URL="../IHS/Black_image_detection.vi"/>
 			<Item Name="Tag-c(bool,bool).lvlib" Type="Library" URL="/&lt;extravilib&gt;/ChannelInstances/Tag-c(bool,bool).lvlib"/>
@@ -476,7 +476,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{09FD23A0-93D2-46A2-B12D-FA02255F97C6}</Property>
-				<Property Name="Bld_version.build" Type="Int">70</Property>
+				<Property Name="Bld_version.build" Type="Int">71</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">9</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
@@ -543,7 +543,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{7530510C-5C16-4FC1-ABD3-B7A81FAB0F7B}</Property>
-				<Property Name="Bld_version.build" Type="Int">10</Property>
+				<Property Name="Bld_version.build" Type="Int">11</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">IHS.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/IHS/IHS.exe</Property>
@@ -665,7 +665,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.54</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.55</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">24118001</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
@@ -724,7 +724,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">update.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.62</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.63</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">24118001</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
