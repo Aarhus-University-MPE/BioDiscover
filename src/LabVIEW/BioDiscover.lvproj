@@ -130,6 +130,7 @@
 				<Item Name="Container selection.vi" Type="VI" URL="../SRS/Container selection.vi"/>
 				<Item Name="Ini_GetBarcodeString.vi" Type="VI" URL="../SRS/Ini_GetBarcodeString.vi"/>
 				<Item Name="F3_Response.vi" Type="VI" URL="../SRS/F3_Response.vi"/>
+				<Item Name="F3_ErrorAndResponceHandler.vi" Type="VI" URL="../SRS/F3_ErrorAndResponceHandler.vi"/>
 			</Item>
 			<Item Name="Timestamp.vi" Type="VI" URL="../SRS/Timestamp.vi"/>
 			<Item Name="Timestamp_Converter.vi" Type="VI" URL="../SRS/Timestamp_Converter.vi"/>
@@ -311,7 +312,7 @@
 				<Item Name="Image Type" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Image Type"/>
 				<Item Name="IMAQ Create" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Create"/>
 				<Item Name="IMAQ ReadFile 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ ReadFile 2"/>
-				<Item Name="Imaq Dispose" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/Imaq Dispose"/>
+				<Item Name="IMAQ Dispose" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Dispose"/>
 				<Item Name="IMAQ WindEraseROI" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Display.llb/IMAQ WindEraseROI"/>
 				<Item Name="ROI Descriptor" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/ROI Descriptor"/>
 				<Item Name="IMAQ Convert ROI to Rectangle" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Conversion.llb/IMAQ Convert ROI to Rectangle"/>
