@@ -1,0 +1,25 @@
+Starting system260831-12;39;27
+12;39;27 Initialize data
+12;39;27 Initialize UI
+12;39;27 Initializing Serial Com.
+12;39;59 Valve Initiated
+12;39;59 Setting pump values
+12;40;05 Large pump started
+12;40;27 Pump Response;Ready
+12;40;27 Pump Prime Large
+12;40;27 CMD: /1S20O1A2000R
+12;40;40 Pump Response;Ready
+12;40;40 Pump Dispense Large
+12;40;40 CMD: /1S20I2A0R
+12;40;40 F3 Initiated
+12;41;55 F3 Responce; Opstart
+12;41;57 Serial connections initiated
+12;41;57 Initializing Cams
+12;42;24 Cameras Initiated sucessfully
+12;42;25 Pump Response;Ready
+12;42;27 Pump Response;Ready
+12;42;27 Pump Prime Large
+12;42;27 CMD: /1S20O1A2000R
+12;42;27 Welcome
+12;44;17 Requesting F3 status
+12;44;40 Saving history

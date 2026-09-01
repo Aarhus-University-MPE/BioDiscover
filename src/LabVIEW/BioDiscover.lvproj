@@ -204,6 +204,7 @@
 					<Item Name="Initialize_Serial_Device_2.0.vi" Type="VI" URL="../SRS/2.0_JKI/Initialize_Serial_Device_2.0.vi"/>
 					<Item Name="Pump_Dispense_Command.vi" Type="VI" URL="../SRS/Pump_Dispense_Command.vi"/>
 					<Item Name="Pump_Prime_Command.vi" Type="VI" URL="../SRS/Pump_Prime_Command.vi"/>
+					<Item Name="Pump_Conditions_Check.vi" Type="VI" URL="../SRS/2.0_JKI/Pump_Conditions_Check.vi"/>
 				</Item>
 				<Item Name="Images" Type="Folder">
 					<Item Name="Images" Type="Folder">

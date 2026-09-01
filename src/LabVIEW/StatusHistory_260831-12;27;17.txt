@@ -1,0 +1,34 @@
+Starting system260831-12;27;17
+12;27;18 Initialize data
+12;27;18 Initialize UI
+12;27;18 Initializing Serial Com.
+12;27;49 Valve Initiated
+12;27;49 Setting pump values
+12;27;54 Small Pump Started
+12;27;56 Pump Response;Ready
+12;27;56 Pump Prime Small
+12;27;56 CMD: /1S20IA1000R
+12;27;59 Pump Response;Ready
+12;27;59 Pump Dispense Small
+12;27;59 CMD: /1S20OA0gIA1000OA0G2R
+12;27;59 F3 Initiated
+12;29;14 F3 Responce; Opstart
+12;29;16 Serial connections initiated
+12;29;16 Initializing Cams
+12;29;19 Cameras Initiated sucessfully
+12;29;19 Pump Response;Ready
+12;29;22 Pump Response;Ready
+12;29;22 Pump Prime Small
+12;29;22 CMD: /1S20IA1000R
+12;29;22 Welcome
+12;29;55 Cameras Initiated sucessfully
+12;29;56 Pump Response;Ready
+12;32;26 Requesting F3 status
+12;33;00 Saving history
+12;34;29 Capture Active
+12;35;07 Capture Stopped
+12;35;15 Valve Closed
+12;35;16 Pump Response;Ready
+12;35;16 Pump Dispense Small
+12;35;16 CMD: /1S20OA0gIA1000OA0G2R
+12;36;09 Saving history
