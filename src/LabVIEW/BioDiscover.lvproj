@@ -164,6 +164,7 @@
 		</Item>
 		<Item Name="resources" Type="Folder">
 			<Item Name="Icon.ico" Type="Document" URL="../SRS/assets/Icon.ico"/>
+			<Item Name="Grid calibration.png" Type="Document" URL="../IHS/assets/Grid calibration.png"/>
 		</Item>
 		<Item Name="SRS_2.0" Type="Folder">
 			<Item Name="Type Definitions" Type="Folder">
@@ -313,7 +314,7 @@
 				<Item Name="Image Type" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/Image Type"/>
 				<Item Name="IMAQ Create" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Create"/>
 				<Item Name="IMAQ ReadFile 2" Type="VI" URL="/&lt;vilib&gt;/vision/Files.llb/IMAQ ReadFile 2"/>
-				<Item Name="Imaq Dispose" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/Imaq Dispose"/>
+				<Item Name="IMAQ Dispose" Type="VI" URL="/&lt;vilib&gt;/vision/Basics.llb/IMAQ Dispose"/>
 				<Item Name="IMAQ WindEraseROI" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Display.llb/IMAQ WindEraseROI"/>
 				<Item Name="ROI Descriptor" Type="VI" URL="/&lt;vilib&gt;/vision/Image Controls.llb/ROI Descriptor"/>
 				<Item Name="IMAQ Convert ROI to Rectangle" Type="VI" URL="/&lt;vilib&gt;/vision/ROI Conversion.llb/IMAQ Convert ROI to Rectangle"/>
@@ -479,7 +480,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{09FD23A0-93D2-46A2-B12D-FA02255F97C6}</Property>
-				<Property Name="Bld_version.build" Type="Int">82</Property>
+				<Property Name="Bld_version.build" Type="Int">90</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Bld_version.minor" Type="Int">9</Property>
 				<Property Name="Bld_version.patch" Type="Int">1</Property>
@@ -553,7 +554,7 @@
 				<Property Name="Bld_localDestDirType" Type="Str">relativeToCommon</Property>
 				<Property Name="Bld_modifyLibraryFile" Type="Bool">true</Property>
 				<Property Name="Bld_previewCacheID" Type="Str">{7530510C-5C16-4FC1-ABD3-B7A81FAB0F7B}</Property>
-				<Property Name="Bld_version.build" Type="Int">21</Property>
+				<Property Name="Bld_version.build" Type="Int">29</Property>
 				<Property Name="Bld_version.major" Type="Int">1</Property>
 				<Property Name="Destination[0].destName" Type="Str">IHS.exe</Property>
 				<Property Name="Destination[0].path" Type="Path">../builds/NI_AB_PROJECTNAME/IHS/IHS.exe</Property>
@@ -562,7 +563,7 @@
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
 				<Property Name="Destination[1].path" Type="Path">../builds/NI_AB_PROJECTNAME/IHS/data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{B9D9999B-F99E-48FB-99C3-6E66C6F3A4F6}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{92B550F6-11A0-49E1-84C8-747148F56C7F}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/IHS.vi</Property>
@@ -592,7 +593,13 @@
 				<Property Name="Source[5].itemID" Type="Ref">/My Computer/Type Definitions</Property>
 				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[5].type" Type="Str">Container</Property>
-				<Property Name="SourceCount" Type="Int">6</Property>
+				<Property Name="Source[6].Container.applyInclusion" Type="Bool">true</Property>
+				<Property Name="Source[6].Container.depDestIndex" Type="Int">0</Property>
+				<Property Name="Source[6].destinationIndex" Type="Int">0</Property>
+				<Property Name="Source[6].itemID" Type="Ref">/My Computer/SRS_2.0/IHS</Property>
+				<Property Name="Source[6].sourceInclusion" Type="Str">Include</Property>
+				<Property Name="Source[6].type" Type="Str">Container</Property>
+				<Property Name="SourceCount" Type="Int">7</Property>
 				<Property Name="TgtF_companyName" Type="Str">Aarhus University</Property>
 				<Property Name="TgtF_fileDescription" Type="Str">IHS</Property>
 				<Property Name="TgtF_internalName" Type="Str">IHS</Property>
@@ -675,7 +682,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">install.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.66</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.72</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">24118001</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
@@ -695,6 +702,10 @@
 				<Property Name="Source[0].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[0].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[0].name" Type="Str">SRS.exe</Property>
+				<Property Name="Source[0].File[0].Shortcut[0].destIndex" Type="Int">1</Property>
+				<Property Name="Source[0].File[0].Shortcut[0].name" Type="Str">SRS</Property>
+				<Property Name="Source[0].File[0].Shortcut[0].subDir" Type="Str">SRS</Property>
+				<Property Name="Source[0].File[0].ShortcutCount" Type="Int">1</Property>
 				<Property Name="Source[0].File[0].tag" Type="Str">{A9B9C488-ADD7-40F6-AAC2-547427E5CB24}</Property>
 				<Property Name="Source[0].File[1].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[0].File[1].name" Type="Str">SRS.aliases</Property>
@@ -709,7 +720,7 @@
 				<Property Name="Source[1].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[1].File[0].dest" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="Source[1].File[0].name" Type="Str">IHS.exe</Property>
-				<Property Name="Source[1].File[0].Shortcut[0].destIndex" Type="Int">0</Property>
+				<Property Name="Source[1].File[0].Shortcut[0].destIndex" Type="Int">1</Property>
 				<Property Name="Source[1].File[0].Shortcut[0].name" Type="Str">IHS</Property>
 				<Property Name="Source[1].File[0].Shortcut[0].subDir" Type="Str">SRS</Property>
 				<Property Name="Source[1].File[0].ShortcutCount" Type="Int">1</Property>
@@ -734,7 +745,7 @@
 				<Property Name="INST_defaultDir" Type="Str">{81EECF78-BC3B-46C6-808D-DC0484F07179}</Property>
 				<Property Name="INST_installerName" Type="Str">update.exe</Property>
 				<Property Name="INST_productName" Type="Str">SRS</Property>
-				<Property Name="INST_productVersion" Type="Str">1.0.73</Property>
+				<Property Name="INST_productVersion" Type="Str">1.0.78</Property>
 				<Property Name="InstSpecBitness" Type="Str">64-bit</Property>
 				<Property Name="InstSpecVersion" Type="Str">24118001</Property>
 				<Property Name="MSI_arpCompany" Type="Str">IHA Aarhus School of Engineering</Property>
