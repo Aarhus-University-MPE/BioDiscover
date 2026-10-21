@@ -87,6 +87,7 @@
 					<Item Name="Image_Detect_Object_HQ.vi" Type="VI" URL="../SRS/Image_Detect_Object_HQ.vi"/>
 					<Item Name="Image_Crop.vi" Type="VI" URL="../SRS/Image_Crop.vi"/>
 					<Item Name="Detect rotation and calculate pixel to mm ratio.vi" Type="VI" URL="../SRS/Detect rotation and calculate pixel to mm ratio.vi"/>
+					<Item Name="Camera_syncronization_feedback_values.vi" Type="VI" URL="../SRS/Camera_syncronization_feedback_values.vi"/>
 				</Item>
 			</Item>
 			<Item Name="System" Type="Folder">
