@@ -66,6 +66,7 @@
 				<Item Name="System_Serial_Request.vi" Type="VI" URL="../SRS/System_Serial_Request.vi"/>
 				<Item Name="Pump_statusrequest.vi" Type="VI" URL="../SRS/Pump_statusrequest.vi"/>
 				<Item Name="Pump_empty.vi" Type="VI" URL="../SRS/Pump_empty.vi"/>
+				<Item Name="Pump_Conditions.vi" Type="VI" URL="../SRS/Pump_Conditions.vi"/>
 			</Item>
 			<Item Name="Images" Type="Folder">
 				<Item Name="Save" Type="Folder">
